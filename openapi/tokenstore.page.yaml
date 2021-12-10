@@ -1,5 +1,5 @@
 type: reference-docs
-definitionId: core
+definitionId: tokenstore
 settings:
   generateCodeSamples:
     languages:

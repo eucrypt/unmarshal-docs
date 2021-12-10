@@ -1,0 +1,226 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "core-api",
+    "version": "1.0",
+    "description": "To get auth_key please log in to https://console.unmarshal.io"
+  },
+  "servers": [
+    {
+      "url": "https://api.unmarshal.com",
+      "description": "Prod"
+    }
+  ],
+  "paths": {
+    "/v2/{pair}/top-traders": {
+      "get": {
+        "summary": "Top Traders",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "x-examples": {
+                    "example-1": [
+                      {
+                        "user_address": "0xf59742b240426fdc41d61954a49f55f2a377313d",
+                        "number_of_transactions": 205,
+                        "total_value_bought": 132343.48699951172,
+                        "total_value_sold": 281512.8594894409,
+                        "total_value_traded": 413856.34648895264,
+                        "trade_value_per_transaction": 2018.8114462875737,
+                        "net_value_bought": -149169.3724899292,
+                        "total_usd_value_bought": 101478.3389614856,
+                        "total_usd_value_sold": 215858.4303993135,
+                        "total_usd_value_traded": 317336.7693607991,
+                        "trade_usd_value_per_transaction": 1547.9842407843857,
+                        "net_usd_value_bought": -114380.09143782791
+                      },
+                      {
+                        "user_address": "0x62d5e272a28f1d697bba571c12d0009a61eeb768",
+                        "number_of_transactions": 41,
+                        "total_value_bought": 87583.07312011719,
+                        "total_value_sold": 0,
+                        "total_value_traded": 87583.07312011719,
+                        "trade_value_per_transaction": 2136.1725151248093,
+                        "net_value_bought": 87583.07312011719,
+                        "total_usd_value_bought": 67156.94880704346,
+                        "total_usd_value_traded": 67156.94880704346,
+                        "trade_usd_value_per_transaction": 1637.9743611474012,
+                        "net_usd_value_bought": 67156.94880704346
+                      }
+                    ]
+                  },
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user_address": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "number_of_transactions": {
+                        "type": "number"
+                      },
+                      "total_value_bought": {
+                        "type": "number"
+                      },
+                      "total_value_sold": {
+                        "type": "number"
+                      },
+                      "total_value_traded": {
+                        "type": "number"
+                      },
+                      "trade_value_per_transaction": {
+                        "type": "number"
+                      },
+                      "net_value_bought": {
+                        "type": "number"
+                      },
+                      "total_usd_value_bought": {
+                        "type": "number"
+                      },
+                      "total_usd_value_sold": {
+                        "type": "number"
+                      },
+                      "total_usd_value_traded": {
+                        "type": "number"
+                      },
+                      "trade_usd_value_per_transaction": {
+                        "type": "number"
+                      },
+                      "net_usd_value_bought": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "top-traders": {
+                    "value": [
+                      {
+                        "user_address": "0xf59742b240426fdc41d61954a49f55f2a377313d",
+                        "number_of_transactions": 205,
+                        "total_value_bought": 132343.48699951172,
+                        "total_value_sold": 281512.8594894409,
+                        "total_value_traded": 413856.34648895264,
+                        "trade_value_per_transaction": 2018.8114462875737,
+                        "net_value_bought": -149169.3724899292,
+                        "total_usd_value_bought": 101478.3389614856,
+                        "total_usd_value_sold": 215858.4303993135,
+                        "total_usd_value_traded": 317336.7693607991,
+                        "trade_usd_value_per_transaction": 1547.9842407843857,
+                        "net_usd_value_bought": -114380.09143782791
+                      },
+                      {
+                        "user_address": "0x62d5e272a28f1d697bba571c12d0009a61eeb768",
+                        "number_of_transactions": 41,
+                        "total_value_bought": 87583.07312011719,
+                        "total_value_sold": 0,
+                        "total_value_traded": 87583.07312011719,
+                        "trade_value_per_transaction": 2136.1725151248093,
+                        "net_value_bought": 87583.07312011719,
+                        "total_usd_value_bought": 67156.94880704346,
+                        "total_usd_value_traded": 67156.94880704346,
+                        "trade_usd_value_per_transaction": 1637.9743611474012,
+                        "net_usd_value_bought": 67156.94880704346
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "top-traders",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "example": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256"
+            },
+            "in": "query",
+            "name": "token",
+            "description": "Token address",
+            "required": true
+          }
+        ],
+        "description": "This endpoint will return top-traders for a given pair."
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "enum": [
+              "marsh-bnb"
+            ],
+            "default": "marsh-bnb"
+          },
+          "name": "pair",
+          "in": "path",
+          "required": true,
+          "description": "pair name"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "auth_key": {
+        "name": "auth_key",
+        "type": "apiKey",
+        "in": "query",
+        "description": "Auth token"
+      }
+    },
+    "parameters": {},
+    "responses": {
+      "Unauthorized": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "message"
+              ],
+              "x-examples": {
+                "example-1": {
+                  "message": "Unauthorized"
+                }
+              }
+            },
+            "examples": {
+              "example-1": {
+                "value": {
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "auth_key": []
+    }
+  ]
+}

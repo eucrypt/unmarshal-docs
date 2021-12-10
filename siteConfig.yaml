@@ -14,9 +14,13 @@ logo:
 toc:
   enable: true
 oasDefinitions:
-  petstore: ./openapi/petstore.yaml
-  core: ./openapi/core/core.json
-  notifications: ./openapi/core/notifications.json
+  core: ./openapi/apis/core.json
+  nfts: ./openapi/apis/nfts.json
+  lp-positions: ./openapi/apis/lp-positions.json
+  pricestore: ./openapi/apis/pricestore.json
+  tokenstore: ./openapi/apis/tokenstore.json
+  top-traders: ./openapi/apis/top-traders.json
+  notifications: ./openapi/apis/notifications.json
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap

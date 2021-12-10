@@ -3,7 +3,7 @@
   "info": {
     "title": "core-api",
     "version": "1.0",
-    "description": "###### To get auth_key please log in to https://console.unmarshal.io"
+    "description": "To get auth_key please log in to https://console.unmarshal.io"
   },
   "servers": [
     {
@@ -173,7 +173,7 @@
         "description": "The transaction detail API is one such End Point which gives as much details possible for a specific transaction on a specific given chain.\n\n \nAll we need is the transaction hash and the entire history of the transaction is presented to anyone looking for all minor details pertaining to the particular transaction"
       }
     },
-    "v2/ethereum/address/{address}/userData": {
+    "/v2/ethereum/address/{address}/userData": {
       "get": {
         "summary": "Profit and Loss",
         "tags": [],
@@ -1067,6 +1067,7 @@
         }
       },
       "Transactions": {
+        "description": "TBD",
         "content": {
           "application/json": {
             "schema": {
@@ -1973,6 +1974,7 @@
         }
       },
       "Transactions-V2": {
+        "description": "TBD",
         "content": {
           "application/json": {
             "schema": {
@@ -3316,6 +3318,7 @@
         }
       },
       "TransactionDetails": {
+        "description": "TBD",
         "content": {
           "application/json": {
             "schema": {
@@ -3325,6 +3328,7 @@
         }
       },
       "UserData": {
+        "description": "TBD",
         "content": {
           "application/json": {
             "schema": {
