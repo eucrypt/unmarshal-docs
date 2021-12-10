@@ -1,0 +1,1319 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Notifications APIs",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://notify.unmarshal.com/v1",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/webhook/subscribe": {
+      "post": {
+        "tags": [
+          "Transactionsl Notification"
+        ],
+        "summary": "SubscribeWebhookWithUSDTValueBasedFilter",
+        "operationId": "SubscribeWebhookWithUSDTValueBasedFilter",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeWebhookWithUSDTValueBasedFilterRequest"
+              },
+              "example": {
+                "url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+                "filter_meta_data": {
+                  "value": "1",
+                  "operator": "GreaterThanOrEqualTo"
+                },
+                "filter_type": "USDTValueBasedFilter",
+                "wallet_ids": [
+                  "0xad1840d72191a1172786214cba4da6d4a3bbfa1b",
+                  "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+                    "filter_meta_data": {
+                      "value": "1",
+                      "operator": "GreaterThanOrEqualTo"
+                    },
+                    "filter_type": "USDTValueBasedFilter",
+                    "wallet_ids": [
+                      "0xad1840d72191a1172786214cba4da6d4a3bbfa1b",
+                      "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "Success": [
+                        {
+                          "created_at": "2021-11-30T12:07:30.139473623Z",
+                          "updated_at": "2021-11-30T12:07:30.139473623Z",
+                          "address": "0xad1840d72191a1172786214cba4da6d4a3bbfa1a",
+                          "type": "TransactionalNotification",
+                          "channel": "Webhook",
+                          "webhook_url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+                          "client": "pujith_unmarshal",
+                          "filter_type": "USDTValueBasedFilter",
+                          "filter_meta_data": {
+                            "operator": "GreaterThanOrEqualTo",
+                            "value": "1"
+                          }
+                        }
+                      ],
+                      "Failed": [
+                        {
+                          "created_at": "2021-11-30T12:07:30.147136553Z",
+                          "updated_at": "2021-11-30T12:07:30.147136553Z",
+                          "address": "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec",
+                          "type": "TransactionalNotification",
+                          "channel": "Webhook",
+                          "webhook_url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+                          "client": "pujith_unmarshal",
+                          "filter_type": "USDTValueBasedFilter",
+                          "filter_meta_data": {
+                            "operator": "GreaterThanOrEqualTo",
+                            "value": "1"
+                          },
+                          "ErrorCode": "DUPLICATE_SUBSCRIPTION"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "Success": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "created_at": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "address": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "channel": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "webhook_url": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "client": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "filter_type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "filter_meta_data": {
+                            "type": "object",
+                            "properties": {
+                              "operator": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Failed": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "created_at": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "address": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "channel": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "webhook_url": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "client": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "filter_type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "filter_meta_data": {
+                            "type": "object",
+                            "properties": {
+                              "operator": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          },
+                          "ErrorCode": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Success": [
+                        {
+                          "created_at": "2021-11-30T12:07:30.139473623Z",
+                          "updated_at": "2021-11-30T12:07:30.139473623Z",
+                          "address": "0xad1840d72191a1172786214cba4da6d4a3bbfa1a",
+                          "type": "TransactionalNotification",
+                          "channel": "Webhook",
+                          "webhook_url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+                          "client": "xyz",
+                          "filter_type": "USDTValueBasedFilter",
+                          "filter_meta_data": {
+                            "operator": "GreaterThanOrEqualTo",
+                            "value": "1"
+                          }
+                        }
+                      ],
+                      "Failed": [
+                        {
+                          "created_at": "2021-11-30T12:07:30.147136553Z",
+                          "updated_at": "2021-11-30T12:07:30.147136553Z",
+                          "address": "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec",
+                          "type": "TransactionalNotification",
+                          "channel": "Webhook",
+                          "webhook_url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+                          "client": "xyz",
+                          "filter_type": "USDTValueBasedFilter",
+                          "filter_meta_data": {
+                            "operator": "GreaterThanOrEqualTo",
+                            "value": "1"
+                          },
+                          "ErrorCode": "DUPLICATE_SUBSCRIPTION"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {}
+          }
+        },
+        "deprecated": false,
+        "description": ""
+      }
+    },
+    "/firebase/subscribe": {
+      "post": {
+        "tags": [
+          "Transactional Notification"
+        ],
+        "summary": "SubscribeFirebaseNotification",
+        "operationId": "SubscribeFirebaseNotification",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "Success": [
+                      {
+                        "created_at": "2021-11-30T12:18:55.232364849Z",
+                        "updated_at": "2021-11-30T12:18:55.232364849Z",
+                        "address": "elon.eth",
+                        "type": "TransactionalNotification",
+                        "channel": "Firebase",
+                        "device_id": "DEVICE_ID",
+                        "fcm_token": "FCM_TOKEN",
+                        "client": "pujith_unmarshal",
+                        "filter_type": "",
+                        "filter_meta_data": null
+                      }
+                    ],
+                    "Failed": [
+                      {
+                        "created_at": "2021-11-30T12:18:55.229810825Z",
+                        "updated_at": "2021-11-30T12:18:55.229810825Z",
+                        "address": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de",
+                        "type": "TransactionalNotification",
+                        "channel": "Firebase",
+                        "device_id": "DEVICE_ID",
+                        "fcm_token": "FCM_TOKEN",
+                        "client": "pujith_unmarshal",
+                        "filter_type": "",
+                        "filter_meta_data": null,
+                        "ErrorCode": "DUPLICATE_SUBSCRIPTION"
+                      }
+                    ]
+                  }
+                },
+                "properties": {
+                  "Success": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "created_at": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "address": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "type": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "channel": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "device_id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "fcm_token": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "client": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "filter_type": {
+                          "type": "string"
+                        },
+                        "filter_meta_data": {}
+                      }
+                    }
+                  },
+                  "Failed": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "created_at": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "address": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "type": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "channel": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "device_id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "fcm_token": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "client": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "filter_type": {
+                          "type": "string"
+                        },
+                        "filter_meta_data": {},
+                        "ErrorCode": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "fcm_token": "FCM_TOKEN",
+                "device_id": "DEVICE_ID",
+                "wallet_ids": [
+                  "demo.eth"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "Success": [
+                      {
+                        "created_at": "2021-11-30T12:18:55.232364849Z",
+                        "updated_at": "2021-11-30T12:18:55.232364849Z",
+                        "address": "elon.eth",
+                        "type": "TransactionalNotification",
+                        "channel": "Firebase",
+                        "device_id": "DEVICE_ID",
+                        "fcm_token": "FCM_TOKEN",
+                        "client": "pujith_unmarshal",
+                        "filter_type": "",
+                        "filter_meta_data": null
+                      }
+                    ],
+                    "Failed": [
+                      {
+                        "created_at": "2021-11-30T12:18:55.229810825Z",
+                        "updated_at": "2021-11-30T12:18:55.229810825Z",
+                        "address": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de",
+                        "type": "TransactionalNotification",
+                        "channel": "Firebase",
+                        "device_id": "DEVICE_ID",
+                        "fcm_token": "FCM_TOKEN",
+                        "client": "pujith_unmarshal",
+                        "filter_type": "",
+                        "filter_meta_data": null,
+                        "ErrorCode": "DUPLICATE_SUBSCRIPTION"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/firebase/whale-alert/subscribe": {
+      "post": {
+        "tags": [
+          "Whale alert"
+        ],
+        "summary": "Whale alert subscribe firebase",
+        "operationId": "Whalealertsubscribefirebase",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhalealertsubscribefirebaseRequest"
+              },
+              "example": {
+                "fcm_token": "REPLACE_WITH_YOUR_FCM_TOKEN",
+                "device_id": "REPLACE_WITH_YOUR_DEVICE_ID",
+                "token_addresses": [
+                  "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                  "0x55d398326f99059ff775485246999027b3197955"
+                ],
+                "type": "USDValueBasedAlert",
+                "Threshold": 10000
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/webhook/whale-alert/subscribe": {
+      "post": {
+        "tags": [
+          "Whale alert"
+        ],
+        "summary": "Whale alert subscribe webhook",
+        "operationId": "Whalealertsubscribewebhook",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhalealertsubscribewebhookRequest"
+              },
+              "example": {
+                "webhook_url": "https://webhook.site/49c5c6d1-c454-4550-8563-03e053e71c2",
+                "token_addresses": [
+                  "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                  "0x55d398326f99059ff775485246999027b3197955"
+                ],
+                "type": "USDValueBasedAlert",
+                "Threshold": 10000
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/{address}/unsubscribe": {
+      "post": {
+        "tags": [
+          "Unsubscribe"
+        ],
+        "summary": "Unsubscribe",
+        "operationId": "Unsubscribe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "address",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/subscriptions/firebase/unsubscribe": {
+      "post": {
+        "tags": [
+          "Unsubscribe"
+        ],
+        "summary": "BulkUnsubscribeFirebase",
+        "operationId": "BulkUnsubscribeFirebase",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkUnsubscribeFirebaseRequest"
+              },
+              "example": {
+                "device_id": "c5Pi9VESR1SmqQMTKu4e-u:APA91bEp_UGNyA_mDe3ranGJAnmerNnzahe753czJm4aklpVoSTNFv9GV8PmrdVFJPk5eHb2POMWaga_nxaz_pa1-7ltX_BoAEWu-BRGpM2O0rlyJIdmFW68CwCZLlm2Kc4hOn-N6bVV",
+                "addresses": [
+                  "bluzelle172dp0c9n0nd7hlck5z9jzz8tqnkw7zuav4dp78",
+                  "bnxuljz4rdih7jolvscnqphq3zinyuzd5rjahxaefbj7fxgkrzy4nb267e",
+                  "0x7c8ff94c43e464eca8eb044266cfdf1a2b8c38b6",
+                  "one1z46w7d5cqchrj0aa608vdmwze08g7n2ugd692w",
+                  "erd1g5znpnjs9jtqultyj9enlv5nrsel0e83cv7r3hsyjnv93caxmz5q3zjcdd",
+                  "8rdvyscbrqervshh6dq2ywhfgx7qwasylan3cbipys71"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscriptions/webhook/unsubscribe": {
+      "post": {
+        "tags": [
+          "Unsubscribe"
+        ],
+        "summary": "BulkUnsubscribeWebhook",
+        "operationId": "BulkUnsubscribeWebhook",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkUnsubscribeWebhookRequest"
+              },
+              "example": {
+                "webhook_url": "https://webhook.site/b1f97ec4-5bae-45bc-bd98-1434e194166c",
+                "addresses": [
+                  "0xa80240eb5d7e05d3f250cf000eec0891d00b51cc"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/firebase/credentials": {
+      "post": {
+        "tags": [
+          "FirebaseSpecific"
+        ],
+        "summary": "Firebase Update server credentials",
+        "operationId": "FirebaseUpdateservercredentials",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FirebaseUpdateservercredentialsRequest"
+              },
+              "example": {
+                "type": "service_account",
+                "project_id": "xscan-stg",
+                "private_key_id": "REPLACE_WITH_PRIVIATE_KEY_ID",
+                "private_key": "REPLACE_WITH_PRIVIATE_KEY",
+                "client_email": "firebase-adminsdk-4sy3l@xscan-stg.iam.gserviceaccount.com",
+                "client_id": "112758514319167661112",
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4sy3l%40xscan-stg.iam.gserviceaccount.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/firebase/refresh-token": {
+      "post": {
+        "tags": [
+          "FirebaseSpecific"
+        ],
+        "summary": "Firebase Refresh Token",
+        "operationId": "FirebaseRefreshToken",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FirebaseRefreshTokenRequest"
+              },
+              "example": {
+                "fcm_token": "REPLACE_WITH_YOUR_FCM_TOKEN",
+                "device_id": "REPLACE_WITH_YOUR_DEVICE_ID"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscribed/token-addresses": {
+      "get": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "Subscribed Token address",
+        "operationId": "SubscribedTokenaddress",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "x-internal": true
+      }
+    },
+    "/tracker": {
+      "get": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "Trackers",
+        "operationId": "Trackers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "x-internal": true
+      }
+    },
+    "/subscriptions": {
+      "get": {
+        "tags": [
+          "List"
+        ],
+        "summary": "Get Subscriptions",
+        "operationId": "GetSubscriptions",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 10
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "address",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "device id for firebase notification",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "description": ""
+      }
+    },
+    "/receipts": {
+      "get": {
+        "tags": [
+          "List"
+        ],
+        "summary": "Receipts",
+        "operationId": "Receipts",
+        "parameters": [
+          {
+            "name": "transactionHash",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0x12f8893ae5637558e6af82fe50779b4c9a63c4e92fbee993fe6a6945b2ff6b8d"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "x-internal": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WhalealertsubscribewebhookRequest": {
+        "title": "WhalealertsubscribewebhookRequest",
+        "type": "object",
+        "example": {
+          "webhook_url": "https://webhook.site/49c5c6d1-c454-4550-8563-03e053e71c2",
+          "token_addresses": [
+            "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "type": "USDValueBasedAlert",
+          "Threshold": 10000
+        },
+        "properties": {
+          "webhook_url": {
+            "type": "string"
+          },
+          "token_addresses": {
+            "type": "array",
+            "description": "",
+            "items": {
+              "type": "string"
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "Threshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "webhook_url",
+          "token_addresses",
+          "type",
+          "Threshold"
+        ]
+      },
+      "WhalealertsubscribefirebaseRequest": {
+        "title": "WhalealertsubscribefirebaseRequest",
+        "required": [
+          "fcm_token",
+          "device_id",
+          "token_addresses",
+          "type",
+          "Threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "fcm_token": {
+            "type": "string"
+          },
+          "device_id": {
+            "type": "string"
+          },
+          "token_addresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "type": {
+            "type": "string"
+          },
+          "Threshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "fcm_token": "REPLACE_WITH_YOUR_FCM_TOKEN",
+          "device_id": "REPLACE_WITH_YOUR_DEVICE_ID",
+          "token_addresses": [
+            "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "type": "USDValueBasedAlert",
+          "Threshold": 10000
+        }
+      },
+      "SubscribeWebhookWithUSDTValueBasedFilterRequest": {
+        "title": "SubscribeWebhookWithUSDTValueBasedFilterRequest",
+        "required": [
+          "url",
+          "filter_meta_data",
+          "filter_type",
+          "wallet_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "filter_meta_data": {
+            "$ref": "#/components/schemas/FilterMetaData"
+          },
+          "filter_type": {
+            "type": "string"
+          },
+          "wallet_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+          "filter_meta_data": {
+            "value": "1",
+            "operator": "GreaterThanOrEqualTo"
+          },
+          "filter_type": "USDTValueBasedFilter",
+          "wallet_ids": [
+            "0xad1840d72191a1172786214cba4da6d4a3bbfa1b",
+            "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec"
+          ]
+        }
+      },
+      "FilterMetaData": {
+        "title": "FilterMetaData",
+        "required": [
+          "value",
+          "operator"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "1",
+          "operator": "GreaterThanOrEqualTo"
+        }
+      },
+      "SubscribeWebhookWithUSDTValueBasedFilterCopyRequest": {
+        "title": "SubscribeWebhookWithUSDTValueBasedFilterCopyRequest",
+        "required": [
+          "url",
+          "filter_meta_data",
+          "filter_type",
+          "wallet_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "filter_meta_data": {
+            "$ref": "#/components/schemas/FilterMetaData"
+          },
+          "filter_type": {
+            "type": "string"
+          },
+          "wallet_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
+          "filter_meta_data": {
+            "value": "1",
+            "operator": "GreaterThanOrEqualTo"
+          },
+          "filter_type": "USDTValueBasedFilter",
+          "wallet_ids": [
+            "0xad1840d72191a1172786214cba4da6d4a3bbfa1b",
+            "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec"
+          ]
+        }
+      },
+      "SubscribeFirebaseNotificationRequest": {
+        "title": "SubscribeFirebaseNotificationRequest",
+        "required": [
+          "fcm_token",
+          "device_id",
+          "wallet_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "fcm_token": {
+            "type": "string"
+          },
+          "device_id": {
+            "type": "string"
+          },
+          "wallet_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "fcm_token": "FCM_TOKEN",
+          "device_id": "DEVICE_ID",
+          "wallet_ids": [
+            "demo.eth"
+          ]
+        }
+      },
+      "CreateWebhookSubscription": {
+        "title": "CreateWebhookSubscription",
+        "required": [
+          "url",
+          "wallet_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "wallet_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "url": "https://webhook.site/324c44c7-1465-43b3-821d-3e5b9c6dfa89",
+          "wallet_ids": [
+            "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+          ]
+        },
+        "description": ""
+      },
+      "BulkUnsubscribeFirebaseRequest": {
+        "title": "BulkUnsubscribeFirebaseRequest",
+        "required": [
+          "device_id",
+          "addresses"
+        ],
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "device_id": "c5Pi9VESR1SmqQMTKu4e-u:APA91bEp_UGNyA_mDe3ranGJAnmerNnzahe753czJm4aklpVoSTNFv9GV8PmrdVFJPk5eHb2POMWaga_nxaz_pa1-7ltX_BoAEWu-BRGpM2O0rlyJIdmFW68CwCZLlm2Kc4hOn-N6bVV",
+          "addresses": [
+            "bluzelle172dp0c9n0nd7hlck5z9jzz8tqnkw7zuav4dp78",
+            "bnxuljz4rdih7jolvscnqphq3zinyuzd5rjahxaefbj7fxgkrzy4nb267e",
+            "0x7c8ff94c43e464eca8eb044266cfdf1a2b8c38b6",
+            "one1z46w7d5cqchrj0aa608vdmwze08g7n2ugd692w",
+            "erd1g5znpnjs9jtqultyj9enlv5nrsel0e83cv7r3hsyjnv93caxmz5q3zjcdd",
+            "8rdvyscbrqervshh6dq2ywhfgx7qwasylan3cbipys71"
+          ]
+        }
+      },
+      "BulkUnsubscribeWebhookRequest": {
+        "title": "BulkUnsubscribeWebhookRequest",
+        "required": [
+          "webhook_url",
+          "addresses"
+        ],
+        "type": "object",
+        "properties": {
+          "webhook_url": {
+            "type": "string"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "webhook_url": "https://webhook.site/b1f97ec4-5bae-45bc-bd98-1434e194166c",
+          "addresses": [
+            "0xa80240eb5d7e05d3f250cf000eec0891d00b51cc"
+          ]
+        }
+      },
+      "FirebaseUpdateservercredentialsRequest": {
+        "title": "FirebaseUpdateservercredentialsRequest",
+        "required": [
+          "type",
+          "project_id",
+          "private_key_id",
+          "private_key",
+          "client_email",
+          "client_id",
+          "auth_uri",
+          "token_uri",
+          "auth_provider_x509_cert_url",
+          "client_x509_cert_url"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "private_key_id": {
+            "type": "string"
+          },
+          "private_key": {
+            "type": "string"
+          },
+          "client_email": {
+            "type": "string"
+          },
+          "client_id": {
+            "type": "string"
+          },
+          "auth_uri": {
+            "type": "string"
+          },
+          "token_uri": {
+            "type": "string"
+          },
+          "auth_provider_x509_cert_url": {
+            "type": "string"
+          },
+          "client_x509_cert_url": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "service_account",
+          "project_id": "xscan-stg",
+          "private_key_id": "REPLACE_WITH_PRIVIATE_KEY_ID",
+          "private_key": "REPLACE_WITH_PRIVIATE_KEY",
+          "client_email": "firebase-adminsdk-4sy3l@xscan-stg.iam.gserviceaccount.com",
+          "client_id": "112758514319167661112",
+          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+          "token_uri": "https://oauth2.googleapis.com/token",
+          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4sy3l%40xscan-stg.iam.gserviceaccount.com"
+        }
+      },
+      "FirebaseRefreshTokenRequest": {
+        "title": "FirebaseRefreshTokenRequest",
+        "required": [
+          "fcm_token",
+          "device_id"
+        ],
+        "type": "object",
+        "properties": {
+          "fcm_token": {
+            "type": "string"
+          },
+          "device_id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "fcm_token": "REPLACE_WITH_YOUR_FCM_TOKEN",
+          "device_id": "REPLACE_WITH_YOUR_DEVICE_ID"
+        }
+      }
+    },
+    "securitySchemes": {
+      "api-key": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
+      }
+    },
+    "requestBodies": {
+      "Create-Webhook-Subscription": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateWebhookSubscription"
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "message"
+              ],
+              "x-examples": {
+                "example-1": {
+                  "message": "Unauthorized"
+                }
+              }
+            },
+            "examples": {
+              "example-1": {
+                "value": {
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "api-key": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Transactional Notification"
+    },
+    {
+      "name": "Whale alert"
+    },
+    {
+      "name": "Unsubscribe"
+    },
+    {
+      "name": "FirebaseSpecific"
+    },
+    {
+      "name": "List"
+    },
+    {
+      "name": "Internal"
+    }
+  ]
+}

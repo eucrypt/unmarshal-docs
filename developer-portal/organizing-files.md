@@ -32,7 +32,7 @@ Your files should be organized into folders. The folder naming is reflected in t
 ├── ./openapi
 │   └── ./openapi/petstore.yaml
 ├── ./package.json
-├── ./reference.page.yaml
+├── ./core.page.yaml
 ├── ./sidebars.yaml
 ├── ./siteConfig.yaml
 ├── ./theme.ts

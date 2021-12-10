@@ -1,8 +1,12 @@
 type: reference-docs
-definitionId: petstore
+definitionId: core
 settings:
+  pagination: item
   generateCodeSamples:
     languages:
       - lang: curl
+      - lang: Go
       - lang: JavaScript
+      - lang: Java
+      - lang: Python
       - lang: Node.js

@@ -1,0 +1,12 @@
+type: reference-docs
+definitionId: notifications
+settings:
+  pagination: section
+  generateCodeSamples:
+    languages:
+      - lang: curl
+      - lang: Go
+      - lang: JavaScript
+      - lang: Java
+      - lang: Python
+      - lang: Node.js

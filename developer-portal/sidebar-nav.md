@@ -68,7 +68,7 @@ Pay attention to the indentation spacing.
   - group: Petstore reference
     expanded: false
     pages:
-      - page: openapi/reference.page.yaml/*
+      - page: openapi/core.page.yaml/*
   - label: Upgrade
     page: developer-portal/upgrade.md
 ```
