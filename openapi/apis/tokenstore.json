@@ -3,7 +3,7 @@
   "info": {
     "title": "token-store",
     "version": "1.0",
-    "Description": ""
+    "Description": "Token store"
   },
   "servers": [
     {
