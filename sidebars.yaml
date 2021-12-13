@@ -11,16 +11,10 @@ training:
         page: developer-portal/awesome/folders.md
 
   - group: Core APIs
-    expanded: false
+    expanded: true
     pages:
       - page: openapi/core.page.yaml/*
         label: Core Apis
-
-  - group: Notifications
-    expanded: false
-    pages:
-      - page: openapi/notifications.page.yaml/*
-        label: Notifications
 
   - group: NFT's
     expanded: true
@@ -51,6 +45,13 @@ training:
     pages:
       - page: openapi/top-traders.page.yaml/*
         label: Top Traders
+
+  - group: Notifications
+    expanded: true
+    pages:
+      - page: openapi/notifications.page.yaml/*
+        label: Notifications
+
 
 alternative:
   - page: developer-portal/sidebar-alternative.md

@@ -15,10 +15,10 @@ export const theme = {
   colors: {
     // tonalOffset: 0.2,
     primary: {
-      main: '#227a88',
+      main: '#34D399',
       // light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
       // dark: ({ colors }) => darken(colors.tonalOffset, colors.primary.main),
-      // contrastText: ({ colors }) => readableColor(colors.primary.main),
+      contrastText: "#FFFFFF"
     },
     // success: {
     //   main: '#00aa13',
