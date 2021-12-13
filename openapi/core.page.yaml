@@ -1,6 +1,7 @@
 type: reference-docs
 definitionId: core
 settings:
+  pagination: section
   generateCodeSamples:
     languages:
       - lang: curl

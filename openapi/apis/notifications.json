@@ -15,7 +15,7 @@
     "/webhook/subscribe": {
       "post": {
         "tags": [
-          "Transactionsl Notification"
+          "Transactional Notification"
         ],
         "summary": "SubscribeWebhookWithUSDTValueBasedFilter",
         "operationId": "SubscribeWebhookWithUSDTValueBasedFilter",
@@ -1264,7 +1264,7 @@
       "name": "Transactional Notification"
     },
     {
-      "name": "Whale alert"
+      "name": "Whale alert",
     },
     {
       "name": "Unsubscribe"

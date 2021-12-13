@@ -23,7 +23,7 @@
       ],
       "get": {
         "summary": "Token Balances",
-        "tags": [],
+        "tags": ["Wallet APIs"],
         "responses": {
           "200": {
             "$ref": "#/components/responses/Assets"
@@ -48,7 +48,7 @@
       ],
       "get": {
         "summary": "Transaction History V1",
-        "tags": [],
+        "tags": ["Wallet APIs"],
         "responses": {
           "200": {
             "$ref": "#/components/responses/Transactions"
@@ -104,7 +104,7 @@
       ],
       "get": {
         "summary": "Transaction History V2",
-        "tags": [],
+        "tags": ["Wallet APIs"],
         "responses": {
           "200": {
             "$ref": "#/components/responses/Transactions-V2"
@@ -159,7 +159,7 @@
       ],
       "get": {
         "summary": "Transaction Details",
-        "tags": [],
+        "tags": ["Wallet APIs"],
         "responses": {
           "200": {
             "$ref": "#/components/responses/TransactionDetails"
@@ -176,7 +176,7 @@
     "/v2/ethereum/address/{address}/userData": {
       "get": {
         "summary": "Profit and Loss",
-        "tags": [],
+        "tags": ["Wallet APIs"],
         "responses": {
           "200": {
             "$ref": "#/components/responses/UserData"
@@ -3389,6 +3389,11 @@
   "security": [
     {
       "auth_key": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Wallet APIs"
     }
   ]
 }

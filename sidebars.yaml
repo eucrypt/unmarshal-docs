@@ -52,7 +52,6 @@ training:
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
-
 alternative:
   - page: developer-portal/sidebar-alternative.md
     label: Alternative sidebar example
