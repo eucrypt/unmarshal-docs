@@ -2,8 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "token-store",
-    "version": "1.0",
-    "Description": "Token store"
+    "version": "1.0"
   },
   "servers": [
     {
