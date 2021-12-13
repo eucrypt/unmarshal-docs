@@ -192,12 +192,6 @@
             "name": "contract",
             "description": "Valid contract address",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query"
           }
         ],
         "requestBody": {

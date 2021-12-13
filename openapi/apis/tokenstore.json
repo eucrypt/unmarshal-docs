@@ -2,7 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "token-store",
-    "version": "1.0"
+    "version": "1.0",
+    "Description": ""
   },
   "servers": [
     {
@@ -341,15 +342,6 @@
       }
     },
     "parameters": {
-      "address": {
-        "name": "address",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "type": "string"
-        },
-        "description": "Any valid token address"
-      },
       "symbol": {
         "name": "symbol",
         "in": "path",
