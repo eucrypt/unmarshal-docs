@@ -44,7 +44,7 @@
         }
       ]
     },
-    "v2/protocols/{protocol}/address/{address}/lp_transactions": {
+    "/v2/protocols/{protocol}/address/{address}/lp_transactions": {
       "get": {
         "summary": "LP Transactions history",
         "tags": [],
@@ -614,6 +614,7 @@
         }
       },
       "LPPairs": {
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
