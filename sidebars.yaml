@@ -1,14 +1,5 @@
 training:
   - page: index.mdx
-  - group: Training exercises
-    expanded: true
-    pages:
-      - label: Setup
-        page: developer-portal/setup.md
-      - label: Markdown
-        page: developer-portal/markdown.md
-      - label: Folder structure
-        page: developer-portal/awesome/folders.md
 
   - group: Core APIs
     expanded: true
@@ -19,9 +10,19 @@ training:
   - group: Notifications
     expanded: true
     pages:
+      - page: docs/notifications/index.md
+        label: Introducation
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
-alternative:
-  - page: developer-portal/sidebar-alternative.md
-    label: Alternative sidebar example
+  - group: Graphql
+    expanded: true
+    pages:
+      - page: docs/graphql/*
+        label: Graphql
+
+  - group: Telegram Bot
+    expanded: true
+    pages:
+      - page: docs/telegram-bot/*
+        label: Telegram Bot

@@ -48,10 +48,10 @@ export const theme = {
       primary: '#424242',
       // secondary: '#4e566d',
     },
-    // border: {
-    //   dark: 'rgba(0,0,0, 0.15)',
-    //   light: '#ffffff',
-    // },
+    border: {
+      dark: '#0E2A34',
+      light: '#ffffff',
+    },
     // responses: {
     //   success: {
     //     color: ({ colors }) => colors.success.main,
@@ -148,7 +148,7 @@ export const theme = {
       fontSize: '13px',
       fontFamily: '"Source Code Pro", sans-serif',
       // fontWeight: ({ typography }) => typography.fontWeightRegular,
-      color: '#e53935',
+      color: '#fff',
       backgroundColor: '#0E2A34',
       wrap: false,
     },

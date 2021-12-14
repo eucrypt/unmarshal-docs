@@ -13,6 +13,7 @@ logo:
   altText: Unmarshal Docs
 toc:
   enable: true
+disableLastModified: true
 oasDefinitions:
   core: ./openapi/apis/core.json
   nfts: ./openapi/apis/nfts.json
