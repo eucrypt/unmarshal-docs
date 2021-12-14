@@ -1281,16 +1281,7 @@
           "sent": {
             "type": "array",
             "items": {
-              "required": [
-                "name",
-                "symbol",
-                "token_id",
-                "decimals",
-                "value",
-                "logo_url",
-                "from",
-                "to"
-              ],
+              "required": [],
               "properties": {
                 "name": {
                   "type": "string"
@@ -1320,20 +1311,6 @@
             }
           }
         },
-        "required": [
-          "id",
-          "from",
-          "to",
-          "fee",
-          "date",
-          "status",
-          "type",
-          "block",
-          "value",
-          "nonce",
-          "description",
-          "sent"
-        ],
         "x-examples": {
           "example-1": {
             "id": "0xddce618f5f00a5b0c857b5395ab5094cf097cf4be297f7be1705b56f60d50d58",
@@ -3109,9 +3086,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "message"
-              ],
+              "required": [],
               "x-examples": {
                 "example-1": {
                   "message": "Unauthorized"
@@ -3130,7 +3105,7 @@
         }
       },
       "Transactions": {
-        "description": "TBD",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
@@ -3987,14 +3962,7 @@
                     "$ref": "#/components/schemas/Transaction"
                   }
                 }
-              },
-              "required": [
-                "page",
-                "total_pages",
-                "items_on_page",
-                "total_txs",
-                "transactions"
-              ]
+              }
             },
             "examples": {
               "demo.eth": {
@@ -4037,7 +4005,7 @@
         }
       },
       "Transactions-V2": {
-        "description": "TBD",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
@@ -4714,14 +4682,7 @@
                     "$ref": "#/components/schemas/Transaction-V2"
                   }
                 }
-              },
-              "required": [
-                "page",
-                "total_pages",
-                "items_on_page",
-                "total_txs",
-                "transactions"
-              ]
+              }
             },
             "examples": {
               "example-1": {
@@ -5381,7 +5342,7 @@
         }
       },
       "TransactionDetails": {
-        "description": "TBD",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
@@ -5391,7 +5352,7 @@
         }
       },
       "UserData": {
-        "description": "TBD",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
