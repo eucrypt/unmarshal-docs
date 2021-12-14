@@ -1,28 +1,27 @@
-training:
+docs:
   - page: index.mdx
-
+    separatorLine: true
   - group: Core APIs
     expanded: true
+    separatorLine: true
     pages:
       - page: openapi/core.page.yaml/*
         label: Core Apis
 
   - group: Notifications
+    icon: ./images/logo.png
     expanded: true
+    separatorLine: true
     pages:
       - page: docs/notifications/index.md
         label: Introducation
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
-  - group: Graphql
-    expanded: true
-    pages:
-      - page: docs/graphql/*
-        label: Graphql
+  - page: docs/graphql/*
+    label: Graphql
+    separatorLine: true
 
-  - group: Telegram Bot
-    expanded: true
-    pages:
-      - page: docs/telegram-bot/*
-        label: Telegram Bot
+  - page: docs/telegram-bot/*
+    label: Telegram Bot
+    separatorLine: true
