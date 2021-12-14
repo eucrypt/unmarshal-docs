@@ -39,19 +39,4 @@ nav:
   - search: true
 
 footer:
-  copyrightText: Copyright © Redocly 2019-2021. All right reserved.
   columns:
-    - group: Legal
-      items:
-        - label: Terms of Use
-          href: 'https://redoc.ly/subscription-agreement/'
-        - label: Privacy Notice
-          href: 'https://redoc.ly/privacy-notice/'
-        - label: Cookie Notice
-          href: 'https://redoc.ly/cookie-notice/'
-    - group: Support
-      items:
-        - label: FAQ
-          page: faq.md
-        - label: Contact us
-          page: contact.mdx

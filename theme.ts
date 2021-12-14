@@ -78,7 +78,7 @@ export const theme = {
       patch: '#e09d43',
       delete: '#e27a7a',
       basic: '#999',
-      link: '#31bbb6',
+      link: '#34D399',
       head: '#c167e4',
     },
     // navbar: {
@@ -101,7 +101,7 @@ export const theme = {
   // },
 
   typography: {
-    fontSize: '16px',
+    fontSize: '18px',
     lineHeight: '1.5em',
     fontWeightRegular: '400',
     fontWeightBold: '600',
@@ -149,17 +149,17 @@ export const theme = {
       fontFamily: '"Source Code Pro", sans-serif',
       // fontWeight: ({ typography }) => typography.fontWeightRegular,
       color: '#e53935',
-      backgroundColor: 'rgba(38, 50, 56, 0.04)',
+      backgroundColor: '#0E2A34',
       wrap: false,
     },
     links: {
-      color: ({ colors }) => colors.primary.main,
-      visited: ({ typography }) => typography.links.color,
-      hover: ({ typography }) => lighten(0.2, typography.links.color),
+      color: "#34D399",
+      visited: "#34D399",
+      hover: "#34D399",
     },
   },
   rightPanel: {
-    backgroundColor: '#263238',
+    backgroundColor: '#0E2A34',
     width: '40%',
     // textColor: '#ffffff',
   },
@@ -177,8 +177,8 @@ export const theme = {
     //   color: theme => theme.colors.text.secondary,
     // },
   },
-  // codeBlock: {
-  //   backgroundColor: ({ rightPanel }) => darken(0.1, rightPanel.backgroundColor),
-  //   tokens: {},
-  // },
+  codeBlock: {
+    backgroundColor: "#0E2A34",
+    tokens: {},
+  },
 };
