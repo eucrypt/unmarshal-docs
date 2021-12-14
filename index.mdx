@@ -1,100 +1,45 @@
 ---
-title: Unmarshal Docs
+title: Training program
 ---
 
-import {
-  LandingLayout,
-  Button,
-  Box,
-  FlexSection,
-  Flex,
-  Jumbotron,
-  ThinTile,
-  WideTile,
-  Emphasis,
-  H1,
-  H2,
-  SectionHeader,
-  NavBar,
-} from '@redocly/developer-portal/ui';
+# Training program
 
-import icon1 from './images/icon1.png';
-import launchFastIcon from './images/launch-fast.svg';
-import icon3 from './images/icon3.png';
-import bookManagementIcon from './images/book-management.svg';
-import foundOrPrivate from './images/found-or-private.svg';
+This interactive training program is designed to help you understand how to create and edit content using Redocly's developer portal.
+It's a great companion to our [developer portal docs](https://docs.redoc.ly/developer-portal/introduction/).
 
-export default LandingLayout;
+Spend between an hour and a day playing with the most commonly utilized features.
 
-<Jumbotron>
-  <NavBar location={props.location} standalone={false} />
-  <H1>Redocly training</H1>
-  <H2>A starter developer portal with training exercises</H2>
-  <Flex p={20} justifyContent="center">
-    {/* <Button size="xlarge" to="https://app.redoc.ly">
-      Redocly app
-    </Button> */}
-     <Button variant="outlined" size="xlarge" to="developer-portal/index.md">
-      Get started
-    </Button>
-    {/* <Button variant="outlined" size="xlarge" to="https://redoc.ly/docs">
-      Docs
-    </Button> */}
-  </Flex>
-</Jumbotron>
-<Box my={25}>
-  <SectionHeader>
-    Create your <Emphasis> developer portal </Emphasis> today!
-  </SectionHeader>
-  <FlexSection justifyContent="space-around" flexWrap="wrap">
-    <ThinTile to="developer-portal/index.md" icon={icon1} header="Rock">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo
-        invenire aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril
-        labitur an usu.Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea
-        justo invenire aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing.
-    </ThinTile>
-    <ThinTile to="developer-portal/index.md" icon={launchFastIcon} header="Paper">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-    <ThinTile to="contact.mdx" icon={icon3} header="Scissors">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-  </FlexSection>
-  {/* <Jumbotron parallaxEffect bgImage={icon1}>
-    <H1>Tutorials</H1>
-    <H2>Get setup faster...</H2>
-  </Jumbotron> */}
-  <SectionHeader>
-    <Emphasis>Need help? </Emphasis>
-    Try our training exercises.
-  </SectionHeader>
-  <FlexSection justifyContent="space-around" flexWrap="wrap">
-    <WideTile to="developer-portal/index.md" header="Rock">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-    <WideTile to="developer-portal/index.md" header="Paper">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-    <WideTile to="developer-portal/index.md" header="Scissors">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-    <WideTile to="developer-portal/index.md" header="Go">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </WideTile>
-  </FlexSection>
-</Box>
+## Prerequisites
+- Basic Git and markdown knowledge
+- Node and yarn installed
+- A text editor or IDE (we like VS Code)
+- [Setup the developer portal](setup.md)
 
+## Training exercises
+
+Follow the training exercises sequentially.
+Or cherry-pick them independently if you're limited on time.
+
+- [Plain markdown pages](markdown.md)
+- [Changing the url paths](awesome/folders.md)
+- [Markdown with a mermaid diagram](mermaid.md)
+- [The page table of contents](page-table-of-contents.md)
+- [Adding a page to the sidebar navigation](sidebar-nav.md)
+- [Disabling the search box](search.md)
+- [Changing nav and footer links](nav-footer.md)
+- [Change your logo](logo.md)
+- [Change metadata](metadata.md)
+- [Change your colors](colors.md)
+- [Change your typography](typography.md)
+- [Enable Google Analytics](analytics.md)
+- [Modify the homepage](home-page.md)
+- [Modify the OAS definitions](oas-definitions.md)
+- [Adding a response object to an MDX page](mdx.mdx)
+- [Upgrade to a different version of the developer portal](upgrade.md)
+
+Upon completion, you may have questions, or you may be ready to start building your content out.
+Learn how to [deploy the developer portal](https://docs.redoc.ly/ci-cd-workflows/) to our global CDN or contact us about purchasing an enterprise license key.
+
+## Asking for help
+
+Don't be shy... we're here to help.

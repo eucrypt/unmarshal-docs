@@ -1,5 +1,5 @@
 training:
-  - page: developer-portal/index.md
+  - page: index.mdx
   - group: Training exercises
     expanded: true
     pages:
@@ -15,36 +15,6 @@ training:
     pages:
       - page: openapi/core.page.yaml/*
         label: Core Apis
-
-  - group: NFT's
-    expanded: true
-    pages:
-      - page: openapi/nfts.page.yaml/*
-        label: NFT's
-
-  - group: Price Store
-    expanded: true
-    pages:
-      - page: openapi/pricestore.page.yaml/*
-        label: NFT's
-
-  - group: Token Store
-    expanded: true
-    pages:
-      - page: openapi/tokenstore.page.yaml/*
-        label: Token Store
-
-  - group: LP Positions
-    expanded: true
-    pages:
-      - page: openapi/lp-positions.page.yaml/*
-        label: LP Positions
-
-  - group: Top Traders
-    expanded: true
-    pages:
-      - page: openapi/top-traders.page.yaml/*
-        label: Top Traders
 
   - group: Notifications
     expanded: true

@@ -23,7 +23,9 @@
       ],
       "get": {
         "summary": "Token Balances",
-        "tags": ["Wallet APIs"],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/Assets"
@@ -48,7 +50,9 @@
       ],
       "get": {
         "summary": "Transaction History V1",
-        "tags": ["Wallet APIs"],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/Transactions"
@@ -104,7 +108,9 @@
       ],
       "get": {
         "summary": "Transaction History V2",
-        "tags": ["Wallet APIs"],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/Transactions-V2"
@@ -159,7 +165,9 @@
       ],
       "get": {
         "summary": "Transaction Details",
-        "tags": ["Wallet APIs"],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/TransactionDetails"
@@ -176,7 +184,9 @@
     "/v2/ethereum/address/{address}/userData": {
       "get": {
         "summary": "Profit and Loss",
-        "tags": ["Wallet APIs"],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/UserData"
@@ -209,6 +219,548 @@
       "parameters": [
         {
           "$ref": "#/components/parameters/address"
+        }
+      ]
+    },
+    "/v1/{chain}/address/{address}/nft-assets": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/address"
+        },
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ],
+      "get": {
+        "summary": "NFT assets by Address",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-assets"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-bsc-address-address-nft-assets",
+        "description": "NFTs the latest buzz in the crypto world and Unmarshal is there to support with the data needs around NFTs as well."
+      }
+    },
+    "/v1/{chain}/address/{address}/nft-transactions": {
+      "get": {
+        "summary": "NFT Transactions by Address",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-transactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-bsc-address-0x6877654e79119a7f9A8182BB2389E797CA421D24-nft-transactions",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        }
+      ]
+    },
+    "/v1/{chain}/address/{address}/details": {
+      "get": {
+        "summary": "NFT details by ID",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-details"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-bsc-address-0x85f0e02cb992aa1f9f47112f815f519ef1a59e2d-details",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/tokenid"
+          }
+        ],
+        "description": "This NFT gives  more details about a specific NFT based on NFT id.Basically the metadata of an NFT which is currently most sought after"
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        }
+      ]
+    },
+    "/v1/{chain}/address/{address}/nftholders": {
+      "get": {
+        "summary": "NFT holders by id",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-holders"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-ethereum-address-0xc051aab77edf25119b1a37740636ddbfb803c4e5-nftholders",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/tokenid"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/address"
+        },
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ]
+    },
+    "/v1/pricestore/{symbol}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/symbol"
+        }
+      ],
+      "get": {
+        "summary": "Get Price by Symbol",
+        "tags": [
+          "Price Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Symbol"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-pricestore-symbol",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/timestamp"
+          }
+        ],
+        "description": "###### To get auth_key please log in to https://console.unmarshal.io"
+      }
+    },
+    "/v1/pricestore/chain/{chain}/{address}": {
+      "get": {
+        "summary": "Get Price by Address",
+        "tags": [
+          "Price Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Address"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-pricestore",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/timestamp"
+          },
+          {
+            "$ref": "#/components/parameters/24hchange"
+          },
+          {
+            "$ref": "#/components/parameters/alternateChain"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid token address"
+        }
+      ]
+    },
+    "/v1/pricestore/chain/{chain}/tokens": {
+      "get": {
+        "summary": "Get Price for multiple Token Addresses",
+        "tags": [
+          "Price Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Tokens"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-pricestore-chain-ethereum-tokens",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/tokens"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ]
+    },
+    "/v1/pricestore/chain/{chain}/gainers": {
+      "get": {
+        "summary": "Top Gainers",
+        "tags": [
+          "Price Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Gainers"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-P3d7gYNkjD5vWutWoLfwg3WSnPCuT2Hj5e5JTtSw",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/price"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ]
+    },
+    "/v1/pricestore/chain/{chain}/losers": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ],
+      "get": {
+        "summary": "Top Losers",
+        "tags": [
+          "Price Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Losers"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-pricestore-chain-chain-losers",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/price"
+          }
+        ]
+      }
+    },
+    "/v1/pricestore/chain/{chain}/lptokens": {
+      "get": {
+        "summary": "Price for LP Tokens",
+        "tags": [
+          "Price Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/LpTokens"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-pricestore-chain-:chain-lptokens",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/lptokens"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ]
+    },
+    "/v1/tokenstore/token/address/{address}": {
+      "get": {
+        "summary": "Details for Token Contract",
+        "tags": [
+          "Token Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/TokenDetails"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-tokenstore-token-address-:address"
+      },
+      "parameters": [
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid token address"
+        }
+      ]
+    },
+    "/v1/tokenstore/token/symbol/{symbol}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/symbol"
+        }
+      ],
+      "get": {
+        "summary": "Details for Token Symbol",
+        "tags": [
+          "Token Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/SymbolDetails"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-tokenstore-token-symbol-symbol",
+        "description": ""
+      }
+    },
+    "/v1/tokenstore/token/all": {
+      "get": {
+        "summary": "List of all Token",
+        "tags": [
+          "Token Store"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/All-tokens"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-v1-tokenstore-token-all",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          }
+        ]
+      }
+    },
+    "/v2/{pair}/top-traders": {
+      "get": {
+        "summary": "Top Traders",
+        "tags": [
+          "Top Traders"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "x-examples": {
+                    "example-1": [
+                      {
+                        "user_address": "0xf59742b240426fdc41d61954a49f55f2a377313d",
+                        "number_of_transactions": 205,
+                        "total_value_bought": 132343.48699951172,
+                        "total_value_sold": 281512.8594894409,
+                        "total_value_traded": 413856.34648895264,
+                        "trade_value_per_transaction": 2018.8114462875737,
+                        "net_value_bought": -149169.3724899292,
+                        "total_usd_value_bought": 101478.3389614856,
+                        "total_usd_value_sold": 215858.4303993135,
+                        "total_usd_value_traded": 317336.7693607991,
+                        "trade_usd_value_per_transaction": 1547.9842407843857,
+                        "net_usd_value_bought": -114380.09143782791
+                      },
+                      {
+                        "user_address": "0x62d5e272a28f1d697bba571c12d0009a61eeb768",
+                        "number_of_transactions": 41,
+                        "total_value_bought": 87583.07312011719,
+                        "total_value_sold": 0,
+                        "total_value_traded": 87583.07312011719,
+                        "trade_value_per_transaction": 2136.1725151248093,
+                        "net_value_bought": 87583.07312011719,
+                        "total_usd_value_bought": 67156.94880704346,
+                        "total_usd_value_traded": 67156.94880704346,
+                        "trade_usd_value_per_transaction": 1637.9743611474012,
+                        "net_usd_value_bought": 67156.94880704346
+                      }
+                    ]
+                  },
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user_address": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "number_of_transactions": {
+                        "type": "number"
+                      },
+                      "total_value_bought": {
+                        "type": "number"
+                      },
+                      "total_value_sold": {
+                        "type": "number"
+                      },
+                      "total_value_traded": {
+                        "type": "number"
+                      },
+                      "trade_value_per_transaction": {
+                        "type": "number"
+                      },
+                      "net_value_bought": {
+                        "type": "number"
+                      },
+                      "total_usd_value_bought": {
+                        "type": "number"
+                      },
+                      "total_usd_value_sold": {
+                        "type": "number"
+                      },
+                      "total_usd_value_traded": {
+                        "type": "number"
+                      },
+                      "trade_usd_value_per_transaction": {
+                        "type": "number"
+                      },
+                      "net_usd_value_bought": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "top-traders": {
+                    "value": [
+                      {
+                        "user_address": "0xf59742b240426fdc41d61954a49f55f2a377313d",
+                        "number_of_transactions": 205,
+                        "total_value_bought": 132343.48699951172,
+                        "total_value_sold": 281512.8594894409,
+                        "total_value_traded": 413856.34648895264,
+                        "trade_value_per_transaction": 2018.8114462875737,
+                        "net_value_bought": -149169.3724899292,
+                        "total_usd_value_bought": 101478.3389614856,
+                        "total_usd_value_sold": 215858.4303993135,
+                        "total_usd_value_traded": 317336.7693607991,
+                        "trade_usd_value_per_transaction": 1547.9842407843857,
+                        "net_usd_value_bought": -114380.09143782791
+                      },
+                      {
+                        "user_address": "0x62d5e272a28f1d697bba571c12d0009a61eeb768",
+                        "number_of_transactions": 41,
+                        "total_value_bought": 87583.07312011719,
+                        "total_value_sold": 0,
+                        "total_value_traded": 87583.07312011719,
+                        "trade_value_per_transaction": 2136.1725151248093,
+                        "net_value_bought": 87583.07312011719,
+                        "total_usd_value_bought": 67156.94880704346,
+                        "total_usd_value_traded": 67156.94880704346,
+                        "trade_usd_value_per_transaction": 1637.9743611474012,
+                        "net_usd_value_bought": 67156.94880704346
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "top-traders",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "example": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256"
+            },
+            "in": "query",
+            "name": "token",
+            "description": "Token address",
+            "required": true
+          }
+        ],
+        "description": "This endpoint will return top-traders for a given pair."
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "enum": [
+              "marsh-bnb"
+            ],
+            "default": "marsh-bnb"
+          },
+          "name": "pair",
+          "in": "path",
+          "required": true,
+          "description": "pair name"
         }
       ]
     }
@@ -839,6 +1391,1497 @@
             ]
           }
         }
+      },
+      "Nft-assets": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "asset_contract": "0xc54b96b04aa8828b63cf250408e1084e9f6ac6c8",
+              "token_id": "14701",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://bsc-api.seascape.network/nft/metadata/14701",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": [
+                  {
+                    "trait_type": "QUALITY",
+                    "value": "Common"
+                  },
+                  {
+                    "trait_type": "Generation",
+                    "value": 0
+                  },
+                  {
+                    "trait_type": "Power",
+                    "value": 600,
+                    "display_type": "boost_number"
+                  }
+                ],
+                "background_color": "",
+                "boosterId": 0,
+                "description": "I reckon we ought to make ourselves acquainted. I'm Edmund Mildenhall III, but my friend's call me Thump - Common. Now you just gonna just stand there, or come over here and wrestle me like a man!",
+                "external_url": "https://api.seascape.network/nft/metadata/14701",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "Thump - Common",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\"attributes\":[{\"trait_type\":\"QUALITY\",\"value\":\"Common\"},{\"trait_type\":\"Generation\",\"value\":0},{\"display_type\":\"boost_number\",\"trait_type\":\"Power\",\"value\":600}],\"description\":\"I reckon we ought to make ourselves acquainted. I'm Edmund Mildenhall III, but my friend's call me Thump - Common. Now you just gonna just stand there, or come over here and wrestle me like a man!\",\"external_url\":\"https://api.seascape.network/nft/metadata/14701\",\"image\":\"https://cdn.seascape.network/nfts/1.gif\",\"name\":\"Thump - Common\"}",
+                "image_url": "https://cdn.seascape.network/nfts/1.gif",
+                "name": "Thump - Common"
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0xc54b96b04aa8828b63cf250408e1084e9f6ac6c8",
+              "token_id": "14961",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://bsc-api.seascape.network/nft/metadata/14961",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": [
+                  {
+                    "trait_type": "QUALITY",
+                    "value": "Common"
+                  },
+                  {
+                    "trait_type": "Generation",
+                    "value": 0
+                  },
+                  {
+                    "trait_type": "Power",
+                    "value": 600,
+                    "display_type": "boost_number"
+                  }
+                ],
+                "background_color": "",
+                "boosterId": 0,
+                "description": "Hullo! I am Armstrong and I am very strong. My hobbies include lifting, petting small animals, and earning Crowns. Shall we be friends?",
+                "external_url": "https://api.seascape.network/nft/metadata/14961",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "Armstrong - Common",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\"attributes\":[{\"trait_type\":\"QUALITY\",\"value\":\"Common\"},{\"trait_type\":\"Generation\",\"value\":0},{\"display_type\":\"boost_number\",\"trait_type\":\"Power\",\"value\":600}],\"description\":\"Hullo! I am Armstrong and I am very strong. My hobbies include lifting, petting small animals, and earning Crowns. Shall we be friends?\",\"external_url\":\"https://api.seascape.network/nft/metadata/14961\",\"image\":\"https://cdn.seascape.network/nfts/4.gif\",\"name\":\"Armstrong - Common\"}",
+                "image_url": "https://cdn.seascape.network/nfts/4.gif",
+                "name": "Armstrong - Common"
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0xdf7952b35f24acf7fc0487d01c8d5690a60dba07",
+              "token_id": "15125",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://unmarshal.mypinata.cloud/ipfs/QmRi6ddN4Z4zkGPZ1gF74iJaGV7vZr7G8V2KHEtLRcPmYg/bullish.json",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\n\t\"name\": \"Bullish\",\n\t\"description\": \"Happy Niu Year! This bunny’s excited for the year of the bull (market!)\",\n\t\"mp4_url\": \"ipfs://QmNS1A5HsRW1JvFWtGkm4o9TgZVe2P7kA8TB4yxvS6A7ms/bullish.mp4\",\n\t\"gif_url\": \"ipfs://QmNS1A5HsRW1JvFWtGkm4o9TgZVe2P7kA8TB4yxvS6A7ms/bullish.gif\",\n\t\"webm_url\": \"ipfs://QmNS1A5HsRW1JvFWtGkm4o9TgZVe2P7kA8TB4yxvS6A7ms/bullish.webm\",\n\t\"image\": \"ipfs://QmNS1A5HsRW1JvFWtGkm4o9TgZVe2P7kA8TB4yxvS6A7ms/bullish.png\",\n\t\"attributes\": {\n\t\t\"bunnyId\": \"11\"\n\t}\n}\n",
+                "image_url": "https://unmarshal.mypinata.cloud/ipfs/QmNS1A5HsRW1JvFWtGkm4o9TgZVe2P7kA8TB4yxvS6A7ms/bullish.png",
+                "name": "Bullish"
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0x060dd632f7dd45cb97a86376863d623d6756e848",
+              "token_id": "31347",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "",
+                "image_url": "",
+                "name": ""
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0x5e74094cd416f55179dbd0e45b1a8ed030e396a1",
+              "token_id": "671538",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "",
+                "image_url": "",
+                "name": ""
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0x36633b70eac3d1c98a20a6ecef6033d1077372f5",
+              "token_id": "1015322",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://api.dego.finance/bsccommon/gego-token-v2/1015322",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\"status\":10000,\"result\":{\"data\":{\"name\":\"Surf Ninja\",\"description\":\"Ocean air, salty hair, not a care. \",\"i18n_name\":\"nft_1060\",\"i18n_description\":\"nft_2060\",\"small_image\":\"https://dego.finance/upload/small/Seascape_1.jpg\",\"big_image\":\"https://dego.finance/upload/big/Seascape_1.jpg\",\"auction_image\":\"\",\"video\":\"\",\"id\":\"1015322\",\"external_url\":\"https://api.dego.finance/bsccommon/gego-token-v2/1015322\",\"attributes\":{\"grade\":\"1\",\"quality\":\"1630\",\"amount\":\"500000000000000000\",\"resBaseId\":\"10050\",\"tLevel\":\"2\",\"ruleId\":\"1050\",\"nftType\":\"3\",\"author\":\"0xC0AA0e6bC68D1f9Ef23D76B7d1985e3AE6247643\",\"erc20\":\"0xbcf39F0EDDa668C58371E519AF37CA705f2bFcbd\",\"createdTime\":\"1617110841\",\"blockNum\":\"6132683\",\"resId\":\"100001005021\",\"erc20_value\":\"0.5 pCWS\"}}}}",
+                "image_url": "https://dego.finance/upload/small/Seascape_1.jpg",
+                "name": "Surf Ninja"
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0xc014b45d680b5a4bf51ccda778a68d5251c14b5e",
+              "token_id": "1360",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://ipfs.infura.io/ipfs/QmXHC65Hh2Szgt9qMAQHK5Xb9LMny8X8L3gNNC5KXG4Bbi",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "Poulpe",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\n    \"name\": \"Poulpe\",\n    \"image\": \"https://d3ggs2vjn5heyw.cloudfront.net/images/Poulpe.png\"\n}",
+                "image_url": "https://d3ggs2vjn5heyw.cloudfront.net/images/Poulpe.png",
+                "name": "Poulpe"
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0xf5db804101d8600c26598a1ba465166c33cdaa4b",
+              "token_id": "61691",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://air-nfts-prime.web.app/api/nfts/Monnas_116_1621660463747",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\"nft\":{\"description\":\"Monnas Name : Rasty\\n\\nOther Planets\",\"fileSize\":0.46579933166503906,\"image\":\"https://airnfts.s3.amazonaws.com/nft-images/20210522/Monnas_116_1621660463748.jpg\",\"category\":[],\"createdAt\":\"Sat, 22 May 2021 05:14:32 GMT\",\"price\":\"0.1\",\"priority\":1,\"urlThumbnail\":\"https://d1don5jg7yw08.cloudfront.net/828x650/nft-images/20210522/Monnas_116_1621660463748.jpg\",\"storageFeeTransaction\":\"0xb4a27303191769e1716eb0b4fd824f4dfd1fa15eef9dda89752c630718201d9b\",\"attributes\":[{\"value\":0.1,\"trait_type\":\"General\"}],\"tokenID\":\"61691\",\"creatorUsername\":\"Monnas_Collections\",\"verified\":true,\"ipfsUrl\":\"ipfs://__IPFS_HASH__Monnas_116_1621660463747\",\"baseID\":\"Monnas_116_1621660463747\",\"mintTransactionHash\":\"0x5d4e3f13f736db47eb908a1824db96352ba448657edc25bb2086c72292291273\",\"listed\":false,\"ownerAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"initialCreatorAddress\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"urlCompressed\":\"https://d1don5jg7yw08.cloudfront.net/filters:quality(70)/nft-images/20210522/Monnas_116_1621660463748.jpg\",\"url\":\"https://airnfts.s3.amazonaws.com/nft-images/20210522/Monnas_116_1621660463748.jpg\",\"upvoteCount\":1,\"name\":\"Monnas #116\",\"urlMedium\":\"https://d1don5jg7yw08.cloudfront.net/nft-images/20210522/Monnas_116_1621660463748.jpg\",\"priceNumber\":0.1,\"createdAtTimestamp\":1621660472925,\"updatedAt\":1621660487881},\"owner\":{\"walletAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"airDropEvents\":[{\"receiver\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"amount\":5,\"registeredOn\":1621762511231,\"transactionHash\":\"0x3780ce62c8a07efb9a208806ea86c18351a12b7ac01666ff0dc169802f31e679\"}],\"buys\":{\"airDropValue\":\"5\",\"numberOfBuy\":1,\"totalAmount\":0.1},\"hasAcceptedTerms\":true},\"creator\":{\"socialUrl\":\"https://twitter.com/monnas999\",\"upvotedNftIDs\":[\"37121\",\"50759\",\"52364\",\"49227\",\"50760\",\"45500\",\"50178\",\"54048\",\"54050\",\"55761\",\"55809\",\"52350\",\"51161\",\"53253\",\"54059\",\"54539\",\"45359\",\"40943\",\"45349\",\"48547\",\"49230\",\"48059\",\"51164\",\"45394\",\"45362\",\"48053\",\"45351\",\"49605\",\"45345\",\"45386\",\"54061\",\"53262\",\"56222\",\"55790\",\"51166\",\"55765\",\"55898\",\"52355\",\"53255\",\"45387\",\"58015\",\"45377\",\"58037\",\"58023\",\"52368\",\"58027\",\"58034\",\"58032\",\"54051\",\"58031\",\"62566\",\"60878\",\"48490\",\"61688\",\"60860\",\"63638\",\"60869\",\"60866\",\"61694\",\"61692\",\"60868\",\"61691\",\"60862\",\"60863\",\"60872\",\"60875\",\"60874\",\"77729\"],\"usernameLowerCase\":\"monnas_collections\",\"hasAcceptedTerms\":true,\"banned\":false,\"buys\":{\"totalAmount\":0.6538,\"numberOfBuy\":16,\"airDropValue\":\"32.69\"},\"userAvatarUrlCompressed\":\"https://d1don5jg7yw08.cloudfront.net/filters:quality(70)/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"userBio\":\"Digital Artist, Father of Monnas 999  unıeqe pieces \\n*Eternal 10/999*\\n*Gods 15/999*\\n*Angels 30/999*\\n*Art by Ravicon 30/999*\\n*Titans 50/999*\\n*Other Planets 864/999*\\n\",\"updatedAt\":1620900032826,\"notAllowedToMint\":false,\"airDropEvents\":[{\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"transactionHash\":\"0x09e599b086f31d9dd5ff0fe94e2b8af3bbee67a557082a5437ad46eb2acb918d\",\"registeredOn\":1621761216948,\"amount\":273.54},{\"amount\":56.35,\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"registeredOn\":1622979112789,\"transactionHash\":\"0xd61a29bcdbf3d807d2787eadb932aaffc6bd51f87e545444275004de07bfce83\"},{\"transactionHash\":\"0xaeeecd9e1eb825ef9f1bb6a43b5c0df394a7896c4e9fa21ca5aa8a84fc05d66d\",\"amount\":34.64999999999996,\"registeredOn\":1624188745265,\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\"}],\"userAvatarUrlThumbnail\":\"https://d1don5jg7yw08.cloudfront.net/200x200/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"username\":\"Monnas_Collections\",\"walletAddress\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"userAvatarUrl\":\"https://airnfts.s3.amazonaws.com/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"verified\":true},\"historyEvents\":[{\"doneOn\":\"Sat, 22 May 2021 09:56:30 GMT\",\"eventType\":\"SALE\",\"nftIDSold\":\"61691\",\"nftSoldAtPrice\":\"0.1\",\"transactionHash\":\"0xe6898b4d2517b50eb75783971ced9da261de8d81b66921751fe644b9939c4b0b\",\"buyer\":{\"airDropEvents\":[{\"transactionHash\":\"0x3780ce62c8a07efb9a208806ea86c18351a12b7ac01666ff0dc169802f31e679\",\"receiver\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"amount\":5,\"registeredOn\":1621762511231}],\"accountCreatedAt\":1619109980320,\"walletAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"buys\":{\"numberOfBuy\":1,\"totalAmount\":0.1,\"airDropValue\":\"5\"},\"hasAcceptedTerms\":true},\"seller\":{\"usernameLowerCase\":\"monnas_collections\",\"sales\":{\"numberOfSales\":90,\"totalAmount\":6.637,\"airDropValue\":\"331.85\"},\"upvotedNftIDs\":[\"37121\",\"50759\",\"52364\",\"49227\",\"50760\",\"45500\",\"50178\",\"54048\",\"54050\",\"55761\",\"55809\",\"52350\",\"51161\",\"53253\",\"54059\",\"54539\",\"45359\",\"40943\",\"45349\",\"48547\",\"49230\",\"48059\",\"51164\",\"45394\",\"45362\",\"48053\",\"45351\",\"49605\",\"45345\",\"45386\",\"54061\",\"53262\",\"56222\",\"55790\",\"51166\",\"55765\",\"55898\",\"52355\",\"53255\",\"45387\",\"58015\",\"45377\",\"58037\",\"58023\",\"52368\",\"58027\",\"58034\",\"58032\",\"54051\",\"58031\",\"62566\",\"60878\",\"48490\",\"61688\",\"60860\",\"63638\",\"60869\",\"60866\",\"61694\",\"61692\",\"60868\",\"61691\",\"60862\",\"60863\",\"60872\",\"60875\",\"60874\",\"77729\"],\"userAvatarUrlCompressed\":\"https://d1don5jg7yw08.cloudfront.net/filters:quality(70)/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"notAllowedToMint\":false,\"verified\":true,\"userBio\":\"Digital Artist, Father of Monnas 999  unıeqe pieces \\n*Eternal 10/999*\\n*Gods 15/999*\\n*Angels 30/999*\\n*Art by Ravicon 30/999*\\n*Titans 50/999*\\n*Other Planets 864/999*\\n\",\"userAvatarUrl\":\"https://airnfts.s3.amazonaws.com/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"username\":\"Monnas_Collections\",\"accountCreatedAt\":1620316409541,\"banned\":false,\"airDropEvents\":[{\"amount\":273.54,\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"registeredOn\":1621761216948,\"transactionHash\":\"0x09e599b086f31d9dd5ff0fe94e2b8af3bbee67a557082a5437ad46eb2acb918d\"},{\"registeredOn\":1622979112789,\"transactionHash\":\"0xd61a29bcdbf3d807d2787eadb932aaffc6bd51f87e545444275004de07bfce83\",\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"amount\":56.35},{\"registeredOn\":1624188745265,\"amount\":34.64999999999996,\"transactionHash\":\"0xaeeecd9e1eb825ef9f1bb6a43b5c0df394a7896c4e9fa21ca5aa8a84fc05d66d\",\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\"}],\"buys\":{\"numberOfBuy\":16,\"totalAmount\":0.6538,\"airDropValue\":\"32.69\"},\"socialUrl\":\"https://twitter.com/monnas999\",\"hasAcceptedTerms\":true,\"walletAddress\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"updatedAt\":1620900032826,\"userAvatarUrlThumbnail\":\"https://d1don5jg7yw08.cloudfront.net/200x200/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\"}},{\"nftIDSold\":\"61691\",\"transactionHash\":\"0x5d4e3f13f736db47eb908a1824db96352ba448657edc25bb2086c72292291273\",\"doneOn\":\"Sat, 22 May 2021 05:14:32 GMT\",\"eventType\":\"MINT\",\"minter\":{\"socialUrl\":\"https://twitter.com/monnas999\",\"upvotedNftIDs\":[\"37121\",\"50759\",\"52364\",\"49227\",\"50760\",\"45500\",\"50178\",\"54048\",\"54050\",\"55761\",\"55809\",\"52350\",\"51161\",\"53253\",\"54059\",\"54539\",\"45359\",\"40943\",\"45349\",\"48547\",\"49230\",\"48059\",\"51164\",\"45394\",\"45362\",\"48053\",\"45351\",\"49605\",\"45345\",\"45386\",\"54061\",\"53262\",\"56222\",\"55790\",\"51166\",\"55765\",\"55898\",\"52355\",\"53255\",\"45387\",\"58015\",\"45377\",\"58037\",\"58023\",\"52368\",\"58027\",\"58034\",\"58032\",\"54051\",\"58031\",\"62566\",\"60878\",\"48490\",\"61688\",\"60860\",\"63638\",\"60869\",\"60866\",\"61694\",\"61692\",\"60868\",\"61691\",\"60862\",\"60863\",\"60872\",\"60875\",\"60874\",\"77729\"],\"usernameLowerCase\":\"monnas_collections\",\"accountCreatedAt\":1620316409541,\"hasAcceptedTerms\":true,\"banned\":false,\"buys\":{\"totalAmount\":0.6538,\"numberOfBuy\":16,\"airDropValue\":\"32.69\"},\"userAvatarUrlCompressed\":\"https://d1don5jg7yw08.cloudfront.net/filters:quality(70)/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"userBio\":\"Digital Artist, Father of Monnas 999  unıeqe pieces \\n*Eternal 10/999*\\n*Gods 15/999*\\n*Angels 30/999*\\n*Art by Ravicon 30/999*\\n*Titans 50/999*\\n*Other Planets 864/999*\\n\",\"updatedAt\":1620900032826,\"notAllowedToMint\":false,\"airDropEvents\":[{\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"transactionHash\":\"0x09e599b086f31d9dd5ff0fe94e2b8af3bbee67a557082a5437ad46eb2acb918d\",\"registeredOn\":1621761216948,\"amount\":273.54},{\"amount\":56.35,\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"registeredOn\":1622979112789,\"transactionHash\":\"0xd61a29bcdbf3d807d2787eadb932aaffc6bd51f87e545444275004de07bfce83\"},{\"transactionHash\":\"0xaeeecd9e1eb825ef9f1bb6a43b5c0df394a7896c4e9fa21ca5aa8a84fc05d66d\",\"amount\":34.64999999999996,\"registeredOn\":1624188745265,\"receiver\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\"}],\"userAvatarUrlThumbnail\":\"https://d1don5jg7yw08.cloudfront.net/200x200/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"username\":\"Monnas_Collections\",\"walletAddress\":\"0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c\",\"sales\":{\"airDropValue\":\"331.85\",\"numberOfSales\":90,\"totalAmount\":6.637},\"userAvatarUrl\":\"https://airnfts.s3.amazonaws.com/profile-images/202109/0x023Ac3323CcACCEB409d475caC89BbE6d3d6832c_1620550194227.jpg\",\"verified\":true}}]}",
+                "image_url": "https://airnfts.s3.amazonaws.com/nft-images/20210522/Monnas_116_1621660463748.jpg",
+                "name": "Monnas #116"
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0xf5db804101d8600c26598a1ba465166c33cdaa4b",
+              "token_id": "61859",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://air-nfts-prime.web.app/api/nfts/Black_Hole_1621677756774",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\"nft\":{\"image\":\"https://airnfts.s3.amazonaws.com/nft-images/20210522/Black_Hole_1621677756777.png\",\"ownerAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"createdAt\":\"Sat, 22 May 2021 10:02:47 GMT\",\"price\":\"1\",\"priceNumber\":1,\"updatedAt\":1621677794621,\"ipfsUrl\":\"ipfs://__IPFS_HASH__Black_Hole_1621677756774\",\"fileSize\":1.6248998641967773,\"createdAtTimestamp\":1621677767354,\"url\":\"https://airnfts.s3.amazonaws.com/nft-images/20210522/Black_Hole_1621677756777.png\",\"baseID\":\"Black_Hole_1621677756774\",\"storageFeeTransaction\":\"0xf9bf31ff71941a174ec1c9da80098a26e5eb172263424fda2f6fd088ada0e35c\",\"urlMedium\":\"https://d1don5jg7yw08.cloudfront.net/fit-in/1214x1020/nft-images/20210522/Black_Hole_1621677756777.png\",\"mintTransactionHash\":\"0x11bc60aeb42c7dd2514e7c054b5870d0a201ee066e66baa8cb8d4702c3600dff\",\"attributes\":[{\"value\":1,\"trait_type\":\"General\"}],\"verified\":false,\"urlCompressed\":\"https://d1don5jg7yw08.cloudfront.net/filters:quality(70)/nft-images/20210522/Black_Hole_1621677756777.png\",\"category\":[],\"creatorUsername\":\"\",\"priority\":0,\"tokenID\":\"61859\",\"urlThumbnail\":\"https://d1don5jg7yw08.cloudfront.net/828x650/nft-images/20210522/Black_Hole_1621677756777.png\",\"listed\":true,\"name\":\"Black Hole\",\"initialCreatorAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"description\":\"Black hole sucks in all the light\"},\"owner\":{\"buys\":{\"airDropValue\":\"5\",\"numberOfBuy\":1,\"totalAmount\":0.1},\"airDropEvents\":[{\"amount\":5,\"receiver\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"transactionHash\":\"0x3780ce62c8a07efb9a208806ea86c18351a12b7ac01666ff0dc169802f31e679\",\"registeredOn\":1621762511231}],\"hasAcceptedTerms\":true,\"walletAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\"},\"creator\":{\"buys\":{\"totalAmount\":0.1,\"numberOfBuy\":1,\"airDropValue\":\"5\"},\"hasAcceptedTerms\":true,\"airDropEvents\":[{\"amount\":5,\"receiver\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"registeredOn\":1621762511231,\"transactionHash\":\"0x3780ce62c8a07efb9a208806ea86c18351a12b7ac01666ff0dc169802f31e679\"}],\"walletAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\"},\"historyEvents\":[{\"nftIDSold\":\"61859\",\"transactionHash\":\"0x11bc60aeb42c7dd2514e7c054b5870d0a201ee066e66baa8cb8d4702c3600dff\",\"doneOn\":\"Sat, 22 May 2021 10:02:47 GMT\",\"eventType\":\"MINT\",\"minter\":{\"buys\":{\"totalAmount\":0.1,\"numberOfBuy\":1,\"airDropValue\":\"5\"},\"hasAcceptedTerms\":true,\"accountCreatedAt\":1619109980320,\"airDropEvents\":[{\"amount\":5,\"receiver\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\",\"registeredOn\":1621762511231,\"transactionHash\":\"0x3780ce62c8a07efb9a208806ea86c18351a12b7ac01666ff0dc169802f31e679\"}],\"walletAddress\":\"0x6877654e79119a7f9A8182BB2389E797CA421D24\"}}]}",
+                "image_url": "https://airnfts.s3.amazonaws.com/nft-images/20210522/Black_Hole_1621677756777.png",
+                "name": ""
+              },
+              "price": 0
+            },
+            {
+              "asset_contract": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+              "token_id": "6470",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://nft-collections.definance.app/airdrop/0.json",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": null,
+                "background_color": "",
+                "boosterId": 0,
+                "description": "This Fist is a sign of solidarity and unity of a strong community that supports the Definance Ecosystem.",
+                "external_url": "",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "Rebellia",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\n    \"name\": \"Rebellia\",\n    \"description\": \"This Fist is a sign of solidarity and unity of a strong community that supports the Definance Ecosystem.\", \n    \"image\": \"https://nft-collections.definance.app/airdrop/0.png\"\n}",
+                "image_url": "https://nft-collections.definance.app/airdrop/0.png",
+                "name": "Rebellia"
+              },
+              "price": 0
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "asset_contract": "0xc54b96b04aa8828b63cf250408e1084e9f6ac6c8",
+              "token_id": "14701",
+              "owner": "0x6877654e79119a7f9a8182bb2389e797ca421d24",
+              "external_link": "https://bsc-api.seascape.network/nft/metadata/14701",
+              "balance": 1,
+              "nft_metadata": {
+                "animation_url": "",
+                "attributes": [
+                  {
+                    "trait_type": "QUALITY",
+                    "value": "Common"
+                  },
+                  {
+                    "trait_type": "Generation",
+                    "value": 0
+                  },
+                  {
+                    "trait_type": "Power",
+                    "value": 600,
+                    "display_type": "boost_number"
+                  }
+                ],
+                "background_color": "",
+                "boosterId": 0,
+                "description": "I reckon we ought to make ourselves acquainted. I'm Edmund Mildenhall III, but my friend's call me Thump - Common. Now you just gonna just stand there, or come over here and wrestle me like a man!",
+                "external_url": "https://api.seascape.network/nft/metadata/14701",
+                "id": "",
+                "initialProbabilities": {
+                  "background": 0,
+                  "color": 0,
+                  "glitter": 0,
+                  "horn": 0,
+                  "type": 0
+                },
+                "name": "Thump - Common",
+                "randomNumber": "",
+                "txHash": ""
+              },
+              "issuer_specific_data": {
+                "entire_response": "{\"attributes\":[{\"trait_type\":\"QUALITY\",\"value\":\"Common\"},{\"trait_type\":\"Generation\",\"value\":0},{\"display_type\":\"boost_number\",\"trait_type\":\"Power\",\"value\":600}],\"description\":\"I reckon we ought to make ourselves acquainted. I'm Edmund Mildenhall III, but my friend's call me Thump - Common. Now you just gonna just stand there, or come over here and wrestle me like a man!\",\"external_url\":\"https://api.seascape.network/nft/metadata/14701\",\"image\":\"https://cdn.seascape.network/nfts/1.gif\",\"name\":\"Thump - Common\"}",
+                "image_url": "https://cdn.seascape.network/nfts/1.gif",
+                "name": "Thump - Common"
+              },
+              "price": 0
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "asset_contract": {
+              "type": "string"
+            },
+            "token_id": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "external_link": {
+              "type": "string"
+            },
+            "balance": {
+              "type": "number"
+            },
+            "nft_metadata": {
+              "type": "object",
+              "properties": {
+                "animation_url": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "trait_type": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "number"
+                      },
+                      "display_type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "background_color": {
+                  "type": "string"
+                },
+                "boosterId": {
+                  "type": "number"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_url": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "initialProbabilities": {
+                  "type": "object",
+                  "properties": {
+                    "background": {
+                      "type": "number"
+                    },
+                    "color": {
+                      "type": "number"
+                    },
+                    "glitter": {
+                      "type": "number"
+                    },
+                    "horn": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string"
+                },
+                "randomNumber": {
+                  "type": "string"
+                },
+                "txHash": {
+                  "type": "string"
+                }
+              }
+            },
+            "issuer_specific_data": {
+              "type": "object",
+              "properties": {
+                "entire_response": {
+                  "type": "string"
+                },
+                "image_url": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "price": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "Nft-transactions": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "contract_address": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+              "token_id": "6470",
+              "transaction_hash": "0x550ab896bad15a82e2a0c3458f86929dd79b924732cfe875d5f6d192c5ee2c4b",
+              "block_number": 11703141,
+              "block_hash": "",
+              "transaction_idx": 0,
+              "log_idx": 512,
+              "sender": "0x0000000000000000000000000000000000000000",
+              "to": "0x6877654e79119a7f9a8182bb2389e797ca421d24"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "contract_address": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+              "token_id": "6470",
+              "transaction_hash": "0x550ab896bad15a82e2a0c3458f86929dd79b924732cfe875d5f6d192c5ee2c4b",
+              "block_number": 11703141,
+              "block_hash": "",
+              "transaction_idx": 0,
+              "log_idx": 512,
+              "sender": "0x0000000000000000000000000000000000000000",
+              "to": "0x6877654e79119a7f9a8182bb2389e797ca421d24"
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "contract_address": {
+              "type": "string"
+            },
+            "token_id": {
+              "type": "string"
+            },
+            "transaction_hash": {
+              "type": "string"
+            },
+            "block_number": {
+              "type": "number"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "transaction_idx": {
+              "type": "number"
+            },
+            "log_idx": {
+              "type": "number"
+            },
+            "sender": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Nft-details": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "contact_address": "0x85f0e02cb992aa1f9f47112f815f519ef1a59e2d",
+            "token_id": "10002198864",
+            "token_uri": "https://meta.polkamon.com/meta?id=10002198864",
+            "nft_metadata": {
+              "animation_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+              "attributes": [
+                {
+                  "trait_type": "Type",
+                  "value": "Unichick"
+                },
+                {
+                  "trait_type": "Horn",
+                  "value": "Candy Cane"
+                },
+                {
+                  "trait_type": "Color",
+                  "value": "Blue"
+                },
+                {
+                  "trait_type": "Background",
+                  "value": "Mountain Range"
+                },
+                {
+                  "trait_type": "Opening Network",
+                  "value": "Binance Smart Chain"
+                },
+                {
+                  "trait_type": "Glitter",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Special",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Birthday",
+                  "value": 1633210817,
+                  "display_type": "date"
+                },
+                {
+                  "trait_type": "Booster",
+                  "value": 10000000732955,
+                  "display_type": "number"
+                }
+              ],
+              "background_color": "FFFFFF",
+              "boosterId": 10000000732955,
+              "description": "Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.",
+              "external_url": "https://polkamon.com/polkamon/T07C03H08B04G00",
+              "id": "10002198864",
+              "initialProbabilities": {
+                "background": 1,
+                "color": 0.25,
+                "glitter": 0.99,
+                "horn": 0.16,
+                "type": 0.135
+              },
+              "name": "Unichick",
+              "randomNumber": "0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3",
+              "txHash": "0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5"
+            },
+            "image_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+            "name": "Unichick",
+            "type": "721",
+            "price": 0,
+            "entire_response": "{\"boosterId\":10000000732955,\"id\":\"10002198864\",\"txHash\":\"0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5\",\"randomNumber\":\"0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3\",\"image\":\"https://assets.polkamon.com/images/Unimons_T07C03H08B04G00.jpg\",\"external_url\":\"https://polkamon.com/polkamon/T07C03H08B04G00\",\"description\":\"Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.\",\"name\":\"Unichick\",\"initialProbabilities\":{\"horn\":0.16,\"color\":0.25,\"background\":1,\"glitter\":0.99,\"type\":0.135},\"attributes\":[{\"trait_type\":\"Type\",\"value\":\"Unichick\"},{\"trait_type\":\"Horn\",\"value\":\"Candy Cane\"},{\"trait_type\":\"Color\",\"value\":\"Blue\"},{\"trait_type\":\"Background\",\"value\":\"Mountain Range\"},{\"trait_type\":\"Opening Network\",\"value\":\"Binance Smart Chain\"},{\"trait_type\":\"Glitter\",\"value\":\"No\"},{\"trait_type\":\"Special\",\"value\":\"No\"},{\"display_type\":\"date\",\"trait_type\":\"Birthday\",\"value\":1633210817},{\"display_type\":\"number\",\"trait_type\":\"Booster\",\"value\":10000000732955}],\"opening_network\":\"Binance Smart Chain\",\"background_color\":\"FFFFFF\",\"animation_url\":\"https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4\"}"
+          }
+        },
+        "examples": [
+          {
+            "contact_address": "0x85f0e02cb992aa1f9f47112f815f519ef1a59e2d",
+            "token_id": "10002198864",
+            "token_uri": "https://meta.polkamon.com/meta?id=10002198864",
+            "nft_metadata": {
+              "animation_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+              "attributes": [
+                {
+                  "trait_type": "Type",
+                  "value": "Unichick"
+                },
+                {
+                  "trait_type": "Horn",
+                  "value": "Candy Cane"
+                },
+                {
+                  "trait_type": "Color",
+                  "value": "Blue"
+                },
+                {
+                  "trait_type": "Background",
+                  "value": "Mountain Range"
+                },
+                {
+                  "trait_type": "Opening Network",
+                  "value": "Binance Smart Chain"
+                },
+                {
+                  "trait_type": "Glitter",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Special",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Birthday",
+                  "value": 1633210817,
+                  "display_type": "date"
+                },
+                {
+                  "trait_type": "Booster",
+                  "value": 10000000732955,
+                  "display_type": "number"
+                }
+              ],
+              "background_color": "FFFFFF",
+              "boosterId": 10000000732955,
+              "description": "Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.",
+              "external_url": "https://polkamon.com/polkamon/T07C03H08B04G00",
+              "id": "10002198864",
+              "initialProbabilities": {
+                "background": 1,
+                "color": 0.25,
+                "glitter": 0.99,
+                "horn": 0.16,
+                "type": 0.135
+              },
+              "name": "Unichick",
+              "randomNumber": "0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3",
+              "txHash": "0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5"
+            },
+            "image_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+            "name": "Unichick",
+            "type": "721",
+            "price": 0,
+            "entire_response": "{\"boosterId\":10000000732955,\"id\":\"10002198864\",\"txHash\":\"0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5\",\"randomNumber\":\"0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3\",\"image\":\"https://assets.polkamon.com/images/Unimons_T07C03H08B04G00.jpg\",\"external_url\":\"https://polkamon.com/polkamon/T07C03H08B04G00\",\"description\":\"Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.\",\"name\":\"Unichick\",\"initialProbabilities\":{\"horn\":0.16,\"color\":0.25,\"background\":1,\"glitter\":0.99,\"type\":0.135},\"attributes\":[{\"trait_type\":\"Type\",\"value\":\"Unichick\"},{\"trait_type\":\"Horn\",\"value\":\"Candy Cane\"},{\"trait_type\":\"Color\",\"value\":\"Blue\"},{\"trait_type\":\"Background\",\"value\":\"Mountain Range\"},{\"trait_type\":\"Opening Network\",\"value\":\"Binance Smart Chain\"},{\"trait_type\":\"Glitter\",\"value\":\"No\"},{\"trait_type\":\"Special\",\"value\":\"No\"},{\"display_type\":\"date\",\"trait_type\":\"Birthday\",\"value\":1633210817},{\"display_type\":\"number\",\"trait_type\":\"Booster\",\"value\":10000000732955}],\"opening_network\":\"Binance Smart Chain\",\"background_color\":\"FFFFFF\",\"animation_url\":\"https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4\"}"
+          }
+        ],
+        "properties": {
+          "contact_address": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "token_uri": {
+            "type": "string"
+          },
+          "nft_metadata": {
+            "type": "object",
+            "properties": {
+              "animation_url": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "trait_type": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "display_type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "background_color": {
+                "type": "string"
+              },
+              "boosterId": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "external_url": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "initialProbabilities": {
+                "type": "object",
+                "properties": {
+                  "background": {
+                    "type": "number"
+                  },
+                  "color": {
+                    "type": "number"
+                  },
+                  "glitter": {
+                    "type": "number"
+                  },
+                  "horn": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "number"
+                  }
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "randomNumber": {
+                "type": "string"
+              },
+              "txHash": {
+                "type": "string"
+              }
+            }
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "entire_response": {
+            "type": "string"
+          }
+        }
+      },
+      "Nft-holders": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "items": {
+          "type": "object",
+          "required": [],
+          "properties": {}
+        },
+        "x-examples": {
+          "example-1": [
+            "0x0000000000000000000000000000000000000000",
+            "0xb5260101c139940b3cad3b47f5c1415d5b48529c"
+          ]
+        },
+        "examples": [
+          [
+            "0x0000000000000000000000000000000000000000",
+            "0xb5260101c139940b3cad3b47f5c1415d5b48529c"
+          ]
+        ]
+      },
+      "tokenid": {
+        "name": "tokenid",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Token id of NFT contract"
+      },
+      "Symbol": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "decimal": 18,
+              "blockchain": "binance-smart-chain",
+              "price": "1.2102781329",
+              "price_change": "-4.611565233778907",
+              "timestamp": "1637921913"
+            },
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+              "decimal": 18,
+              "blockchain": "ethereum",
+              "price": "1.2102781329",
+              "price_change": "-5.0085795456450315",
+              "timestamp": "1637921913"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "decimal": 18,
+              "blockchain": "binance-smart-chain",
+              "price": "1.2102781329",
+              "price_change": "-4.611565233778907",
+              "timestamp": "1637921913"
+            },
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+              "decimal": 18,
+              "blockchain": "ethereum",
+              "price": "1.2102781329",
+              "price_change": "-5.0085795456450315",
+              "timestamp": "1637921913"
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "contract": {
+              "type": "string"
+            },
+            "decimal": {
+              "type": "number"
+            },
+            "blockchain": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            },
+            "price_change": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Address": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "tokenId": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "timestamp": "1637922456",
+            "price": "1.2107928183"
+          }
+        },
+        "examples": [
+          {
+            "tokenId": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "timestamp": "1637922456",
+            "price": "1.2107928183"
+          }
+        ],
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          }
+        }
+      },
+      "Tokens": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "name": "MARSH",
+              "symbol": "MARSH",
+              "tokenId": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+              "price": "1.225034898998186",
+              "percentage_change": "-5.0085795456450315"
+            },
+            {
+              "name": "MARSH",
+              "symbol": "MARSH",
+              "tokenId": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "price": "1.2145698052338922",
+              "percentage_change": "-4.611565233778907"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "name": "MARSH",
+              "symbol": "MARSH",
+              "tokenId": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+              "price": "1.225034898998186",
+              "percentage_change": "-5.0085795456450315"
+            },
+            {
+              "name": "MARSH",
+              "symbol": "MARSH",
+              "tokenId": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "price": "1.2145698052338922",
+              "percentage_change": "-4.611565233778907"
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "tokenId": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            },
+            "percentage_change": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Gainers": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "name": "TEND",
+              "contract": "0x222f737285d0b60d8d4f27fa22ce8884c9f119f8",
+              "decimal": 18,
+              "logo": "https://assets.unmarshal.io/tokens/0x1453Dbb8A29551ADe11D89825CA812e05317EAEB.png",
+              "symbol": "TEND",
+              "current_price": "0.00000000015816474482266669",
+              "percent_change": "498.2934577237196",
+              "day_low": "0.00000000015816474482266669",
+              "day_high": "0.00000000015816474482266669"
+            },
+            {
+              "name": "GoldenWspp",
+              "contract": "0xcccbf2248ef3bd8d475ea5de8cb06e19f4591a8e",
+              "decimal": 6,
+              "logo": "https://assets.unmarshal.io/tokens/0xCCCBf2248ef3bd8d475Ea5dE8cb06e19F4591A8E.png",
+              "symbol": "GWSPP",
+              "current_price": "3.001545737261781",
+              "percent_change": "480.88924200974947",
+              "day_low": "0.5198768424941629",
+              "day_high": "3.049309828651424"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "name": "TEND",
+              "contract": "0x222f737285d0b60d8d4f27fa22ce8884c9f119f8",
+              "decimal": 18,
+              "logo": "https://assets.unmarshal.io/tokens/0x1453Dbb8A29551ADe11D89825CA812e05317EAEB.png",
+              "symbol": "TEND",
+              "current_price": "0.00000000015816474482266669",
+              "percent_change": "498.2934577237196",
+              "day_low": "0.00000000015816474482266669",
+              "day_high": "0.00000000015816474482266669"
+            },
+            {
+              "name": "GoldenWspp",
+              "contract": "0xcccbf2248ef3bd8d475ea5de8cb06e19f4591a8e",
+              "decimal": 6,
+              "logo": "https://assets.unmarshal.io/tokens/0xCCCBf2248ef3bd8d475Ea5dE8cb06e19F4591A8E.png",
+              "symbol": "GWSPP",
+              "current_price": "3.001545737261781",
+              "percent_change": "480.88924200974947",
+              "day_low": "0.5198768424941629",
+              "day_high": "3.049309828651424"
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "contract": {
+              "type": "string"
+            },
+            "decimal": {
+              "type": "number"
+            },
+            "logo": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "current_price": {
+              "type": "string"
+            },
+            "percent_change": {
+              "type": "string"
+            },
+            "day_low": {
+              "type": "string"
+            },
+            "day_high": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Losers": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "name": "ShibainuGirl",
+              "contract": "0x71ea08cd2476905b4d359b2b18c463e1cacdab20",
+              "decimal": 9,
+              "logo": "https://assets.unmarshal.io/tokens/0x71ea08cD2476905B4d359b2b18c463E1caCDaB20.png",
+              "symbol": "ShibaGirl",
+              "current_price": "0.00000000000006362810175319335",
+              "percent_change": "-100",
+              "day_low": "0.00000000000006227239148252082",
+              "day_high": "0.00000000000006420062168121629"
+            },
+            {
+              "name": "LTRBT",
+              "contract": "0x17d749d3e2ac204a07e19d8096d9a05c423ea3af",
+              "decimal": 9,
+              "logo": "https://assets.unmarshal.io/tokens/0x17D749D3E2ac204a07e19D8096d9a05c423ea3af.png",
+              "symbol": "LTRBT",
+              "current_price": "0",
+              "percent_change": "-100",
+              "day_low": "0",
+              "day_high": "0"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "name": "ShibainuGirl",
+              "contract": "0x71ea08cd2476905b4d359b2b18c463e1cacdab20",
+              "decimal": 9,
+              "logo": "https://assets.unmarshal.io/tokens/0x71ea08cD2476905B4d359b2b18c463E1caCDaB20.png",
+              "symbol": "ShibaGirl",
+              "current_price": "0.00000000000006362810175319335",
+              "percent_change": "-100",
+              "day_low": "0.00000000000006227239148252082",
+              "day_high": "0.00000000000006420062168121629"
+            },
+            {
+              "name": "LTRBT",
+              "contract": "0x17d749d3e2ac204a07e19d8096d9a05c423ea3af",
+              "decimal": 9,
+              "logo": "https://assets.unmarshal.io/tokens/0x17D749D3E2ac204a07e19D8096d9a05c423ea3af.png",
+              "symbol": "LTRBT",
+              "current_price": "0",
+              "percent_change": "-100",
+              "day_low": "0",
+              "day_high": "0"
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "contract": {
+              "type": "string"
+            },
+            "decimal": {
+              "type": "number"
+            },
+            "logo": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "current_price": {
+              "type": "string"
+            },
+            "percent_change": {
+              "type": "string"
+            },
+            "day_low": {
+              "type": "string"
+            },
+            "day_high": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "LpTokens": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "name": "",
+              "symbol": "",
+              "tokenId": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103",
+              "price": "53.49992784613753",
+              "percentage_change": ""
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "name": "",
+              "symbol": "",
+              "tokenId": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103",
+              "price": "53.49992784613753",
+              "percentage_change": ""
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "tokenId": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            },
+            "percentage_change": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "TokenDetails": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "name": "UnmarshalToken",
+            "symbol": "MARSH",
+            "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "image": "https://assets.unmarshal.io/tokens/0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37.png",
+            "decimal": 18,
+            "blockchain": "ethereum",
+            "total_supply": "100000000",
+            "verified": true
+          }
+        },
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "contract": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "decimal": {
+            "type": "number"
+          },
+          "blockchain": {
+            "type": "string"
+          },
+          "total_supply": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "examples": [
+          {
+            "name": "UnmarshalToken",
+            "symbol": "MARSH",
+            "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "image": "https://assets.unmarshal.io/tokens/0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37.png",
+            "decimal": 18,
+            "blockchain": "ethereum",
+            "total_supply": "100000000",
+            "verified": true
+          }
+        ]
+      },
+      "SymbolDetails": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "image": "https://assets.unmarshal.io/tokens/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+              "decimal": 18,
+              "blockchain": "binance-smart-chain",
+              "total_supply": "6644065",
+              "verified": true
+            },
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+              "image": "https://assets.unmarshal.io/tokens/0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37.png",
+              "decimal": 18,
+              "blockchain": "ethereum",
+              "total_supply": "100000000",
+              "verified": true
+            }
+          ]
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "contract": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "decimal": {
+              "type": "number"
+            },
+            "blockchain": {
+              "type": "string"
+            },
+            "total_supply": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          }
+        },
+        "examples": [
+          [
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+              "image": "https://assets.unmarshal.io/tokens/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+              "decimal": 18,
+              "blockchain": "binance-smart-chain",
+              "total_supply": "6644065",
+              "verified": true
+            },
+            {
+              "name": "UnmarshalToken",
+              "symbol": "MARSH",
+              "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+              "image": "https://assets.unmarshal.io/tokens/0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37.png",
+              "decimal": 18,
+              "blockchain": "ethereum",
+              "total_supply": "100000000",
+              "verified": true
+            }
+          ]
+        ]
+      },
+      "All-tokens": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "page": 1,
+            "total_pages": 6320,
+            "items_on_page": 2,
+            "data": [
+              {
+                "name": "BREW",
+                "symbol": "BREW",
+                "contract": "0x46d3ece45f8e16bec4bd241c248ce0e7cfff310e",
+                "image": "https://assets.unmarshal.io/tokens/0x46D3Ece45F8E16beC4Bd241C248CE0e7CffF310e.png",
+                "decimal": 18,
+                "blockchain": "fantom",
+                "total_supply": "0",
+                "verified": true
+              },
+              {
+                "name": "BitMartToken",
+                "symbol": "BMC",
+                "contract": "0x986ee2b944c42d017f52af21c4c69b84dbea35d8",
+                "image": "https://assets.unmarshal.io/tokens/0x986EE2B944c42D017F52Af21c4c69B84DBeA35d8.png",
+                "decimal": 18,
+                "blockchain": "ethereum",
+                "total_supply": "883148901",
+                "verified": true
+              }
+            ]
+          }
+        },
+        "examples": [
+          {
+            "page": 1,
+            "total_pages": 6320,
+            "items_on_page": 2,
+            "data": [
+              {
+                "name": "BREW",
+                "symbol": "BREW",
+                "contract": "0x46d3ece45f8e16bec4bd241c248ce0e7cfff310e",
+                "image": "https://assets.unmarshal.io/tokens/0x46D3Ece45F8E16beC4Bd241C248CE0e7CffF310e.png",
+                "decimal": 18,
+                "blockchain": "fantom",
+                "total_supply": "0",
+                "verified": true
+              },
+              {
+                "name": "BitMartToken",
+                "symbol": "BMC",
+                "contract": "0x986ee2b944c42d017f52af21c4c69b84dbea35d8",
+                "image": "https://assets.unmarshal.io/tokens/0x986EE2B944c42D017F52Af21c4c69B84DBeA35d8.png",
+                "decimal": 18,
+                "blockchain": "ethereum",
+                "total_supply": "883148901",
+                "verified": true
+              }
+            ]
+          }
+        ],
+        "properties": {
+          "page": {
+            "type": "number"
+          },
+          "total_pages": {
+            "type": "number"
+          },
+          "items_on_page": {
+            "type": "number"
+          },
+          "data": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "contract": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "decimal": {
+                  "type": "number"
+                },
+                "blockchain": {
+                  "type": "string"
+                },
+                "total_supply": {
+                  "type": "string"
+                },
+                "verified": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -918,6 +2961,70 @@
           "default": "0x8e1337b81ff3c1a7e3796c74c9dc084566b6e043cd69968e9b1d2336cd3d8e64"
         },
         "description": "Any valid transaction hash"
+      },
+      "timestamp": {
+        "name": "timestamp",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Provide unix timestamp to fetch price"
+      },
+      "24hchange": {
+        "name": "24change",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Specify param to fetch 24h change in price"
+      },
+      "alternateChain": {
+        "name": "alternateChain",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Set true to fetch from other chains if not found in current chain"
+      },
+      "tokens": {
+        "name": "tokens",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "List of comma separated token contracts"
+      },
+      "price": {
+        "name": "price",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Result for price greater than given value"
+      },
+      "lptokens": {
+        "name": "lptokens",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Any valid LP token address"
+      },
+      "symbol": {
+        "name": "symbol",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "default": "marsh"
+        },
+        "description": "Valid token ticker on ETH/BSC/Polygon"
       }
     },
     "responses": {
@@ -3383,6 +5490,186 @@
             }
           }
         }
+      },
+      "Nft-assets": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Nft-assets"
+            },
+            "examples": {}
+          }
+        }
+      },
+      "Nft-transactions": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Nft-transactions"
+            },
+            "examples": {
+              "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6": {
+                "value": {
+                  "contract_address": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+                  "token_id": "6470",
+                  "transaction_hash": "0x550ab896bad15a82e2a0c3458f86929dd79b924732cfe875d5f6d192c5ee2c4b",
+                  "block_number": 11703141,
+                  "block_hash": "",
+                  "transaction_idx": 0,
+                  "log_idx": 512,
+                  "sender": "0x0000000000000000000000000000000000000000",
+                  "to": "0x6877654e79119a7f9a8182bb2389e797ca421d24"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Nft-details": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Nft-details"
+            },
+            "examples": {}
+          }
+        }
+      },
+      "Nft-holders": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Nft-holders"
+            },
+            "examples": {}
+          }
+        }
+      },
+      "Symbol": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Symbol"
+            }
+          }
+        }
+      },
+      "Address": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Address"
+            }
+          }
+        }
+      },
+      "Tokens": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Tokens"
+            }
+          }
+        }
+      },
+      "Gainers": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Gainers"
+            }
+          }
+        }
+      },
+      "Losers": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Losers"
+            }
+          }
+        }
+      },
+      "LpTokens": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/LpTokens"
+            }
+          }
+        }
+      },
+      "TokenDetails": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/TokenDetails"
+            },
+            "examples": {}
+          }
+        }
+      },
+      "SymbolDetails": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "",
+              "uniqueItems": true,
+              "x-examples": {
+                "example-1": [
+                  {
+                    "name": "UnmarshalToken",
+                    "symbol": "MARSH",
+                    "contract": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                    "image": "https://assets.unmarshal.io/tokens/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                    "decimal": 18,
+                    "blockchain": "binance-smart-chain",
+                    "total_supply": "6644065",
+                    "verified": true
+                  },
+                  {
+                    "name": "UnmarshalToken",
+                    "symbol": "MARSH",
+                    "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+                    "image": "https://assets.unmarshal.io/tokens/0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37.png",
+                    "decimal": 18,
+                    "blockchain": "ethereum",
+                    "total_supply": "100000000",
+                    "verified": true
+                  }
+                ]
+              },
+              "items": {
+                "$ref": "#/components/schemas/SymbolDetails"
+              }
+            },
+            "examples": {}
+          }
+        }
+      },
+      "All-tokens": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/All-tokens"
+            },
+            "examples": {}
+          }
+        }
       }
     }
   },
@@ -3394,6 +5681,21 @@
   "tags": [
     {
       "name": "Wallet APIs"
+    },
+    {
+      "name": "NFTs"
+    },
+    {
+      "name": "Price Store"
+    },
+    {
+      "name": "Token Store"
+    },
+    {
+      "name": "Top Traders"
+    },
+    {
+      "name": "NFTs"
     }
   ]
 }
