@@ -1,0 +1,13 @@
+api-content {
+    overflow: visible !important;
+}
+
+.api-content > div > div {
+    overflow: visible !important;
+}
+
+[data-cy="samples-block"] {
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+}

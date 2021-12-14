@@ -24,6 +24,7 @@ oasDefinitions:
   notifications: ./openapi/apis/notifications.json
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
+  - './static/main.css'
   - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap
   - https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600,700&display=swap
 #analytics:

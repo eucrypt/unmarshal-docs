@@ -2867,7 +2867,7 @@
             "matic",
             "xinfin",
             "zilliqa",
-            "heco"
+            "solana"
           ]
         },
         "description": "Chain name (example: bsc, ethereum, matic...)"
