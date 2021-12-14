@@ -337,7 +337,7 @@
             "$ref": "#/components/parameters/timestamp"
           }
         ],
-        "description": "###### To get auth_key please log in to https://console.unmarshal.io"
+        "description": ""
       }
     },
     "/v1/pricestore/chain/{chain}/{address}": {
@@ -3121,7 +3121,8 @@
             "examples": {
               "example-1": {
                 "value": {
-                  "message": "Unauthorized"
+                  "message": "Forbidden",
+                  "description": "Please login to https://console.unmarshal.io/ to get your api-key"
                 }
               }
             }

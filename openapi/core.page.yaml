@@ -2,6 +2,7 @@ type: reference-docs
 definitionId: core
 settings:
   pagination: section
+  hideInfoSection: true
   generateCodeSamples:
     languages:
       - lang: curl
