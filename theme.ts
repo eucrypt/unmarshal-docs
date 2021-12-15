@@ -181,4 +181,19 @@ export const theme = {
     backgroundColor: "#0E2A34",
     tokens: {},
   },
+  overrides: {
+    NextSectionButton: {
+      custom: `
+        font-size: 20px;
+        margin-left: auto;
+        background: none;
+        border: solid;
+        border-color: #34D399;
+        font-weight: 600;
+        border-radius: 15px;
+        color: #34D399;
+        border-width: 2px;
+      `
+    }
+  }
 };
