@@ -101,14 +101,14 @@ export const theme = {
   // },
 
   typography: {
-    fontSize: '18px',
+    fontSize: '16px',
     lineHeight: '1.5em',
     fontWeightRegular: '400',
-    fontWeightBold: '600',
+    fontWeightBold: '800',
     fontWeightLight: '300',
-    fontFamily: '"Source Sans Pro", sans-serif',
+    fontFamily: 'Poppins',
     headings: {
-      fontFamily: '"Source Sans Pro", sans-serif',
+      fontFamily: 'Poppins',
       fontWeight: '600',
     },
     // heading1: {
@@ -146,7 +146,7 @@ export const theme = {
     // },
     code: {
       fontSize: '13px',
-      fontFamily: '"Source Code Pro", sans-serif',
+      fontFamily: 'Poppins',
       // fontWeight: ({ typography }) => typography.fontWeightRegular,
       color: '#fff',
       backgroundColor: '#0E2A34',

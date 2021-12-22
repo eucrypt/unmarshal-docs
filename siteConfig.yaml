@@ -25,8 +25,7 @@ oasDefinitions:
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - './static/main.css'
-  - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap
-  - https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600,700&display=swap
+  - https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap
 #analytics:
   # ga:
   # note that GA doesn't work in the development environment
