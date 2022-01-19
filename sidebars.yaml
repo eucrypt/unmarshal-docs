@@ -15,7 +15,7 @@ docs:
     separatorLine: true
     pages:
       - page: docs/notifications/index.md
-        label: Introducation
+        label: Introduction
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
