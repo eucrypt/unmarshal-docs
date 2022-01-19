@@ -147,9 +147,9 @@ export const theme = {
     code: {
       fontSize: '13px',
       fontFamily: 'Poppins',
-      // fontWeight: ({ typography }) => typography.fontWeightRegular,
-      color: '#fff',
-      backgroundColor: '#0E2A34',
+      fontWeight: ({ typography }) => typography.fontWeightRegular,
+      color: '#0E2A34',
+      backgroundColor: 'none',
       wrap: false,
     },
     links: {
@@ -184,7 +184,7 @@ export const theme = {
   overrides: {
     NextSectionButton: {
       custom: `
-        font-size: 20px;
+        font-size: 16px;
         margin-left: auto;
         background: none;
         border: solid;
