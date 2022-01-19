@@ -81,11 +81,14 @@ export const theme = {
       link: '#34D399',
       head: '#c167e4',
     },
-    // navbar: {
-    //   main: ({ colors }) => colors.primary.main,
-    //   gradient: ({ colors }) => darken(colors.tonalOffset / 2, colors.navbar.main),
-    //   contrastText: 'white'
-    // },
+    navbar: {
+      main: '#FFFFFF',
+      gradient: 0,
+      contrastText: '#141E27',
+      borderBottom: 'solid',
+      borderColor: '#E5EAEE',
+      borderWidth: '0.5px',
+    },
     // footer: {
       // main: ({ colors }) => colors.primary.main,
       // contrastText: 'white'
@@ -95,6 +98,7 @@ export const theme = {
   sidebar: {
     backgroundColor: '#fafafa',
     width: '260px',
+    fontSize: '14px'
   },
   // tocPanel: {
   //   width: '240px',

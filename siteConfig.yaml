@@ -9,7 +9,7 @@ linkChecker:
   options:
     CheckExternal: false
 logo:
-  image: ./images/brand-assets/img_white.svg
+  image: ./images/brand-assets/green-dark.svg
   altText: Unmarshal Docs
 toc:
   enable: true
