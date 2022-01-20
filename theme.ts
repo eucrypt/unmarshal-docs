@@ -82,12 +82,9 @@ export const theme = {
       head: '#c167e4',
     },
     navbar: {
-      main: '#FFFFFF',
-      gradient: 0,
-      contrastText: '#141E27',
-      borderBottom: 'solid',
-      borderColor: '#E5EAEE',
-      borderWidth: '0.5px',
+      main: ({ colors }) => colors.primary.main,
+      gradient: ({ colors }) => darken(colors.tonalOffset / 2, colors.navbar.main),
+      contrastText: 'white'
     },
     // footer: {
       // main: ({ colors }) => colors.primary.main,
