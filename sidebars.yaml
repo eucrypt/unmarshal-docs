@@ -1,6 +1,6 @@
 docs:
   - page: index.mdx
-  - page: gettingStarted.mdx
+  - page: gettingStarted.md
     separatorLine: true
   - group: Core APIs
     expanded: true

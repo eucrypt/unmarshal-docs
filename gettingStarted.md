@@ -39,4 +39,10 @@ Visit [https://unmarshal.io/pricing](https://unmarshal.io/pricing) to view our p
 
 <br/>
 
-**Note:** If you face any issues integrating with Unmarshal APIs, please join our discord server and drop a message in the Developer Hive channel. You can even reach out to us on our Telegram Group. If you require custom APIs, write to us at [support@unmarshal.io](mailto:support@unmarshal.io) / [Telegram](https://t.me/Unmarshal_Chat) / [Discord](https://discord.gg/SqhYdGYtEr).
+**Note:** If you face any issues integrating with Unmarshal APIs, please join our discord server and drop a message in the Developer Hive channel. You can even reach out to us on our Telegram Group. If you require custom APIs, write to us at [support@unmarshal.io](mailto:support@unmarshal.io).
+
+<br/>
+
+![Discord](./images/getting-started/discord.jpeg '#width=25px;') [https://discord.gg/SqhYdGYtEr](https://discord.gg/SqhYdGYtEr)
+
+![Discord](./images/getting-started/teligram.jpeg '#width=25px;') [https://t.me/Unmarshal_Chat](https://t.me/Unmarshal_Chat)
