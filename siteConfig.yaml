@@ -33,12 +33,12 @@ stylesheets:
 #scripts:
 #  - ./static/intercom.js
 nav:
-  - label: Get API Key
-    external: true
-    href: https://console.unmarshal.io
   - label: Pricing
     external: true
     href: https://unmarshal.io/pricing
+  - label: Get API Key
+    external: true
+    href: https://console.unmarshal.io
   - search: true
 
 footer:
