@@ -225,7 +225,7 @@
           }
         },
         "operationId": "nft-assets-by-address",
-        "description": "NFTs the latest buzz in the crypto world and Unmarshal is there to support with the data needs around NFTs as well."
+        "description": "NFT assets API gives the information about all the NFT assets held by a address on BSC and ethereum chain."
       }
     },
     "/v1/{chain}/address/{address}/nft-transactions": {
@@ -243,6 +243,7 @@
           }
         },
         "operationId": "nft-transactions-by-address",
+        "description": "NFT transactions API gives the list of transaction being made on given wallet address.",
         "parameters": [
           {
             "$ref": "#/components/parameters/pageNo"
@@ -301,7 +302,8 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "nft-holders-by-id"
+        "operationId": "nft-holders-by-id",
+        "description": "This api givess history of owners for a given NFT."
       },
       "parameters": [
         {
@@ -510,7 +512,8 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "details-for-token-contract"
+        "operationId": "details-for-token-contract",
+        "description": "when searched by token contract address, it fetches exhaustive information of the token."
       },
       "parameters": [
         {
@@ -544,7 +547,7 @@
           }
         },
         "operationId": "details-for-token-symbol",
-        "description": ""
+        "description": "when searched with the ticker name of any token, it returns detailed information of the token within the blockchains it exists in."
       }
     },
     "/v1/tokenstore/token/all": {
@@ -562,6 +565,7 @@
           }
         },
         "operationId": "list-of-all-token",
+        "description": "when searched with string “list”, it pulls the list of all the tokens that exist on Ethereum, BSC and Polygon",
         "parameters": [
           {
             "$ref": "#/components/parameters/pageNo"
@@ -5608,7 +5612,7 @@
     },
     {
       "name": "NFTs",
-      "description": ""
+      "description": "NFTs the latest buzz in the crypto world and Unmarshal is there to support with the data needs around NFTs as well."
     },
     {
       "name": "Price Store",
@@ -5616,7 +5620,7 @@
     },
     {
       "name": "Token Store",
-      "description": ""
+      "description": "With data of more than 100,000+ tokens, Token Store is one of the finest products when it comes to querying token attributes; either with the contract address of the token or with the token ticker itself. This gives developers the flexibility and ease of querying data in more than one way with just a single line of code.\nThe details fetched by the product is comprehensive along with granular information. The distinctive data fetched for every query through Token Store:\n“Symbol”, “Contract”, “Logo”, “Decimal”, “Blockchain”, “Website”, “Total Supply”, \"Verified\" and “Explorer”\nVerified flag returns the status of token. if its a valid token we return true, else returns false."
     },
     {
       "name": "Top Traders",
