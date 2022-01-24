@@ -5604,27 +5604,27 @@
   "tags": [
     {
       "name": "Wallet APIs",
-      "description": "Wallet APIs"
+      "description": ""
     },
     {
       "name": "NFTs",
-      "description": "NFTs"
+      "description": ""
     },
     {
       "name": "Price Store",
-      "description": "Price Store"
+      "description": ""
     },
     {
       "name": "Token Store",
-      "description": "Token Store"
+      "description": ""
     },
     {
       "name": "Top Traders",
-      "description": "Top Traders"
+      "description": ""
     },
     {
       "name": "NFTs",
-      "description": "NFTs"
+      "description": ""
     }
   ]
 }

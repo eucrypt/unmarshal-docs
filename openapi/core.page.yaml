@@ -7,10 +7,10 @@ settings:
     languages:
       - lang: curl
       - lang: Go
-      - lang: JavaScript
+      - lang: Node.js
       - lang: Java
       - lang: Python
-      - lang: Node.js
+      - lang: JavaScript
       - lang: PHP
       - lang: Ruby
       - lang: C#
