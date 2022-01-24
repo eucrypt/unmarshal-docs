@@ -4958,8 +4958,7 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/TokenDetails"
-            },
-            "examples": {}
+            }
           }
         }
       },
@@ -4968,38 +4967,8 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "array",
-              "description": "",
-              "uniqueItems": true,
-              "x-examples": {
-                "example-1": [
-                  {
-                    "name": "UnmarshalToken",
-                    "symbol": "MARSH",
-                    "contract": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
-                    "image": "https://assets.unmarshal.io/tokens/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
-                    "decimal": 18,
-                    "blockchain": "binance-smart-chain",
-                    "total_supply": "6644065",
-                    "verified": true
-                  },
-                  {
-                    "name": "UnmarshalToken",
-                    "symbol": "MARSH",
-                    "contract": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
-                    "image": "https://assets.unmarshal.io/tokens/0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37.png",
-                    "decimal": 18,
-                    "blockchain": "ethereum",
-                    "total_supply": "100000000",
-                    "verified": true
-                  }
-                ]
-              },
-              "items": {
-                "$ref": "#/components/schemas/SymbolDetails"
-              }
-            },
-            "examples": {}
+              "$ref": "#/components/schemas/SymbolDetails"
+            }
           }
         }
       },
@@ -5009,8 +4978,7 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/All-tokens"
-            },
-            "examples": {}
+            }
           }
         }
       }
