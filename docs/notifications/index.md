@@ -1,5 +1,5 @@
 # Unmarshal Smart Notifications
-⚡️Get Notified. Instantly! 🔔Never Miss Critical Alerts
+**⚡️Get Notified. Instantly! 🔔Never Miss Critical Alerts**
 
 ![Unmarshal Smart Notification.jpeg](https://stoplight.io/api/v1/projects/cHJqOjk4NzE5/images/VeCx5Al40CE)
 

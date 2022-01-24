@@ -11,3 +11,6 @@ settings:
       - lang: Java
       - lang: Python
       - lang: Node.js
+      - lang: PHP
+      - lang: Ruby
+      - lang: C#
