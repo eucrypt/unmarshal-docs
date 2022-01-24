@@ -339,7 +339,7 @@
             "$ref": "#/components/parameters/timestamp"
           }
         ],
-        "description": ""
+        "description": "This api provides price of token by taking the symbol of the token(ticker) as a parameter which will give latest price, timestamp can also be provided as a query param to get historical data."
       }
     },
     "/v1/pricestore/chain/{chain}/{address}": {
@@ -357,6 +357,7 @@
           }
         },
         "operationId": "get-v1-pricestore",
+        "description": "This api provides price of a token by taking the address of the token(contract of token) in any chain such as Ethereum, Matic and Binance, timestamp can be provided as a query parameter to view historical data.",
         "parameters": [
           {
             "$ref": "#/components/parameters/timestamp"
@@ -405,6 +406,7 @@
           }
         },
         "operationId": "get-v1-pricestore-chain-ethereum-tokens",
+        "description": "This api takes multiple contract addresses to provide price data at once, timestamp can be provided as a query parameter to view historical data. multiple contracts have to given in comma(,) separated.",
         "parameters": [
           {
             "$ref": "#/components/parameters/tokens"
@@ -432,6 +434,7 @@
           }
         },
         "operationId": "top-gainers",
+        "description": "API provides a list of top gainers in a particular chain. the data contains biggest gainers in last 24 hours.",
         "parameters": [
           {
             "$ref": "#/components/parameters/price"
@@ -464,6 +467,7 @@
           }
         },
         "operationId": "get-v1-pricestore-chain-losers",
+        "description": "API provides a list of top losers in a particular chain. the data contains biggest losers in last 24 hours.",
         "parameters": [
           {
             "$ref": "#/components/parameters/price"
@@ -486,6 +490,7 @@
           }
         },
         "operationId": "price-for-lp-tokens",
+        "description": "This api provides the price for LP tokens by taking in the address of the Lp tokens.",
         "parameters": [
           {
             "$ref": "#/components/parameters/lptokens"
@@ -5616,7 +5621,7 @@
     },
     {
       "name": "Price Store",
-      "description": ""
+      "description": "Pricestore API contains endpoints that provide the latest price of a token as well as historical price of the tokens, these tokens can also be LP tokens. Tokens supported from ETH/BSC/Matic chains\nThese api's also provide top losers and gainers."
     },
     {
       "name": "Token Store",
