@@ -1206,7 +1206,8 @@
       "api-key": {
         "type": "apiKey",
         "name": "x-api-key",
-        "in": "header"
+        "in": "header",
+        "description": "### To get auth token login to https://console.unmarshal.io\n #### You can also import Open API Specifications to postman from the link given below\n `https://raw.githubusercontent.com/eucrypt/unmarshal-docs/main/openapi/apis/notifications.json`"
       }
     },
     "requestBodies": {
