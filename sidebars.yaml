@@ -1,7 +1,9 @@
 docs:
   - page: index.mdx
+  
   - page: gettingStarted.md
     separatorLine: true
+
   - group: Core APIs
     expanded: true
     separatorLine: true
