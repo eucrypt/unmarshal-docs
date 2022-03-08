@@ -26,3 +26,7 @@ docs:
   - page: docs/telegram-bot/*
     label: Telegram Bot
     separatorLine: true
+
+  - page: docs/go-sdk/*
+    label: Go SDK
+    separatorLine: true
