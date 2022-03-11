@@ -277,7 +277,18 @@
           }
         },
         "operationId": "nft-details-by-id",
-        "description": "This NFT gives  more details about a specific NFT based on NFT id.Basically the metadata of an NFT which is currently most sought after"
+        "description": "This NFT gives  more details about a specific NFT based on NFT id.Basically the metadata of an NFT which is currently most sought after",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tokenId",
+            "description": "Valid contract address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "parameters": [
         {
@@ -303,7 +314,18 @@
           }
         },
         "operationId": "nft-holders-by-id",
-        "description": "This api givess history of owners for a given NFT."
+        "description": "This api givess history of owners for a given NFT.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tokenId",
+            "description": "Valid contract address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "parameters": [
         {
