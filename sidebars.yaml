@@ -1,7 +1,9 @@
 docs:
   - page: index.mdx
+  
   - page: gettingStarted.md
     separatorLine: true
+
   - group: Core APIs
     expanded: true
     separatorLine: true
@@ -25,4 +27,8 @@ docs:
 
   - page: docs/telegram-bot/*
     label: Telegram Bot
+    separatorLine: true
+
+  - page: docs/go-sdk/*
+    label: Go SDK
     separatorLine: true

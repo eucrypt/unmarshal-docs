@@ -181,7 +181,10 @@
             "in": "query",
             "name": "contract",
             "description": "Valid contract address",
-            "required": true
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
