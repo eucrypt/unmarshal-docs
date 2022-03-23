@@ -84,15 +84,18 @@
           "required": true,
           "schema": {
             "type": "string",
-            "default": "bsc",
+            "default": "ethereum",
             "enum": [
               "bsc",
               "matic",
-              "ethereum"
+              "ethereum",
+              "celo",
+              "solana",
+              "xinfin"
             ],
             "example": "bsc"
           },
-          "description": "Chain name (example: bsc, ethereum, matic...)"
+          "description": "Chain name (example: bsc, ethereum, matic, celo...)"
         },
         {
           "name": "address",
@@ -2876,6 +2879,7 @@
             "ethereum",
             "bsc",
             "matic",
+            "celo",
             "xinfin",
             "zilliqa",
             "solana"
