@@ -282,7 +282,7 @@
           {
             "in": "query",
             "name": "tokenId",
-            "description": "Valid contract address",
+            "description": "Valid nft token Id of a requested nft contract",
             "required": true,
             "schema": {
               "type": "string"
@@ -295,7 +295,143 @@
           "$ref": "#/components/parameters/chain"
         },
         {
-          "$ref": "#/components/parameters/address"
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid Nft Contract address"
+        }
+      ]
+    },
+    "/v2/{chain}/address/{address}/details": {
+      "get": {
+        "summary": "NFT details of all tokenIds of a contract",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-details-V2"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "nft-details-of-all-tokenIds-of-a-contract",
+        "description": "This NFT gives more details about a specific NFT based on NFT id(if token Id not provided returns all token .Basically the metadata of an NFT which is currently most sought after",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tokenId",
+            "description": "Valid nft token Id of a requested nft contract",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid Nft Contract address"
+        }
+      ]
+    },
+    "/v1/{chain}/contract/{address}/nft-transactions": {
+      "get": {
+        "summary": "Get Nft Contract Transactions ",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-transactions-V2"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "nft-contract-transactions",
+        "description": "Get all the contract transactions of an nft, also filter all the transactions of a particular token Id of the contract (optional)",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tokenId",
+            "description": "Valid nft token Id of a requested nft contract",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid Nft Contract address"
+        }
+      ]
+    },
+    "/v1/{chain}/contract/{address}/tokenIds": {
+      "get": {
+        "summary": "Get all token ids available for a nft contract",
+        "tags": [
+          "NFTs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Nft-details"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "nft-tokenIds-of-a-contract",
+        "description": "This Endpoint returns all token Ids available for the specified contract"
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid Nft Contract address"
         }
       ]
     },
@@ -314,12 +450,12 @@
           }
         },
         "operationId": "nft-holders-by-id",
-        "description": "This api givess history of owners for a given NFT.",
+        "description": "This api gives history of owners for a given NFT.",
         "parameters": [
           {
             "in": "query",
             "name": "tokenId",
-            "description": "Valid contract address",
+            "description": "Valid nft token Id of a requested nft contract",
             "required": true,
             "schema": {
               "type": "string"
@@ -329,7 +465,13 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/address"
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Any valid Nft Contract address"
         },
         {
           "$ref": "#/components/parameters/chain"
@@ -1951,7 +2093,314 @@
           }
         }
       },
+      "Nft-transactions-V2": {
+        "type": "array",
+        "description": "",
+        "uniqueItems": true,
+        "x-examples": {
+          "example-1": [
+            {
+              "contract_address": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+              "token_id": "6470",
+              "transaction_hash": "0x550ab896bad15a82e2a0c3458f86929dd79b924732cfe875d5f6d192c5ee2c4b",
+              "block_number": 11703141,
+              "block_hash": "",
+              "transaction_idx": 0,
+              "log_idx": 512,
+              "sender": "0x0000000000000000000000000000000000000000",
+              "to": "0x6877654e79119a7f9a8182bb2389e797ca421d24"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "contract_address": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+              "token_id": "6470",
+              "transaction_hash": "0x550ab896bad15a82e2a0c3458f86929dd79b924732cfe875d5f6d192c5ee2c4b",
+              "block_number": 11703141,
+              "block_hash": "",
+              "transaction_idx": 0,
+              "log_idx": 512,
+              "sender": "0x0000000000000000000000000000000000000000",
+              "to": "0x6877654e79119a7f9a8182bb2389e797ca421d24"
+            }
+          ]
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "contract_address": {
+              "type": "string"
+            },
+            "token_id": {
+              "type": "string"
+            },
+            "transaction_hash": {
+              "type": "string"
+            },
+            "block_number": {
+              "type": "number"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "transaction_idx": {
+              "type": "number"
+            },
+            "log_idx": {
+              "type": "number"
+            },
+            "sender": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "Nft-details": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "contact_address": "0x85f0e02cb992aa1f9f47112f815f519ef1a59e2d",
+            "token_id": "10002198864",
+            "token_uri": "https://meta.polkamon.com/meta?id=10002198864",
+            "nft_metadata": {
+              "animation_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+              "attributes": [
+                {
+                  "trait_type": "Type",
+                  "value": "Unichick"
+                },
+                {
+                  "trait_type": "Horn",
+                  "value": "Candy Cane"
+                },
+                {
+                  "trait_type": "Color",
+                  "value": "Blue"
+                },
+                {
+                  "trait_type": "Background",
+                  "value": "Mountain Range"
+                },
+                {
+                  "trait_type": "Opening Network",
+                  "value": "Binance Smart Chain"
+                },
+                {
+                  "trait_type": "Glitter",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Special",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Birthday",
+                  "value": 1633210817,
+                  "display_type": "date"
+                },
+                {
+                  "trait_type": "Booster",
+                  "value": 10000000732955,
+                  "display_type": "number"
+                }
+              ],
+              "background_color": "FFFFFF",
+              "boosterId": 10000000732955,
+              "description": "Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.",
+              "external_url": "https://polkamon.com/polkamon/T07C03H08B04G00",
+              "id": "10002198864",
+              "initialProbabilities": {
+                "background": 1,
+                "color": 0.25,
+                "glitter": 0.99,
+                "horn": 0.16,
+                "type": 0.135
+              },
+              "name": "Unichick",
+              "randomNumber": "0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3",
+              "txHash": "0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5"
+            },
+            "image_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+            "name": "Unichick",
+            "type": "721",
+            "price": 0,
+            "entire_response": "{\"boosterId\":10000000732955,\"id\":\"10002198864\",\"txHash\":\"0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5\",\"randomNumber\":\"0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3\",\"image\":\"https://assets.polkamon.com/images/Unimons_T07C03H08B04G00.jpg\",\"external_url\":\"https://polkamon.com/polkamon/T07C03H08B04G00\",\"description\":\"Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.\",\"name\":\"Unichick\",\"initialProbabilities\":{\"horn\":0.16,\"color\":0.25,\"background\":1,\"glitter\":0.99,\"type\":0.135},\"attributes\":[{\"trait_type\":\"Type\",\"value\":\"Unichick\"},{\"trait_type\":\"Horn\",\"value\":\"Candy Cane\"},{\"trait_type\":\"Color\",\"value\":\"Blue\"},{\"trait_type\":\"Background\",\"value\":\"Mountain Range\"},{\"trait_type\":\"Opening Network\",\"value\":\"Binance Smart Chain\"},{\"trait_type\":\"Glitter\",\"value\":\"No\"},{\"trait_type\":\"Special\",\"value\":\"No\"},{\"display_type\":\"date\",\"trait_type\":\"Birthday\",\"value\":1633210817},{\"display_type\":\"number\",\"trait_type\":\"Booster\",\"value\":10000000732955}],\"opening_network\":\"Binance Smart Chain\",\"background_color\":\"FFFFFF\",\"animation_url\":\"https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4\"}"
+          }
+        },
+        "examples": [
+          {
+            "contact_address": "0x85f0e02cb992aa1f9f47112f815f519ef1a59e2d",
+            "token_id": "10002198864",
+            "token_uri": "https://meta.polkamon.com/meta?id=10002198864",
+            "nft_metadata": {
+              "animation_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+              "attributes": [
+                {
+                  "trait_type": "Type",
+                  "value": "Unichick"
+                },
+                {
+                  "trait_type": "Horn",
+                  "value": "Candy Cane"
+                },
+                {
+                  "trait_type": "Color",
+                  "value": "Blue"
+                },
+                {
+                  "trait_type": "Background",
+                  "value": "Mountain Range"
+                },
+                {
+                  "trait_type": "Opening Network",
+                  "value": "Binance Smart Chain"
+                },
+                {
+                  "trait_type": "Glitter",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Special",
+                  "value": "No"
+                },
+                {
+                  "trait_type": "Birthday",
+                  "value": 1633210817,
+                  "display_type": "date"
+                },
+                {
+                  "trait_type": "Booster",
+                  "value": 10000000732955,
+                  "display_type": "number"
+                }
+              ],
+              "background_color": "FFFFFF",
+              "boosterId": 10000000732955,
+              "description": "Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.",
+              "external_url": "https://polkamon.com/polkamon/T07C03H08B04G00",
+              "id": "10002198864",
+              "initialProbabilities": {
+                "background": 1,
+                "color": 0.25,
+                "glitter": 0.99,
+                "horn": 0.16,
+                "type": 0.135
+              },
+              "name": "Unichick",
+              "randomNumber": "0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3",
+              "txHash": "0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5"
+            },
+            "image_url": "https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4",
+            "name": "Unichick",
+            "type": "721",
+            "price": 0,
+            "entire_response": "{\"boosterId\":10000000732955,\"id\":\"10002198864\",\"txHash\":\"0x0bbfcc94bcf36247f3dc8c2648767df02f6eccd66ef0e5a93cb3c529c1d388d5\",\"randomNumber\":\"0x368729732a9a40003d859f857e2595e047bef1a152be4673d52c61cb07a275e3\",\"image\":\"https://assets.polkamon.com/images/Unimons_T07C03H08B04G00.jpg\",\"external_url\":\"https://polkamon.com/polkamon/T07C03H08B04G00\",\"description\":\"Hectic and fluttering, the Unichick is always on the move, discovering life at the fastest pace. Behind the hyperactive facade is the full presence of timidity and thoughtfulness.\",\"name\":\"Unichick\",\"initialProbabilities\":{\"horn\":0.16,\"color\":0.25,\"background\":1,\"glitter\":0.99,\"type\":0.135},\"attributes\":[{\"trait_type\":\"Type\",\"value\":\"Unichick\"},{\"trait_type\":\"Horn\",\"value\":\"Candy Cane\"},{\"trait_type\":\"Color\",\"value\":\"Blue\"},{\"trait_type\":\"Background\",\"value\":\"Mountain Range\"},{\"trait_type\":\"Opening Network\",\"value\":\"Binance Smart Chain\"},{\"trait_type\":\"Glitter\",\"value\":\"No\"},{\"trait_type\":\"Special\",\"value\":\"No\"},{\"display_type\":\"date\",\"trait_type\":\"Birthday\",\"value\":1633210817},{\"display_type\":\"number\",\"trait_type\":\"Booster\",\"value\":10000000732955}],\"opening_network\":\"Binance Smart Chain\",\"background_color\":\"FFFFFF\",\"animation_url\":\"https://assets.polkamon.com/videos/Unimons_T07C03H08B04G00.mp4\"}"
+          }
+        ],
+        "properties": {
+          "contact_address": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "token_uri": {
+            "type": "string"
+          },
+          "nft_metadata": {
+            "type": "object",
+            "properties": {
+              "animation_url": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "trait_type": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "display_type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "background_color": {
+                "type": "string"
+              },
+              "boosterId": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "external_url": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "initialProbabilities": {
+                "type": "object",
+                "properties": {
+                  "background": {
+                    "type": "number"
+                  },
+                  "color": {
+                    "type": "number"
+                  },
+                  "glitter": {
+                    "type": "number"
+                  },
+                  "horn": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "number"
+                  }
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "randomNumber": {
+                "type": "string"
+              },
+              "txHash": {
+                "type": "string"
+              }
+            }
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "entire_response": {
+            "type": "string"
+          }
+        }
+      },
+      "Nft-details-V2": {
         "description": "",
         "type": "object",
         "x-examples": {
@@ -4101,7 +4550,8 @@
                           "from": "0xc85e0474068dba5b49450c26879541ee6cc94554",
                           "to": "0xcc2a71dbc6bac68f1b86812812fbd0317a4e93bd"
                         }
-                      ]                    }
+                      ]
+                    }
                   ]
                 }
               },
@@ -4892,12 +5342,48 @@
           }
         }
       },
+      "Nft-transactions-V2": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Nft-transactions-V2"
+            },
+            "examples": {
+              "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6": {
+                "value": {
+                  "contract_address": "0x3a3e2aef7e44fd0bb3f0e2330c5b8f078816cbf6",
+                  "token_id": "6470",
+                  "transaction_hash": "0x550ab896bad15a82e2a0c3458f86929dd79b924732cfe875d5f6d192c5ee2c4b",
+                  "block_number": 11703141,
+                  "block_hash": "",
+                  "transaction_idx": 0,
+                  "log_idx": 512,
+                  "sender": "0x0000000000000000000000000000000000000000",
+                  "to": "0x6877654e79119a7f9a8182bb2389e797ca421d24"
+                }
+              }
+            }
+          }
+        }
+      },
       "Nft-details": {
         "description": "Example response",
         "content": {
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/Nft-details"
+            },
+            "examples": {}
+          }
+        }
+      },
+      "Nft-details-V2": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Nft-details-V2"
             },
             "examples": {}
           }
