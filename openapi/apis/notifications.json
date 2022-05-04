@@ -17,48 +17,9 @@
         "tags": [
           "Transactional Notification"
         ],
-        "summary": "SubscribeWebhookWithUSDTValueBasedFilter",
-        "operationId": "SubscribeWebhookWithUSDTValueBasedFilter",
+        "summary": "Subscribe Webhook",
+        "operationId": "SubscribeWebhook",
         "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SubscribeWebhookWithUSDTValueBasedFilterRequest"
-              },
-              "example": {
-                "url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
-                "filter_meta_data": {
-                  "value": "1",
-                  "operator": "GreaterThanOrEqualTo"
-                },
-                "filter_type": "USDTValueBasedFilter",
-                "wallet_ids": [
-                  "0xad1840d72191a1172786214cba4da6d4a3bbfa1b",
-                  "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec"
-                ]
-              },
-              "examples": {
-                "example-1": {
-                  "value": {
-                    "url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
-                    "filter_meta_data": {
-                      "value": "1",
-                      "operator": "GreaterThanOrEqualTo"
-                    },
-                    "filter_type": "USDTValueBasedFilter",
-                    "wallet_ids": [
-                      "0xad1840d72191a1172786214cba4da6d4a3bbfa1b",
-                      "0x24f7c33ae5f77e2a9eceed7ea858b4ca2fa1b7ec"
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -77,12 +38,7 @@
                           "type": "TransactionalNotification",
                           "channel": "Webhook",
                           "webhook_url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
-                          "client": "pujith_unmarshal",
-                          "filter_type": "USDTValueBasedFilter",
-                          "filter_meta_data": {
-                            "operator": "GreaterThanOrEqualTo",
-                            "value": "1"
-                          }
+                          "client": "pujith_unmarshal"
                         }
                       ],
                       "Failed": [
@@ -94,11 +50,6 @@
                           "channel": "Webhook",
                           "webhook_url": "https://webhook.site/2b3d7ad6-339d-4722-bec0-69b184f19a27",
                           "client": "pujith_unmarshal",
-                          "filter_type": "USDTValueBasedFilter",
-                          "filter_meta_data": {
-                            "operator": "GreaterThanOrEqualTo",
-                            "value": "1"
-                          },
                           "ErrorCode": "DUPLICATE_SUBSCRIPTION"
                         }
                       ]
@@ -113,49 +64,28 @@
                         "type": "object",
                         "properties": {
                           "created_at": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "updated_at": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "address": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "type": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "channel": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "webhook_url": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "client": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "filter_type": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "filter_meta_data": {
-                            "type": "object",
-                            "properties": {
-                              "operator": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "value": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            }
+                            "type": "string"
                           }
                         }
                       }
@@ -265,15 +195,19 @@
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
-          },
-          "default": {
-            "description": "",
-            "headers": {},
-            "content": {}
           }
         },
         "deprecated": false,
-        "description": ""
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookSubscription"
+              }
+            }
+          }
+        }
       }
     },
     "/firebase/subscribe": {
@@ -281,207 +215,158 @@
         "tags": [
           "Transactional Notification"
         ],
-        "summary": "SubscribeFirebaseNotification",
+        "summary": "Subscribe Firebase Notification",
         "operationId": "SubscribeFirebaseNotification",
         "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "Success": [
-                      {
-                        "created_at": "2021-11-30T12:18:55.232364849Z",
-                        "updated_at": "2021-11-30T12:18:55.232364849Z",
-                        "address": "elon.eth",
-                        "type": "TransactionalNotification",
-                        "channel": "Firebase",
-                        "device_id": "DEVICE_ID",
-                        "fcm_token": "FCM_TOKEN",
-                        "client": "pujith_unmarshal",
-                        "filter_type": "",
-                        "filter_meta_data": null
-                      }
-                    ],
-                    "Failed": [
-                      {
-                        "created_at": "2021-11-30T12:18:55.229810825Z",
-                        "updated_at": "2021-11-30T12:18:55.229810825Z",
-                        "address": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de",
-                        "type": "TransactionalNotification",
-                        "channel": "Firebase",
-                        "device_id": "DEVICE_ID",
-                        "fcm_token": "FCM_TOKEN",
-                        "client": "pujith_unmarshal",
-                        "filter_type": "",
-                        "filter_meta_data": null,
-                        "ErrorCode": "DUPLICATE_SUBSCRIPTION"
-                      }
-                    ]
-                  }
-                },
-                "properties": {
-                  "Success": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "created_at": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "updated_at": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "address": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "type": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "channel": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "device_id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "fcm_token": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "client": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "filter_type": {
-                          "type": "string"
-                        },
-                        "filter_meta_data": {}
-                      }
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "Success": [
+                        {
+                          "created_at": "2022-05-04T07:08:51.464331187Z",
+                          "updated_at": "2022-05-04T07:08:51.464331187Z",
+                          "address": "0x5169d6ee161cd0ed1f92166fa24c9b5f8f97d0a5",
+                          "type": "TransactionalNotification",
+                          "channel": "Firebase",
+                          "device_id": "device_x",
+                          "fcm_token": "eCyxLFWhEaCRCZW2xL6HXH:APA91bF8tKgijGpJIbKWXoffPR8iS5fJctNxq_OnubKRTMBLNBDikk86XGCXKNNkeh02SwaTrm6jdGV5Bqf-SjzPR5jlFiuZAsTo5vbVMbm2Zqk6pCiOmCHJFTkQBI3mOmZfkXLj2u5A",
+                          "client": "pujith",
+                          "filter_type": "",
+                          "filter_meta_data": null,
+                          "status": "Active"
+                        }
+                      ],
+                      "Failed": [
+                        {
+                          "created_at": "2022-05-04T07:08:51.428859435Z",
+                          "updated_at": "2022-05-04T07:08:51.428859435Z",
+                          "address": "0x5169d6ee161cd0ed1f92166fa24c9b5f8f97d0a4",
+                          "type": "TransactionalNotification",
+                          "channel": "Firebase",
+                          "device_id": "device_x",
+                          "fcm_token": "eCyxLFWhEaCRCZW2xL6HXH:APA91bF8tKgijGpJIbKWXoffPR8iS5fJctNxq_OnubKRTMBLNBDikk86XGCXKNNkeh02SwaTrm6jdGV5Bqf-SjzPR5jlFiuZAsTo5vbVMbm2Zqk6pCiOmCHJFTkQBI3mOmZfkXLj2u5A",
+                          "client": "pujith",
+                          "filter_type": "",
+                          "filter_meta_data": null,
+                          "status": "Active",
+                          "ErrorCode": "DUPLICATE_SUBSCRIPTION"
+                        }
+                      ]
                     }
                   },
-                  "Failed": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "created_at": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "updated_at": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "address": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "type": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "channel": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "device_id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "fcm_token": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "client": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "filter_type": {
-                          "type": "string"
-                        },
-                        "filter_meta_data": {},
-                        "ErrorCode": {
-                          "type": "string",
-                          "minLength": 1
+                  "properties": {
+                    "Success": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "channel": {
+                            "type": "string"
+                          },
+                          "device_id": {
+                            "type": "string"
+                          },
+                          "fcm_token": {
+                            "type": "string"
+                          },
+                          "client": {
+                            "type": "string"
+                          },
+                          "filter_type": {
+                            "type": "string"
+                          },
+                          "filter_meta_data": {
+                            "nullable": true
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "Failed": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "channel": {
+                            "type": "string"
+                          },
+                          "device_id": {
+                            "type": "string"
+                          },
+                          "fcm_token": {
+                            "type": "string"
+                          },
+                          "client": {
+                            "type": "string"
+                          },
+                          "filter_type": {
+                            "type": "string"
+                          },
+                          "filter_meta_data": {
+                            "nullable": true
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "ErrorCode": {
+                            "type": "string"
+                          }
                         }
                       }
                     }
                   }
                 }
-              },
-              "example": {
-                "fcm_token": "FCM_TOKEN",
-                "device_id": "DEVICE_ID",
-                "wallet_ids": [
-                  "demo.eth"
-                ]
-              },
-              "examples": {
-                "example-1": {
-                  "value": {
-                    "Success": [
-                      {
-                        "created_at": "2021-11-30T12:18:55.232364849Z",
-                        "updated_at": "2021-11-30T12:18:55.232364849Z",
-                        "address": "elon.eth",
-                        "type": "TransactionalNotification",
-                        "channel": "Firebase",
-                        "device_id": "DEVICE_ID",
-                        "fcm_token": "FCM_TOKEN",
-                        "client": "pujith_unmarshal",
-                        "filter_type": "",
-                        "filter_meta_data": null
-                      }
-                    ],
-                    "Failed": [
-                      {
-                        "created_at": "2021-11-30T12:18:55.229810825Z",
-                        "updated_at": "2021-11-30T12:18:55.229810825Z",
-                        "address": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de",
-                        "type": "TransactionalNotification",
-                        "channel": "Firebase",
-                        "device_id": "DEVICE_ID",
-                        "fcm_token": "FCM_TOKEN",
-                        "client": "pujith_unmarshal",
-                        "filter_type": "",
-                        "filter_meta_data": null,
-                        "ErrorCode": "DUPLICATE_SUBSCRIPTION"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "type": "object",
-                "properties": {}
               }
             }
           },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeFirebaseNotificationRequest"
+              }
+            }
+          }
+        }
       }
     },
     "/firebase/whale-alert/subscribe": {
@@ -1265,7 +1150,7 @@
       "name": "Transactional Notification"
     },
     {
-      "name": "Whale alert",
+      "name": "Whale alert"
     },
     {
       "name": "Unsubscribe"
