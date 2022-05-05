@@ -208,7 +208,8 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "solana"
             ]
           }
         }
