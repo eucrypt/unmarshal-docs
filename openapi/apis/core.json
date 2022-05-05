@@ -79,23 +79,7 @@
     "/v2/{chain}/address/{address}/transactions": {
       "parameters": [
         {
-          "name": "chain",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "default": "ethereum",
-            "enum": [
-              "bsc",
-              "matic",
-              "ethereum",
-              "celo",
-              "solana",
-              "xinfin"
-            ],
-            "example": "bsc"
-          },
-          "description": "Chain name (example: bsc, ethereum, matic, celo...)"
+          "$ref": "#/components/parameters/chain"
         },
         {
           "name": "address",
@@ -214,7 +198,19 @@
           "$ref": "#/components/parameters/address"
         },
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         }
       ],
       "get": {
@@ -261,7 +257,19 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         },
         {
           "$ref": "#/components/parameters/address"
@@ -298,7 +306,19 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         },
         {
           "name": "address",
@@ -347,7 +367,19 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         },
         {
           "name": "address",
@@ -396,7 +428,19 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         },
         {
           "name": "address",
@@ -428,7 +472,19 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         },
         {
           "name": "address",
@@ -480,7 +536,19 @@
           "description": "Any valid Nft Contract address"
         },
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "avalanche"
+            ]
+          }
         }
       ]
     },
@@ -542,13 +610,7 @@
       },
       "parameters": [
         {
-          "name": "chain",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "description": "Chain name (example: bsc, ethereum, matic...)"
+          "$ref": "#/components/parameters/chain"
         },
         {
           "name": "address",
@@ -3329,6 +3391,7 @@
             "bsc",
             "matic",
             "celo",
+            "avalanche",
             "xinfin",
             "zilliqa",
             "solana",
