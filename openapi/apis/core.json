@@ -192,6 +192,52 @@
         }
       ]
     },
+    "/v1/{chain}/token-address/{address}/holders-count": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "ethereum",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo"
+            ]
+          }
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "example": "0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37",
+            "type": "string"
+          },
+          "description": "Any valid Erc20 token address"
+        }
+      ],
+      "get": {
+        "summary": "Token Holders Count",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/TokenHoldersCount"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "token-holders-count",
+        "parameters": [],
+        "description": "This endpoint allows you to retrieve the total token holders for a given token contract address."
+      }
+    },
     "/v2/protocols/{protocols}/address/{address}/positions": {
       "get": {
         "summary": "Get Lp positions",
@@ -4982,7 +5028,7 @@
           }
         }
       },
-      "LPPairs":  {
+      "LPPairs": {
         "description": "",
         "content": {
           "application/json": {
@@ -7117,7 +7163,7 @@
           }
         }
       },
-      "LPTransactions":  {
+      "LPTransactions": {
         "description": "",
         "content": {
           "application/json": {
@@ -7236,6 +7282,37 @@
                       }
                     }
                   ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "TokenHoldersCount": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "x-examples": {
+                "example-1": {
+                  "token_holders_count": "3367"
+                }
+              },
+              "properties": {
+                "transactions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37": {
+                "value": {
+                  "token_holders_count": "3367"
                 }
               }
             }
@@ -8703,7 +8780,7 @@
           }
         }
       },
-      "Nft-details":  {
+      "Nft-details": {
         "description": "",
         "content": {
           "application/json": {
