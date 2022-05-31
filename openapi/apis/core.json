@@ -4824,7 +4824,6 @@
                 }
               },
               "properties": {
-                "user-address": "string",
                 "transactions": {
                   "type": "array",
                   "items": {
@@ -6048,7 +6047,6 @@
                 }
               },
               "properties": {
-                "user-address": "string",
                 "transactions": {
                   "type": "array",
                   "items": {
@@ -7179,7 +7177,6 @@
                 }
               },
               "properties": {
-                "user-address": "string",
                 "transactions": {
                   "type": "array",
                   "items": {
@@ -8359,7 +8356,6 @@
                 }
               },
               "properties": {
-                "user-address": "string",
                 "transactions": {
                   "type": "array",
                   "items": {
@@ -8730,7 +8726,6 @@
                 }
               },
               "properties": {
-                "user-address": "string",
                 "transactions": {
                   "type": "array",
                   "items": {
