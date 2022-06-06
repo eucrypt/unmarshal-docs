@@ -46,9 +46,9 @@
         }
       ],
       "get": {
-        "summary": "Get Logs on topics",
+        "summary": "Get Log events by topics",
         "tags": [
-          "Get Logs"
+          "Get Logs Events"
         ],
         "responses": {
           "200": {
@@ -58,7 +58,7 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "get-logs-on-topics",
+        "operationId": "get-log-events-by-topics",
         "parameters": [
           {
             "$ref": "#/components/parameters/topics"
@@ -70,7 +70,7 @@
             "$ref": "#/components/parameters/toBlock"
           }
         ],
-        "description": "This endpoint allows to fetch all the logs for a specified topic/s between a specified blocks. \n\n If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned."
+        "description": "This endpoint allows to fetch all log events for a specified topic/s between a specified blocks. \n\n If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned."
       }
     },
     "/v1/{chain}/contract/{address}/logs": {
@@ -91,9 +91,9 @@
         }
       ],
       "post": {
-        "summary": "Get Logs on contract address",
+        "summary": "Get Log events by contract address",
         "tags": [
-          "Get Logs"
+          "Get Logs Events"
         ],
         "responses": {
           "200": {
@@ -103,7 +103,7 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "get-logs-on-contract",
+        "operationId": "get-logs-by-contract",
         "parameters": [
           {
             "$ref": "#/components/parameters/fromBlock"
@@ -121,7 +121,7 @@
             }
           }
         },
-        "description": "This endpoint allows to fetch all the logs for a specified contract between a specified blocks. Also this provides a decoded logs events.\n\n  If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned."
+        "description": "This endpoint allows to fetch all the log events for a specified contract between a specified blocks. Also this provides a decoded logs events.\n\n  If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned."
       }
     },
     "/v1/{chain}/address/{address}/transactions": {
@@ -9815,7 +9815,7 @@
       "description": ""
     },
     {
-      "name": "Get Logs",
+      "name": "Get Logs Events",
       "description": "Get all transactions logs between specified blocks"
     }
   ]
