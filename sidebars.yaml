@@ -1,6 +1,6 @@
 docs:
   - page: index.mdx
-  
+
   - page: gettingStarted.md
     separatorLine: true
 
@@ -31,4 +31,8 @@ docs:
 
   - page: docs/go-sdk/*
     label: Go SDK
+    separatorLine: true
+
+  - page: docs/api-weightages/*
+    label: Api Weightages
     separatorLine: true
