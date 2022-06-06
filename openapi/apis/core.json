@@ -39,6 +39,91 @@
         "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets."
       }
     },
+    "/v1/{chain}/topics/logs": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        }
+      ],
+      "get": {
+        "summary": "Get Logs on topics",
+        "tags": [
+          "Get Logs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Topics-logs"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-logs-on-topics",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/topics"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "description": "This endpoint allows to fetch all the logs for a specified topic/s between a specified blocks. \n\n If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned."
+      }
+    },
+    "/v1/{chain}/contract/{address}/logs": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+            "example": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256"
+          },
+          "description": "Any valid Contract address"
+        }
+      ],
+      "post": {
+        "summary": "Get Logs on contract address",
+        "tags": [
+          "Get Logs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Contract-logs"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "get-logs-on-contract",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contract-abi"
+              }
+            }
+          }
+        },
+        "description": "This endpoint allows to fetch all the logs for a specified contract between a specified blocks. Also this provides a decoded logs events.\n\n  If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned."
+      }
+    },
     "/v1/{chain}/address/{address}/transactions": {
       "parameters": [
         {
@@ -71,9 +156,15 @@
           },
           {
             "$ref": "#/components/parameters/contract"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
           }
         ],
-        "description": "**The token transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity ."
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity ."
       }
     },
     "/v2/{chain}/address/{address}/transactions": {
@@ -116,9 +207,162 @@
           },
           {
             "$ref": "#/components/parameters/contract"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
           }
         ],
-        "description": "**The token transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n"
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n Transaction endpoint V2 provides the transactions along with the price at the time of transaction"
+      }
+    },
+    "/v3/{chain}/address/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "demo.eth",
+            "example": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
+          },
+          "description": "Any valid address or ENS"
+        }
+      ],
+      "get": {
+        "summary": "Transaction History V3",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions-V3"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-history-v-3",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/contract"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n Transaction V3 endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will return a boolean value which specifies whether transaction are present in next page"
+      }
+    },
+    "/v1/{chain}/token/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+            "example": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256"
+          },
+          "description": "And valid contract address"
+        }
+      ],
+      "get": {
+        "summary": "Token Transaction History V1",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "token-transaction-history-v-1",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n"
+      }
+    },
+    "/v2/{chain}/token/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chain"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+            "example": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256"
+          },
+          "description": "And valid contract address"
+        }
+      ],
+      "get": {
+        "summary": "Token Transaction History V2",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "token-transaction-history-v-2",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n Transaction V3 endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will return a boolean value which specifies whether transaction are present in next page"
       }
     },
     "/v1/{chain}/transactions/{transactionHash}": {
@@ -242,7 +486,7 @@
       "get": {
         "summary": "Get Lp positions",
         "tags": [
-          "Protocol APIs"
+          "Protocol(LP) APIs"
         ],
         "responses": {
           "200": {
@@ -252,7 +496,8 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "get-lp-positions"
+        "operationId": "get-lp-positions",
+        "description": "Lp positions Endpoints provides all the positions for a given a address and a protocol"
       },
       "parameters": [
         {
@@ -275,7 +520,7 @@
       "get": {
         "summary": "Get Lp pairs",
         "tags": [
-          "Protocol APIs"
+          "Protocol(LP) APIs"
         ],
         "responses": {
           "200": {
@@ -293,7 +538,8 @@
           {
             "$ref": "#/components/parameters/pageSize"
           }
-        ]
+        ],
+        "description": "Lp Pairs Endpoints provides All the pairs available Lp pairs in a requested protocol"
       },
       "parameters": [
         {
@@ -313,7 +559,7 @@
       "get": {
         "summary": "Get Lp transactions",
         "tags": [
-          "Protocol APIs"
+          "Protocol(LP) APIs"
         ],
         "responses": {
           "200": {
@@ -331,7 +577,8 @@
           {
             "$ref": "#/components/parameters/pageSize"
           }
-        ]
+        ],
+        "description": "Lp transactions Endpoints provides all the transactions for a given a address and a protocol"
       },
       "parameters": [
         {
@@ -2889,6 +3136,21 @@
           ]
         ]
       },
+      "Contract-abi": {
+        "title": "Contract-ABI",
+        "type": "object",
+        "example": {
+          "contract_abi": "[\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"string\",\n                \"name\": \"name\",\n                \"type\": \"string\"\n            },\n            {\n                \"internalType\": \"string\",\n                \"name\": \"symbol\",\n                \"type\": \"string\"\n            },\n            {\n                \"internalType\": \"uint8\",\n                \"name\": \"decimals\",\n                \"type\": \"uint8\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"constructor\"\n    },\n    {\n        \"anonymous\": false,\n        \"inputs\": [\n            {\n                \"indexed\": true,\n                \"internalType\": \"address\",\n                \"name\": \"owner\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": true,\n                \"internalType\": \"address\",\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": false,\n                \"internalType\": \"uint256\",\n                \"name\": \"value\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"Approval\",\n        \"type\": \"event\"\n    },\n    {\n        \"anonymous\": false,\n        \"inputs\": [\n            {\n                \"indexed\": true,\n                \"internalType\": \"address\",\n                \"name\": \"previousOwner\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": true,\n                \"internalType\": \"address\",\n                \"name\": \"newOwner\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"OwnershipTransferred\",\n        \"type\": \"event\"\n    },\n    {\n        \"anonymous\": false,\n        \"inputs\": [\n            {\n                \"indexed\": true,\n                \"internalType\": \"address\",\n                \"name\": \"from\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": true,\n                \"internalType\": \"address\",\n                \"name\": \"to\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": false,\n                \"internalType\": \"uint256\",\n                \"name\": \"value\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"Transfer\",\n        \"type\": \"event\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"owner\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"address\",\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"allowance\",\n        \"outputs\": [\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"amount\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"approve\",\n        \"outputs\": [\n            {\n                \"internalType\": \"bool\",\n                \"name\": \"\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"account\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"balanceOf\",\n        \"outputs\": [\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"amount\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"burn\",\n        \"outputs\": [],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"name\": \"decimals\",\n        \"outputs\": [\n            {\n                \"internalType\": \"uint8\",\n                \"name\": \"\",\n                \"type\": \"uint8\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"subtractedValue\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"decreaseAllowance\",\n        \"outputs\": [\n            {\n                \"internalType\": \"bool\",\n                \"name\": \"\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"addedValue\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"increaseAllowance\",\n        \"outputs\": [\n            {\n                \"internalType\": \"bool\",\n                \"name\": \"\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"to\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"amount\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"mint\",\n        \"outputs\": [],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"name\": \"name\",\n        \"outputs\": [\n            {\n                \"internalType\": \"string\",\n                \"name\": \"\",\n                \"type\": \"string\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"name\": \"owner\",\n        \"outputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"\",\n                \"type\": \"address\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"name\": \"renounceOwnership\",\n        \"outputs\": [],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"name\": \"symbol\",\n        \"outputs\": [\n            {\n                \"internalType\": \"string\",\n                \"name\": \"\",\n                \"type\": \"string\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"name\": \"totalSupply\",\n        \"outputs\": [\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"recipient\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"amount\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"transfer\",\n        \"outputs\": [\n            {\n                \"internalType\": \"bool\",\n                \"name\": \"\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"to\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"amount\",\n                \"type\": \"uint256\"\n            },\n            {\n                \"internalType\": \"bytes\",\n                \"name\": \"\",\n                \"type\": \"bytes\"\n            }\n        ],\n        \"name\": \"transferAndCall\",\n        \"outputs\": [\n            {\n                \"internalType\": \"bool\",\n                \"name\": \"\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"sender\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"address\",\n                \"name\": \"recipient\",\n                \"type\": \"address\"\n            },\n            {\n                \"internalType\": \"uint256\",\n                \"name\": \"amount\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"transferFrom\",\n        \"outputs\": [\n            {\n                \"internalType\": \"bool\",\n                \"name\": \"\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [\n            {\n                \"internalType\": \"address\",\n                \"name\": \"newOwner\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"transferOwnership\",\n        \"outputs\": [],\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    }\n]"
+        },
+        "properties": {
+          "contract_abi": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_abi"
+        ]
+      },
       "Symbol": {
         "type": "array",
         "description": "",
@@ -3593,6 +3855,39 @@
           "example": 5
         },
         "description": "Number of records to be fetched per page"
+      },
+      "fromBlock": {
+        "name": "fromBlock",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "default": 0,
+          "example": 100
+        },
+        "description": "Starting block from which the transactions should be considered"
+      },
+      "topics": {
+        "name": "topics",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "default": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "example": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+        },
+        "description": "Topics which are to be filtered in logs"
+      },
+      "toBlock": {
+        "name": "toBlock",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "default": 100,
+          "example": 1000
+        },
+        "description": "End block till which the transactions should be considered"
       },
       "contract": {
         "name": "contract",
@@ -8068,6 +8363,550 @@
           }
         }
       },
+      "Transactions-V3": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "x-examples": {
+                "example-1": {
+                  "page": 1,
+                  "items_on_page": 25,
+                  "has_next": true,
+                  "transactions": [
+                    {
+                      "id": "0xdc52ce2a96e4167ddd09a00d9a359baf4f11593bb043f5c0f91803e95a3079d0",
+                      "from": "0x2cb69e9931579cf058de13fa99bcddd9ee01c4b1",
+                      "to": "0x10ed43c718714eb63d5aa57b78b54704e256024e",
+                      "fee": "1164210000000000",
+                      "date": 1654505316,
+                      "status": "completed",
+                      "type": "swap",
+                      "block": 18448006,
+                      "value": "0",
+                      "nonce": 653,
+                      "native_token_decimals": 18,
+                      "description": "Swapped 500 USDT for 4474.9795 MARSH",
+                      "received": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "4474979524922017950654",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103",
+                          "to": "0x2cb69e9931579cf058de13fa99bcddd9ee01c4b1"
+                        }
+                      ],
+                      "sent": [
+                        {
+                          "name": "Tether USD",
+                          "symbol": "USDT",
+                          "token_id": "0x55d398326f99059ff775485246999027b3197955",
+                          "decimals": 18,
+                          "value": "500000000000000000000",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x55d398326f99059fF775485246999027B3197955.png",
+                          "from": "0x2cb69e9931579cf058de13fa99bcddd9ee01c4b1",
+                          "to": "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae"
+                        }
+                      ],
+                      "others": [
+                        {
+                          "name": "Wrapped BNB",
+                          "symbol": "WBNB",
+                          "token_id": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                          "decimals": 18,
+                          "value": "1602213151597334325",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png",
+                          "from": "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+                          "to": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "0xb81a81d401e647661c8bd5100168c7631c7589a50f80a6baf56eacc214d952fb",
+                      "from": "0x98771bba24d57af722b4b43f55e002df4f7d29b2",
+                      "to": "0xb954d485c329bd0fbfc881ae19f23b12cd3fdab2",
+                      "fee": "419935000000000",
+                      "date": 1654502823,
+                      "status": "completed",
+                      "type": "stake",
+                      "block": 18447180,
+                      "value": "0",
+                      "nonce": 535,
+                      "native_token_decimals": 18,
+                      "description": "Staked ",
+                      "others": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "12508829197774136752",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x98771bba24d57af722b4b43f55e002df4f7d29b2",
+                          "to": "0xb954d485c329bd0fbfc881ae19f23b12cd3fdab2"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "0x0fbb0cd0ace2819561bb61d3ee497f9f67905c967d7c3412f7e3d1af1f48ccf9",
+                      "from": "0x98771bba24d57af722b4b43f55e002df4f7d29b2",
+                      "to": "0xb954d485c329bd0fbfc881ae19f23b12cd3fdab2",
+                      "fee": "547205000000000",
+                      "date": 1654502799,
+                      "status": "completed",
+                      "type": "contract_execution",
+                      "block": 18447172,
+                      "value": "0",
+                      "nonce": 534,
+                      "native_token_decimals": 18,
+                      "description": "Smart Contract Executed"
+                    },
+                    {
+                      "id": "0xa7e68b4d4352c4c1b76b7ae4f5ae455b30e805a1d4bdc2b3f264be2937d0e0cf",
+                      "from": "0xf79ff5a481ef625662d63b63efeae35571843ee3",
+                      "to": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                      "fee": "106065000000000",
+                      "date": 1654499152,
+                      "status": "completed",
+                      "type": "receive",
+                      "block": 18445957,
+                      "value": "0",
+                      "nonce": 305,
+                      "native_token_decimals": 18,
+                      "description": "Received 4570.3111 MARSH",
+                      "received": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "4570311138648997007257",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0xf79ff5a481ef625662d63b63efeae35571843ee3",
+                          "to": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "0x34ea94de4202227dc737ab61948c2ee3cc7ac6062cd0d0fb5e2e99116ec46265",
+                      "from": "0x65a8f07bd9a8598e1b5b6c0a88f4779dbc077675",
+                      "to": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                      "fee": "207150000000000",
+                      "date": 1654482261,
+                      "status": "completed",
+                      "type": "receive",
+                      "block": 18440350,
+                      "value": "0",
+                      "nonce": 13478,
+                      "native_token_decimals": 18,
+                      "description": "Received 19650.6143 MARSH and 19650.6143 MARSH ",
+                      "received": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "19650614310408157368117",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x65a8f07bd9a8598e1b5b6c0a88f4779dbc077675",
+                          "to": "0x73f182613cd91c93b96ccad7db2f4c4d04eeb1f1"
+                        },
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "19650614310408157368117",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x73f182613cd91c93b96ccad7db2f4c4d04eeb1f1",
+                          "to": "0x0000000000000000000000000000000000000000"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "properties": {
+                "page": {
+                  "type": "number"
+                },
+                "items_on_page": {
+                  "type": "number"
+                },
+                "has_next": {
+                  "type": "boolean"
+                },
+                "transactions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction-V2"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "example-1": {
+                "value": {
+                  "page": 1,
+                  "items_on_page": 25,
+                  "has_next": true,
+                  "transactions": [
+                    {
+                      "id": "0xdc52ce2a96e4167ddd09a00d9a359baf4f11593bb043f5c0f91803e95a3079d0",
+                      "from": "0x2cb69e9931579cf058de13fa99bcddd9ee01c4b1",
+                      "to": "0x10ed43c718714eb63d5aa57b78b54704e256024e",
+                      "fee": "1164210000000000",
+                      "date": 1654505316,
+                      "status": "completed",
+                      "type": "swap",
+                      "block": 18448006,
+                      "value": "0",
+                      "nonce": 653,
+                      "native_token_decimals": 18,
+                      "description": "Swapped 500 USDT for 4474.9795 MARSH",
+                      "received": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "4474979524922017950654",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103",
+                          "to": "0x2cb69e9931579cf058de13fa99bcddd9ee01c4b1"
+                        }
+                      ],
+                      "sent": [
+                        {
+                          "name": "Tether USD",
+                          "symbol": "USDT",
+                          "token_id": "0x55d398326f99059ff775485246999027b3197955",
+                          "decimals": 18,
+                          "value": "500000000000000000000",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x55d398326f99059fF775485246999027B3197955.png",
+                          "from": "0x2cb69e9931579cf058de13fa99bcddd9ee01c4b1",
+                          "to": "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae"
+                        }
+                      ],
+                      "others": [
+                        {
+                          "name": "Wrapped BNB",
+                          "symbol": "WBNB",
+                          "token_id": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                          "decimals": 18,
+                          "value": "1602213151597334325",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png",
+                          "from": "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+                          "to": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "0x7484ea87c5ab38687ea7d39de2d307781d552025c550bc721de37131674eefaf",
+                      "from": "0x2767653f97589b63497a0fe5e180132d034bd315",
+                      "to": "0x10ed43c718714eb63d5aa57b78b54704e256024e",
+                      "fee": "1907451000000000",
+                      "date": 1654482264,
+                      "status": "completed",
+                      "type": "swap",
+                      "block": 18440351,
+                      "value": "0",
+                      "nonce": 3397,
+                      "native_token_decimals": 18,
+                      "description": "Swapped 6186.6278 MARSH for ",
+                      "sent": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "6186627755954759350693",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x2767653f97589b63497a0fe5e180132d034bd315",
+                          "to": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103"
+                        }
+                      ],
+                      "others": [
+                        {
+                          "name": "Wrapped BNB",
+                          "symbol": "WBNB",
+                          "token_id": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                          "decimals": 18,
+                          "value": "2285759346471271721",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png",
+                          "from": "0x222f93187f15f354d41ff6a7703ef7e18cdd5103",
+                          "to": "0xd99c7f6c65857ac913a8f880a4cb84032ab2fc5b"
+                        },
+                        {
+                          "name": "USD Coin",
+                          "symbol": "USDC",
+                          "token_id": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+                          "decimals": 18,
+                          "value": "697895151690092642859",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.png",
+                          "from": "0xd99c7f6c65857ac913a8f880a4cb84032ab2fc5b",
+                          "to": "0x2767653f97589b63497a0fe5e180132d034bd315"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "0x34ea94de4202227dc737ab61948c2ee3cc7ac6062cd0d0fb5e2e99116ec46265",
+                      "from": "0x65a8f07bd9a8598e1b5b6c0a88f4779dbc077675",
+                      "to": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                      "fee": "207150000000000",
+                      "date": 1654482261,
+                      "status": "completed",
+                      "type": "receive",
+                      "block": 18440350,
+                      "value": "0",
+                      "nonce": 13478,
+                      "native_token_decimals": 18,
+                      "description": "Received 19650.6143 MARSH and 19650.6143 MARSH ",
+                      "received": [
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "19650614310408157368117",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x65a8f07bd9a8598e1b5b6c0a88f4779dbc077675",
+                          "to": "0x73f182613cd91c93b96ccad7db2f4c4d04eeb1f1"
+                        },
+                        {
+                          "name": "UnmarshalToken",
+                          "symbol": "MARSH",
+                          "token_id": "0x2fa5daf6fe0708fbd63b1a7d1592577284f52256",
+                          "decimals": 18,
+                          "value": "19650614310408157368117",
+                          "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png",
+                          "from": "0x73f182613cd91c93b96ccad7db2f4c4d04eeb1f1",
+                          "to": "0x0000000000000000000000000000000000000000"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "Topics-logs": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "x-examples": {
+                "example-1": [
+                  {
+                    "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x0000000000000000000000006fa0ae33263e500a6aba7535e5837c8766769847",
+                      "0x000000000000000000000000737046ef759691fbc778cd59fdec77b1534c39a5"
+                    ],
+                    "data": "0x0000000000000000000000000000000000000000000000003526dd6e8c968000",
+                    "blockNumber": "0x1198a78",
+                    "transactionHash": "0xe6fe847a3742cdbca295fecc001d25509781ed88028ca8db917f88991f0db0bf",
+                    "transactionIndex": "0x0",
+                    "blockHash": "0xd555b23a9bbea80c203b624d70a3f702439bd1f5d1d6402547f6ad69638024cf",
+                    "logIndex": "0x0",
+                    "removed": false
+                  },
+                  {
+                    "address": "0x26193c7fa4354ae49ec53ea2cebc513dc39a10aa",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x000000000000000000000000737046ef759691fbc778cd59fdec77b1534c39a5",
+                      "0x0000000000000000000000006fa0ae33263e500a6aba7535e5837c8766769847"
+                    ],
+                    "data": "0x0000000000000000000000000000000000000000000009527d94da97cced1b24",
+                    "blockNumber": "0x1198a78",
+                    "transactionHash": "0xe6fe847a3742cdbca295fecc001d25509781ed88028ca8db917f88991f0db0bf",
+                    "transactionIndex": "0x0",
+                    "blockHash": "0xd555b23a9bbea80c203b624d70a3f702439bd1f5d1d6402547f6ad69638024cf",
+                    "logIndex": "0x1",
+                    "removed": false
+                  },
+                  {
+                    "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x0000000000000000000000008fb70a8a791b2454c33f199ef6fe0a136af75710",
+                      "0x000000000000000000000000737046ef759691fbc778cd59fdec77b1534c39a5"
+                    ],
+                    "data": "0x000000000000000000000000000000000000000000000000b469471f80140000",
+                    "blockNumber": "0x1198a78",
+                    "transactionHash": "0x0f4f695d32cc9221f46bd0bbeff33ab03c5f53bddf99f79c4ab476945c34d78f",
+                    "transactionIndex": "0x3",
+                    "blockHash": "0xd555b23a9bbea80c203b624d70a3f702439bd1f5d1d6402547f6ad69638024cf",
+                    "logIndex": "0x4",
+                    "removed": false
+                  }
+                ]
+              },
+              "properties": {
+              }
+            },
+            "examples": {
+              "example-1": {
+                "value": [
+                  {
+                    "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x0000000000000000000000006fa0ae33263e500a6aba7535e5837c8766769847",
+                      "0x000000000000000000000000737046ef759691fbc778cd59fdec77b1534c39a5"
+                    ],
+                    "data": "0x0000000000000000000000000000000000000000000000003526dd6e8c968000",
+                    "blockNumber": "0x1198a78",
+                    "transactionHash": "0xe6fe847a3742cdbca295fecc001d25509781ed88028ca8db917f88991f0db0bf",
+                    "transactionIndex": "0x0",
+                    "blockHash": "0xd555b23a9bbea80c203b624d70a3f702439bd1f5d1d6402547f6ad69638024cf",
+                    "logIndex": "0x0",
+                    "removed": false
+                  },
+                  {
+                    "address": "0x26193c7fa4354ae49ec53ea2cebc513dc39a10aa",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x000000000000000000000000737046ef759691fbc778cd59fdec77b1534c39a5",
+                      "0x0000000000000000000000006fa0ae33263e500a6aba7535e5837c8766769847"
+                    ],
+                    "data": "0x0000000000000000000000000000000000000000000009527d94da97cced1b24",
+                    "blockNumber": "0x1198a78",
+                    "transactionHash": "0xe6fe847a3742cdbca295fecc001d25509781ed88028ca8db917f88991f0db0bf",
+                    "transactionIndex": "0x0",
+                    "blockHash": "0xd555b23a9bbea80c203b624d70a3f702439bd1f5d1d6402547f6ad69638024cf",
+                    "logIndex": "0x1",
+                    "removed": false
+                  },
+                  {
+                    "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x0000000000000000000000008fb70a8a791b2454c33f199ef6fe0a136af75710",
+                      "0x000000000000000000000000737046ef759691fbc778cd59fdec77b1534c39a5"
+                    ],
+                    "data": "0x000000000000000000000000000000000000000000000000b469471f80140000",
+                    "blockNumber": "0x1198a78",
+                    "transactionHash": "0x0f4f695d32cc9221f46bd0bbeff33ab03c5f53bddf99f79c4ab476945c34d78f",
+                    "transactionIndex": "0x3",
+                    "blockHash": "0xd555b23a9bbea80c203b624d70a3f702439bd1f5d1d6402547f6ad69638024cf",
+                    "logIndex": "0x4",
+                    "removed": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "Contract-logs": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "x-examples": {
+                "example-1": [
+                  {
+                    "address": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x000000000000000000000000b954d485c329bd0fbfc881ae19f23b12cd3fdab2",
+                      "0x000000000000000000000000bb38e1c9e6d61b51f2ef5f9290b29e86d9191fdf"
+                    ],
+                    "data": "0x00000000000000000000000000000000000000000000001fe25c9b566b156cbd",
+                    "blockNumber": 18301824,
+                    "transactionHash": "0x61b648635870ced5bbb3f10c264ac666c7d4b93a50e3686e845f24115883f430",
+                    "transactionIndex": 76,
+                    "blockHash": "0xaafe16c41f85e95f993e1c9d4c45d8834f98affbb972c163ac35ac842e0c1aa7",
+                    "logIndex": 209,
+                    "decodedEvents": {
+                      "signature": "Transfer(address,address,uint256)",
+                      "params": [
+                        {
+                          "name": "from",
+                          "type": "address",
+                          "indexed": true,
+                          "value": "0xb954d485c329bd0fbfc881ae19f23b12cd3fdab2"
+                        },
+                        {
+                          "name": "to",
+                          "type": "address",
+                          "indexed": true,
+                          "value": "0xbb38e1c9e6d61b51f2ef5f9290b29e86d9191fdf"
+                        },
+                        {
+                          "name": "value",
+                          "type": "uint256",
+                          "indexed": false,
+                          "value": 588160149030891200000
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "properties": {
+              }
+            },
+            "examples": {
+              "example-1": {
+                "value": [
+                  {
+                    "address": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+                    "topics": [
+                      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                      "0x000000000000000000000000b954d485c329bd0fbfc881ae19f23b12cd3fdab2",
+                      "0x000000000000000000000000bb38e1c9e6d61b51f2ef5f9290b29e86d9191fdf"
+                    ],
+                    "data": "0x00000000000000000000000000000000000000000000001fe25c9b566b156cbd",
+                    "blockNumber": 18301824,
+                    "transactionHash": "0x61b648635870ced5bbb3f10c264ac666c7d4b93a50e3686e845f24115883f430",
+                    "transactionIndex": 76,
+                    "blockHash": "0xaafe16c41f85e95f993e1c9d4c45d8834f98affbb972c163ac35ac842e0c1aa7",
+                    "logIndex": 209,
+                    "decodedEvents": {
+                      "signature": "Transfer(address,address,uint256)",
+                      "params": [
+                        {
+                          "name": "from",
+                          "type": "address",
+                          "indexed": true,
+                          "value": "0xb954d485c329bd0fbfc881ae19f23b12cd3fdab2"
+                        },
+                        {
+                          "name": "to",
+                          "type": "address",
+                          "indexed": true,
+                          "value": "0xbb38e1c9e6d61b51f2ef5f9290b29e86d9191fdf"
+                        },
+                        {
+                          "name": "value",
+                          "type": "uint256",
+                          "indexed": false,
+                          "value": 588160149030891200000
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
       "TransactionDetails": {
         "description": "",
         "content": {
@@ -8956,7 +9795,7 @@
       "description": ""
     },
     {
-      "name": "Protocol APIs",
+      "name": "Protocol(LP) APIs",
       "description": ""
     },
     {
@@ -8974,6 +9813,10 @@
     {
       "name": "Top Traders",
       "description": ""
+    },
+    {
+      "name": "Get Logs",
+      "description": "Get all transactions logs between specified blocks"
     }
   ]
 }
