@@ -31,7 +31,7 @@ Choose between `Startup`, `Scale`, or `Enterprise`, as per your requirements. Th
 
 <br/>
 
-Visit [https://unmarshal.io/pricing](https://unmarshal.io/pricing) to view our pricing plans. Below is a quick screenshot:
+Visit [https://console.unmarshal.io/pricing](https://console.unmarshal.io/pricing) to view our pricing plans. Below is a quick screenshot:
 
 <br/>
 

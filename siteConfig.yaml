@@ -35,7 +35,7 @@ stylesheets:
 nav:
   - label: Pricing
     external: true
-    href: https://unmarshal.io/pricing
+    href: https://console.unmarshal.io/pricing
   - label: Get API Key
     external: true
     href: https://console.unmarshal.io
