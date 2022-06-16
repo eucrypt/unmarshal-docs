@@ -42,10 +42,248 @@
         "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)"
       }
     },
+    "/v1/{chain}/block/{blockNumber}/details": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "name": "blockNumber",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "15000000",
+            "example": "15000000"
+          },
+          "description": "Valid block Number"
+        }
+      ],
+      "get": {
+        "summary": "Block details by block number",
+        "tags": [
+          "Get Blocks"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Blocks"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "blocks-details-by-block-number",
+        "parameters": [],
+        "description": "This endpoint returns block level details for a given block number"
+      }
+    },
+    "/v1/{chain}/block-hash/{blockHash}/details": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "name": "blockHash",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866",
+            "example": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866"
+          },
+          "description": "Valid block Hash"
+        }
+      ],
+      "get": {
+        "summary": "Block details by block hash",
+        "tags": [
+          "Get Blocks"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Blocks"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "blocks-details-by-block-hash",
+        "parameters": [],
+        "description": "This endpoint returns block level details for a given block number"
+      }
+    },
+    "/v1/{chain}/block/{blockNumber}/transactions": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "name": "blockNumber",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "15000000",
+            "example": "15000000"
+          },
+          "description": "Valid block Number"
+        }
+      ],
+      "get": {
+        "summary": "Transactions By Block Number",
+        "tags": [
+          "Get Blocks"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BlockTransactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transactions-by-block-number",
+        "description": "**The transactions API fetches the list of all transactions for a given block number"
+      }
+    },
+    "/v1/{chain}/block-hash/{blockHash}/transactions": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "name": "blockHash",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866",
+            "example": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866"
+          },
+          "description": "Valid block Hash"
+        }
+      ],
+      "get": {
+        "summary": "Transactions By Block Hash",
+        "tags": [
+          "Get Blocks"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BlockTransactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transactions-by-block-hash",
+        "description": "**The transactions API fetches the list of all transactions for a given block hash"
+      }
+    },
     "/v1/{chain}/topics/logs": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
         }
       ],
       "get": {
@@ -79,7 +317,27 @@
     "/v1/{chain}/contract/{address}/logs": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
         },
         {
           "name": "address",
@@ -485,6 +743,53 @@
         "description": "This endpoint allows you to retrieve the total token holders for a given token contract address."
       }
     },
+    "/v1/{chain}/address/{address}/transactions/count": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "xinfin",
+              "zilliqa",
+              "fantom",
+              "bsc-testnet",
+              "matic-testnet",
+              "rinkeby-testnet"
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        }
+      ],
+      "get": {
+        "summary": "Total Transaction Count of an address",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/TokenHoldersCount"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-count-by-address",
+        "parameters": [],
+        "description": "This endpoint allows you to retrieve the transaction count for a given address"
+      }
+    },
     "/v2/protocols/{protocols}/address/{address}/positions": {
       "get": {
         "summary": "Get Lp positions",
@@ -660,8 +965,7 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche",
-              "solana"
+              "avalanche"
             ]
           }
         }
@@ -710,8 +1014,7 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche",
-              "solana"
+              "avalanche"
             ]
           }
         }
@@ -4244,6 +4547,188 @@
                     "quote_pct_change_24h": 0.14783
                   }
                 ]
+              }
+            }
+          }
+        }
+      },
+      "BlockTransactions": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "",
+              "x-examples": {
+                "example-1": [
+                  {
+                    "txid": "0x9a15af750632b777747cd7f3eccf3322fb4e788af8de9ee1c2aef4dc87c43dfc",
+                    "vin": [
+                      {
+                        "addresses": [
+                          "0x4bad9f1a15bd17e78b59e086aa4092a3ce0de5c2"
+                        ]
+                      }
+                    ],
+                    "vout": [
+                      {
+                        "value": "0",
+                        "addresses": [
+                          "0x7393869b3317a81ac16305f549402ad57e1a7a26"
+                        ]
+                      }
+                    ],
+                    "blockHash": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866",
+                    "blockHeight": 17447728,
+                    "blockTime": 1651477438,
+                    "value": "0",
+                    "fees": "4738024609354904",
+                    "price": 0,
+                    "tokenTransfers": [
+                      {
+                        "from": "0x118ed46a6ea1ad0938cd637536d4351734ce16ee",
+                        "to": "0x7393869b3317a81ac16305f549402ad57e1a7a26",
+                        "token": "0xa4838122c683f732289805fc3c207febd55babdd",
+                        "value": "109977234255525880197",
+                        "price": 0
+                      },
+                      {
+                        "from": "0x7393869b3317a81ac16305f549402ad57e1a7a26",
+                        "to": "0x118ed46a6ea1ad0938cd637536d4351734ce16ee",
+                        "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+                        "value": "437341824000000000000",
+                        "price": 0
+                      }
+                    ],
+                    "ethereumSpecific": {
+                      "status": 1,
+                      "nonce": 982646,
+                      "gasLimit": 220003,
+                      "gasUsed": 62024,
+                      "gasPrice": "76390181371",
+                      "data": "0x00001678000000000017b55647caad680000000000000005f022c10607d1c000118ed46a6ea1ad0938cd637536d4351734ce16eecedbbde9a63380b0f5ed63001319bb5f4f745f05cf3da478dd0b6550fa9451d2941b9600dd67a6fd9bd7fa129be9dd3d773ce0192fdc21fe1c05574832",
+                      "shard_id": 0,
+                      "to_shard_id": 0
+                    }
+                  }
+                ]
+              },
+              "items": {
+                "$ref": "#/components/schemas/Asset"
+              }
+            },
+            "examples": {
+              "15000000": {
+                "value": [
+                  {
+                    "txid": "0x9a15af750632b777747cd7f3eccf3322fb4e788af8de9ee1c2aef4dc87c43dfc",
+                    "vin": [
+                      {
+                        "addresses": [
+                          "0x4bad9f1a15bd17e78b59e086aa4092a3ce0de5c2"
+                        ]
+                      }
+                    ],
+                    "vout": [
+                      {
+                        "value": "0",
+                        "addresses": [
+                          "0x7393869b3317a81ac16305f549402ad57e1a7a26"
+                        ]
+                      }
+                    ],
+                    "blockHash": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866",
+                    "blockHeight": 17447728,
+                    "blockTime": 1651477438,
+                    "value": "0",
+                    "fees": "4738024609354904",
+                    "price": 0,
+                    "tokenTransfers": [
+                      {
+                        "from": "0x118ed46a6ea1ad0938cd637536d4351734ce16ee",
+                        "to": "0x7393869b3317a81ac16305f549402ad57e1a7a26",
+                        "token": "0xa4838122c683f732289805fc3c207febd55babdd",
+                        "value": "109977234255525880197",
+                        "price": 0
+                      },
+                      {
+                        "from": "0x7393869b3317a81ac16305f549402ad57e1a7a26",
+                        "to": "0x118ed46a6ea1ad0938cd637536d4351734ce16ee",
+                        "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+                        "value": "437341824000000000000",
+                        "price": 0
+                      }
+                    ],
+                    "ethereumSpecific": {
+                      "status": 1,
+                      "nonce": 982646,
+                      "gasLimit": 220003,
+                      "gasUsed": 62024,
+                      "gasPrice": "76390181371",
+                      "data": "0x00001678000000000017b55647caad680000000000000005f022c10607d1c000118ed46a6ea1ad0938cd637536d4351734ce16eecedbbde9a63380b0f5ed63001319bb5f4f745f05cf3da478dd0b6550fa9451d2941b9600dd67a6fd9bd7fa129be9dd3d773ce0192fdc21fe1c05574832",
+                      "shard_id": 0,
+                      "to_shard_id": 0
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "Blocks": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "",
+              "x-examples": {
+                "example-1": {
+                  "hash": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866",
+                  "number": 17447728,
+                  "timestamp": 1651477438,
+                  "difficulty": 2,
+                  "gasLimit": 79119550,
+                  "gasUsed": 79119550,
+                  "miner": "0x3f349bbafec1551819b8be1efea2fc46ca749aa1",
+                  "nonce": 0,
+                  "parentHash": "0x1ca5549b95c6cd75b4b1bc817f7208fb2d39954da4ec5668d8298f6c163e667b",
+                  "receiptsRoot": "0x0bf8b62a4a72a8fd74c1f82f5775ea69b45cedcda7536e2ccd1062923cac38ad",
+                  "sha3Uncles": "",
+                  "size": 71571,
+                  "totalDifficulty": 34683994,
+                  "transactionsRoot": "0xeda083f4b4985b20fde93e4f04d485d6fa127dd0ff7dedf61fda8a20eaf2da54",
+                  "transactions": [
+                    "0xb7b9e674389e9cc38edd129be403cc07d19d6a2d36d10a39ac51998809a372f4"
+                  ]
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/Asset"
+              }
+            },
+            "examples": {
+              "15000000": {
+                "value": {
+                  "hash": "0x2d7c24d91e115fb3d2eab2cd052bff62d5a50073dd183116bae052360e083866",
+                  "number": 17447728,
+                  "timestamp": 1651477438,
+                  "difficulty": 2,
+                  "gasLimit": 79119550,
+                  "gasUsed": 79119550,
+                  "miner": "0x3f349bbafec1551819b8be1efea2fc46ca749aa1",
+                  "nonce": 0,
+                  "parentHash": "0x1ca5549b95c6cd75b4b1bc817f7208fb2d39954da4ec5668d8298f6c163e667b",
+                  "receiptsRoot": "0x0bf8b62a4a72a8fd74c1f82f5775ea69b45cedcda7536e2ccd1062923cac38ad",
+                  "sha3Uncles": "",
+                  "size": 71571,
+                  "totalDifficulty": 34683994,
+                  "transactionsRoot": "0xeda083f4b4985b20fde93e4f04d485d6fa127dd0ff7dedf61fda8a20eaf2da54",
+                  "transactions": [
+                    "0xb7b9e674389e9cc38edd129be403cc07d19d6a2d36d10a39ac51998809a372f4"
+                  ]
+                }
               }
             }
           }
@@ -11701,6 +12186,10 @@
     {
       "name": "Top Traders",
       "description": ""
+    },
+    {
+      "name": "Get Blocks",
+      "description": "Get block details by block Number and block hash"
     },
     {
       "name": "Get Logs Events",
