@@ -921,7 +921,8 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "solana"
             ]
           }
         }
@@ -951,7 +952,7 @@
             "$ref": "#/components/parameters/contract"
           }
         ],
-        "description": "NFT assets API gives the information about all the NFT assets held by a address with pagination (offset based pagination). In this endpoint instead of navigating with page parameter we can navigate using offset, where the next offset is provided in the response.\n\n **Filters:** \n\n - \t\tGet Nft assets of an address for a specified contract  \n\n\tContract Address Filtering, returns assets which belongs to the specified contract.(contract query parameter accepts any valid ERC721 or Erc1155 contract address)\n\n"
+        "description": "NFT assets API gives the information about all the NFT assets held by a address with pagination (offset based pagination). In this endpoint instead of navigating with page parameter we can navigate using offset, where the next offset is provided in the response.\n\n For **solana** pagination and contract address filtering is not supported at the moment.\n\n **Filters:** \n\n - \t\tGet Nft assets of an address for a specified contract  \n\n\tContract Address Filtering, returns assets which belongs to the specified contract.(contract query parameter accepts any valid ERC721 or Erc1155 contract address)\n\n"
       }
     },
     "/v1/{chain}/address/{address}/nft-transactions": {
