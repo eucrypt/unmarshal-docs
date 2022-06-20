@@ -667,7 +667,7 @@
         "description": "The transaction detail API is one such End Point which gives as much details possible for a specific transaction on a specific given chain.\n\n \nAll we need is the transaction hash and the entire history of the transaction is presented to anyone looking for all minor details pertaining to the particular transaction"
       }
     },
-    "/v2/ethereum/address/{address}/userData": {
+    "/v2/{chain}/address/{address}/userData": {
       "get": {
         "summary": "Profit and Loss",
         "tags": [
@@ -703,11 +703,30 @@
             }
           },
           "description": ""
-        }
+        },
+        "description": "The profit loss endpoint provide the profit or loss made by an address for a given token."
       },
       "parameters": [
         {
           "$ref": "#/components/parameters/address"
+        },
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "bsc",
+            "enum": [
+              "ethereum",
+              "bsc",
+              "matic",
+              "celo",
+              "avalanche",
+              "fantom",
+            ]
+          },
+          "description": "Chain name (example: bsc, ethereum, matic...)"
         }
       ]
     },
