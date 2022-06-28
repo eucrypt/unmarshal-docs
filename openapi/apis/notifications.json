@@ -198,7 +198,7 @@
           }
         },
         "deprecated": false,
-        "description": "",
+        "description": "This endpoint allows you to subscribe through webhook to get notified for all transactions made by a wallet.\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet).\n\n In order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/webhook/subscribe\t\n\n along with all required body.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -357,7 +357,7 @@
           }
         },
         "deprecated": false,
-        "description": "",
+        "description": "This endpoint allows you to subscribe through firebase to get notified for all transactions made by a wallet.\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet).\n\nIn order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/firebase/subscribe\t\n\n along with all required body.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -404,7 +404,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to subscribe for whale alerts using firebase.\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet).\n\nIn order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/firebase/whale-alert/subscribe\t\n\n along with all required body."
       }
     },
     "/webhook/whale-alert/subscribe": {
@@ -441,7 +442,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to subscribe for whale alerts using webhook.\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet).\n\nIn order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/webhook/whale-alert/subscribe\t\n\n along with all required body."
       }
     },
     "/{address}/unsubscribe": {
@@ -458,7 +460,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to unsubscribe notifications for a wallet\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\nIn order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/{address}/unsubscribe\t\n\n"
       },
       "parameters": [
         {
@@ -507,7 +510,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to bulk unsubscribe notifications for a wallet which were subscribed through firebase\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\nIn order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/subscriptions/firebase/unsubscribe\t\n\n along with all required body."
       }
     },
     "/subscriptions/webhook/unsubscribe": {
@@ -541,7 +545,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to bulk unsubscribe notifications for a wallet which were subscribed through webhook\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\nIn order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/subscriptions/webhook/unsubscribe\t\n\n along with all required body."
       }
     },
     "/firebase/credentials": {
@@ -581,7 +586,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to update firebase server credentials\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\n In order to use notifications for testnets use \n\n\t  https://testnet-notify.unmarshal.com/v1/firebase/credentials\t\n\n along with all required body."
       }
     },
     "/firebase/refresh-token": {
@@ -613,7 +619,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to refresh firebase token\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\n In order to use notifications for testnets use \n\n\t https://testnet-notify.unmarshal.com/v1/firebase/refresh-token\t\n\n along with all required body."
       }
     },
     "/subscriptions": {
@@ -675,7 +682,7 @@
           }
         },
         "deprecated": false,
-        "description": ""
+        "description": "This endpoint allows you to get all subscriptions\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\n In order to use notifications for testnets use \n\n\t   https://testnet-notify.unmarshal.com/v1/subscriptions\t\n\n along with all required body."
       }
     },
     "/receipts": {
@@ -704,7 +711,8 @@
             "headers": {}
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "This endpoint allows you to get notification receipts\n\n **Chains Supported:** \n\n Ethereum, bsc, matic, celo, avalanche, xinfin, zilliqa, fantom, bsc-testnet and polygon-testnet(mumbai-testnet). \n\n In order to use notifications for testnets use \n\n\t   https://testnet-notify.unmarshal.com/v1/receipts\t\n\n"
       }
     }
   },

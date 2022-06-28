@@ -721,9 +721,6 @@
               "ethereum",
               "bsc",
               "matic",
-              "celo",
-              "avalanche",
-              "fantom",
             ]
           },
           "description": "Chain name (example: bsc, ethereum, matic...)"
