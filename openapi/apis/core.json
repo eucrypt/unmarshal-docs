@@ -15,13 +15,19 @@
     "/v1/{chain}/address/{address}/assets": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/chains"
         },
         {
           "$ref": "#/components/parameters/address"
         },
         {
           "$ref": "#/components/parameters/verified"
+        },
+        {
+          "$ref": "#/components/parameters/chainId"
+        },
+        {
+          "$ref": "#/components/parameters/token"
         }
       ],
       "get": {
@@ -39,7 +45,7 @@
         },
         "operationId": "assets-details",
         "parameters": [],
-        "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)"
+        "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains"
       }
     },
     "/v1/{chain}/block/{blockNumber}/details": {
@@ -55,6 +61,7 @@
               "ethereum",
               "bsc",
               "matic",
+              "kadena",
               "celo",
               "avalanche",
               "xinfin",
@@ -66,6 +73,9 @@
             ]
           },
           "description": "Chain name (example: bsc, ethereum, matic...)"
+        },
+        {
+          "$ref": "#/components/parameters/chainId"
         },
         {
           "name": "blockNumber",
@@ -388,7 +398,7 @@
     "/v1/{chain}/address/{address}/transactions": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/chains"
         },
         {
           "$ref": "#/components/parameters/address"
@@ -423,9 +433,12 @@
           },
           {
             "$ref": "#/components/parameters/toBlock"
+          },
+          {
+            "$ref": "#/components/parameters/chainId"
           }
         ],
-        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address)"
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address)\n\n -\t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n\n"
       }
     },
     "/v2/{chain}/address/{address}/transactions": {
@@ -547,7 +560,7 @@
     "/v1/{chain}/token/{address}/transactions": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/chains"
         },
         {
           "name": "address",
@@ -587,9 +600,12 @@
           },
           {
             "$ref": "#/components/parameters/toBlock"
+          },
+          {
+            "$ref": "#/components/parameters/chainId"
           }
         ],
-        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n"
+        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n\n"
       }
     },
     "/v2/{chain}/token/{address}/transactions": {
@@ -643,10 +659,13 @@
     "/v1/{chain}/transactions/{transactionHash}": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/chains"
         },
         {
           "$ref": "#/components/parameters/transactionHash"
+        },
+        {
+          "$ref": "#/components/parameters/chainId"
         }
       ],
       "get": {
@@ -720,7 +739,7 @@
             "enum": [
               "ethereum",
               "bsc",
-              "matic",
+              "matic"
             ]
           },
           "description": "Chain name (example: bsc, ethereum, matic...)"
@@ -3968,6 +3987,31 @@
         },
         "description": "Chain name (example: bsc, ethereum, matic...)"
       },
+      "chains": {
+        "name": "chain",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "bsc",
+          "enum": [
+            "ethereum",
+            "bsc",
+            "matic",
+            "kadena",
+            "celo",
+            "avalanche",
+            "xinfin",
+            "zilliqa",
+            "solana",
+            "fantom",
+            "bsc-testnet",
+            "matic-testnet",
+            "rinkeby-testnet"
+          ]
+        },
+        "description": "Chain name (example: bsc, ethereum, matic...)"
+      },
       "address": {
         "name": "address",
         "in": "path",
@@ -4060,6 +4104,26 @@
           "default": "false"
         },
         "description": "Set true for only verified tokens"
+      },
+      "chainId": {
+        "name": "chainId",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "false"
+        },
+        "description": "Return details for requested chain id (For Kadena chain)"
+      },
+      "token": {
+        "name": "token",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "false"
+        },
+        "description": "Return balances of the requested token (For Kadena chain)"
       },
       "transactionHash": {
         "name": "transactionHash",
