@@ -21,6 +21,16 @@ docs:
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
+  - group: Parser
+    icon: ./images/logo.png
+    expanded: true
+    separatorLine: true
+    pages:
+      - page: docs/parser/index.md
+        label: Introduction
+      - page: docs/parser/Setting up an indexer.md
+        label: Setting up an indexer
+
   - page: docs/graphql/*
     label: Graphql
     separatorLine: true
