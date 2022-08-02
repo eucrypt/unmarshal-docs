@@ -21,6 +21,14 @@ docs:
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
+  - group: Parser
+    menuStyle: drilldown
+    separatorLine: true
+    pages:
+      - group: Product docs
+        pages:
+          - page: docs/parser/*
+
   - page: docs/graphql/*
     label: Graphql
     separatorLine: true
