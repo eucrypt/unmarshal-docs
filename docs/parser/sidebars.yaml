@@ -1,6 +1,0 @@
-docs:
-  - label: Parser docs
-    page: index.md
-    expanded: false
-    pages:
-      - page: ./3.md
