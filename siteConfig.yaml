@@ -39,8 +39,6 @@ nav:
   - label: Get API Key
     external: true
     href: https://console.unmarshal.io
-  - label: Parser
-    group: Notifications
   - search: true
 
 footer:
