@@ -294,10 +294,10 @@ To get a more specific token’s price, the following self-explanatory functions
 
 - `get_live_price_with_symbol_and_chain_name(symbol text, chain_name text)`
 
-  - The `chain_name` refers to the similarly named column in [live_token_prices](#live-token-prices-live_token_prices)
+  - The `chain_name` refers to the similarly named column in [live_token_prices](#live-token-prices)
 
 - `get_live_price_with_symbol_and_chain_id(symbol text, chain_id text)`
-  - The `chain_id` refers to the similarly named column in [live_token_prices](#live-token-prices-live_token_prices)
+  - The `chain_id` refers to the similarly named column in [live_token_prices](#live-token-prices)
 
 ##### With the Contract Address (`get_live_price_with_contract_address(contract_address text)`):
 
@@ -318,10 +318,10 @@ To get a more specific token’s price, the following self-explanatory functions
 
 - `get_live_price_with_contract_address_and_chain_name(contract_address text, chain_name text)`
 
-  - The `chain_name` refers to the similarly named column in [live_token_prices](#live-token-prices-live_token_prices)
+  - The `chain_name` refers to the similarly named column in [live_token_prices](#live-token-prices)
 
 - `get_live_price_with_contract_address_and_chain_id(contract_address text, chain_id text)`
-  - The `chain_id` refers to the similarly named column in [live_token_prices](#live-token-prices-live_token_prices)
+  - The `chain_id` refers to the similarly named column in [live_token_prices](#live-token-prices)
 
 #### Getting the Symbol
 
@@ -337,10 +337,10 @@ routines to make the fetch even more specific
 
 - `get_symbol_with_contract_address_and_chain_id(contract_address text, chain_id text)`
 
-  - The `chain_id` refers to the similarly named column in [token_details](#token-details-token_details)
+  - The `chain_id` refers to the similarly named column in [token_details](#token-details)
 
 - `get_symbol_with_contract_address_and_chain_name(contract_address text, chain_name text)`
-  - The `chain_name` refers to the similarly named column in [token_details](#token-details-token_details)
+  - The `chain_name` refers to the similarly named column in [token_details](#token-details)
 
 #### Getting the decimal adjusted value of the Token transferred
 
