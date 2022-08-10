@@ -185,4 +185,4 @@ As mentioned previously, we index your data in Postgres schemas, and Postgres su
 
 **Making dashboards public**
 
-Reach out to Unmarshal either on [Telegram](https://t.me/Unmarshal_Chat), [Twitter](https://twitter.com/unmarshal) or Discord and we can help you out with this. Once your dashboard has been made public by the Unmarshal team, you will get a link which can either be directly used or embedded in your web application using an IFrame.
+Reach out to Unmarshal either on [Telegram](https://t.me/Unmarshal_Chat), [Twitter](https://twitter.com/unmarshal) or [Discord](https://discord.gg/SqhYdGYtEr) and we can help you out with this. Once your dashboard has been made public by the Unmarshal team, you will get a link which can either be directly used or embedded in your web application using an IFrame.

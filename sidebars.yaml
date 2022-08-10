@@ -6,13 +6,12 @@ docs:
 
   - group: Parser
     menuStyle: drilldown
-    page: docs/parser/index.md
     separatorLine: true
     pages:
-      - group: Introduction
-        page: docs/parser/index.md
+      - group: Parser
         expanded: true
         pages:
+          - page: docs/parser/index.md
           - page: docs/parser/create_parser.md
           - page: docs/parser/metabase.md
           - page: docs/parser/graphql.md
