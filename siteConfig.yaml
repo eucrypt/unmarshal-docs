@@ -24,12 +24,12 @@ oasDefinitions:
   notifications: ./openapi/apis/notifications.json
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
-  - './static/main.css'
+  - "./static/main.css"
   - https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap
 #analytics:
-  # ga:
-  # note that GA doesn't work in the development environment
-  #  trackingId: UA-45997213-1
+# ga:
+# note that GA doesn't work in the development environment
+#  trackingId: UA-45997213-1
 #scripts:
 #  - ./static/intercom.js
 nav:

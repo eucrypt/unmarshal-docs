@@ -4,6 +4,20 @@ docs:
   - page: gettingStarted.md
     separatorLine: true
 
+  - group: Parser
+    menuStyle: drilldown
+    separatorLine: true
+    pages:
+      - group: Parser
+        expanded: true
+        pages:
+          - page: docs/parser/index.md
+          - page: docs/parser/create_parser.md
+          - page: docs/parser/metabase.md
+          - page: docs/parser/graphql.md
+          # - page: docs/parser/plugins.md
+          - page: docs/parser/utility_schema.md
+
   - group: Core APIs
     expanded: true
     separatorLine: true
