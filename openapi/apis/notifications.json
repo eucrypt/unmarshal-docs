@@ -19,7 +19,17 @@
         ],
         "summary": "Subscribe Webhook",
         "operationId": "SubscribeWebhook",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "chain",
+            "description": "filter notifications based on given chain",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -217,7 +227,17 @@
         ],
         "summary": "Subscribe Firebase Notification",
         "operationId": "SubscribeFirebaseNotification",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "chain",
+            "description": "filter notifications based on given chain",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -376,7 +396,17 @@
         ],
         "summary": "Whale alert subscribe firebase",
         "operationId": "Whalealertsubscribefirebase",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "chain",
+            "description": "filter notifications based on given chain",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "",
           "content": {
@@ -415,7 +445,17 @@
         ],
         "summary": "Whale alert subscribe webhook",
         "operationId": "Whalealertsubscribewebhook",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "chain",
+            "description": "filter notifications based on given chain",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "",
           "content": {
