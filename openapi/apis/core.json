@@ -971,7 +971,9 @@
               "bsc",
               "matic",
               "avalanche",
-              "solana"
+              "solana",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         }
@@ -1035,7 +1037,9 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         },
@@ -1081,7 +1085,9 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         },
@@ -1136,7 +1142,9 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         },
@@ -1197,7 +1205,9 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         },
@@ -1241,7 +1251,9 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         },
@@ -1305,7 +1317,9 @@
               "ethereum",
               "bsc",
               "matic",
-              "avalanche"
+              "avalanche",
+              "bsc-testnet",
+              "matic-testnet"
             ]
           }
         }
