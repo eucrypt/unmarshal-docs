@@ -68,6 +68,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -127,6 +128,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -183,6 +185,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -238,6 +241,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -293,6 +297,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -348,6 +353,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -816,6 +822,7 @@
               "xinfin",
               "zilliqa",
               "fantom",
+              "fuse",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -978,6 +985,7 @@
               "matic",
               "avalanche",
               "solana",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -1044,6 +1052,7 @@
               "bsc",
               "matic",
               "avalanche",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -1092,6 +1101,7 @@
               "bsc",
               "matic",
               "avalanche",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -1149,6 +1159,7 @@
               "bsc",
               "matic",
               "avalanche",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -1212,6 +1223,7 @@
               "bsc",
               "matic",
               "avalanche",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -1258,6 +1270,7 @@
               "bsc",
               "matic",
               "avalanche",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -1324,6 +1337,7 @@
               "bsc",
               "matic",
               "avalanche",
+              "fuse",
               "bsc-testnet",
               "matic-testnet"
             ]
@@ -4001,6 +4015,7 @@
             "zilliqa",
             "solana",
             "fantom",
+            "fuse",
             "bsc-testnet",
             "matic-testnet",
             "rinkeby-testnet"
@@ -4027,6 +4042,7 @@
             "zilliqa",
             "solana",
             "fantom",
+            "fuse",
             "bsc-testnet",
             "matic-testnet",
             "rinkeby-testnet"
