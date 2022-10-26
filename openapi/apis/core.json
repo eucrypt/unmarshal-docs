@@ -45,7 +45,7 @@
         },
         "operationId": "assets-details",
         "parameters": [],
-        "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains"
+        "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains\n  \n```js\nimport Unmarshal, {Chain} from \"unmarshal-new-web-client-sdk\";\n\nconst client = new Unmarshal({apiKey: \"YOUR_API_KEY_GOES_HERE\"});\n\nclient.WalletAPi\n    .getTokenBalances(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n\n```"
       }
     },
     "/v1/{chain}/block/{blockNumber}/details": {
@@ -106,7 +106,7 @@
         },
         "operationId": "blocks-details-by-block-number",
         "parameters": [],
-        "description": "This endpoint returns block level details for a given block number"
+        "description": "This endpoint returns block level details for a given block number\n\n\n```js\nclient.EVMApi\n    .getBlockDetailsByNumber(Chain.ethereum, 10000)\n    .then(({data}) => console.log(data))\n```"
       }
     },
     "/v1/{chain}/block-hash/{blockHash}/details": {
@@ -163,7 +163,7 @@
         },
         "operationId": "blocks-details-by-block-hash",
         "parameters": [],
-        "description": "This endpoint returns block level details for a given block number"
+        "description": "This endpoint returns block level details for a given block number\n\n```js\nclient.EVMApi\n    .getBlockDetailsByHash(Chain.ethereum, \"block hash\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
     "/v1/{chain}/block/{blockNumber}/transactions": {
@@ -1036,8 +1036,7 @@
         },
         "operationId": "nft-transactions-by-address",
         "description": "NFT transactions API gives the list of transaction being made on given wallet address.",
-        "parameters": [
-        ]
+        "parameters": []
       },
       "parameters": [
         {
@@ -9200,8 +9199,7 @@
                   }
                 ]
               },
-              "properties": {
-              }
+              "properties": {}
             },
             "examples": {
               "example-1": {
@@ -9305,8 +9303,7 @@
                   }
                 ]
               },
-              "properties": {
-              }
+              "properties": {}
             },
             "examples": {
               "example-1": {
