@@ -35,10 +35,6 @@ docs:
       - page: openapi/notifications.page.yaml/*
         label: Notifications
 
-  - page: docs/graphql/*
-    label: Graphql
-    separatorLine: true
-
   - page: docs/telegram-bot/*
     label: Telegram Bot
     separatorLine: true
