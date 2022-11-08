@@ -24,6 +24,16 @@ docs:
     pages:
       - page: openapi/core.page.yaml/*
         label: Core Apis
+  - group: Web3 SDK
+    expanded: true
+    separatorLine: true
+    pages:
+      - page: docs/ts-sdk/*
+        label: JS/TS SDK
+        separatorLine: true
+      - page: docs/go-sdk/*
+        label: Go SDK
+        separatorLine: true
 
   - group: Notifications
     icon: ./images/logo.png
@@ -41,10 +51,6 @@ docs:
 
   - page: docs/telegram-bot/*
     label: Telegram Bot
-    separatorLine: true
-
-  - page: docs/go-sdk/*
-    label: Go SDK
     separatorLine: true
 
   - page: docs/api-weightages/*
