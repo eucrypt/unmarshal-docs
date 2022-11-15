@@ -1000,6 +1000,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "solana",
               "fuse",
               "bsc-testnet",
@@ -1070,6 +1071,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "fuse",
               "bsc-testnet",
               "matic-testnet"
@@ -1121,6 +1123,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "fuse",
               "bsc-testnet",
               "matic-testnet"
@@ -1181,6 +1184,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "fuse",
               "bsc-testnet",
               "matic-testnet"
@@ -1247,6 +1251,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "fuse",
               "bsc-testnet",
               "matic-testnet"
@@ -1296,6 +1301,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "fuse",
               "bsc-testnet",
               "matic-testnet"
@@ -1365,6 +1371,7 @@
               "avalanche",
               "cronos",
               "velas",
+              "klaytn",
               "fuse",
               "bsc-testnet",
               "matic-testnet"
