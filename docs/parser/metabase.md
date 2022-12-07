@@ -56,17 +56,17 @@ You can find your Metabase credentials under the parser section on the Unmarshal
 
 **Detailed steps**
 
-- Click on the View details in the Metabase Add-On
+- Click on the Analytics section present at the side nav bar and head on to Custom Analytics Tab
 
 ![](../../images/parser/metabase/metabase_view_details.png)
 
-_Fig. 1.4 Metabase add-on view details section_
+_Fig. 1.4 Metabase add-on credentials section_
 
-- Click on the URL available in the Metabase popup window
+- Click on the URL available in the Metabase window
 
-![](https://lh5.googleusercontent.com/keFwiPsNCE0tUKzgZahRTnhmIkQ9zQwsk6k3u6asWb__jG-lehEApiesy-DjT32Zu7irp26jUT1Y6AE4yxkYJ78uJlhGnODcHG_kM3TNA01b9Flwtljb4uCnjTv7RNAeyxcOs_dq2No6Ftt_WNxopgQ)
+![](../../images/parser/metabase/metabase_custom_analytics.png)
 
-_Fig. 1.5 URL in Metabase View details window_
+_Fig. 1.5 URL in Metabase credentials window_
 
 - Use the above credentials to log into Metabase
 - And just like that, you are one step closer to curating information from the data collected by your parser
