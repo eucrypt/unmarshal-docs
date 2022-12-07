@@ -19,17 +19,17 @@ In the previous section [Setting up an Indexer Using Unmarshal Parser
 
 ![](../../images/parser/metabase/parser_form_schema_name.png)
 
-_Fig. 1.1 Parser form highlighting the database name field_
+_Fig. 1.1 Parser form highlighting the schema name field_
 
-- **Don’t remember the name you gave?** The name of the schema where your parser is writing data can be found under the View details section.
+- **Don’t remember the name you gave?** The name of the schema where your parser is writing data can be found upon clicking on a respective parser.
 
 ![](../../images/parser/metabase/parser_view_details.png)
 
-_Fig 1.2 Parser listing screen view details section_
+_Fig 1.2 Parsers list_
 
 ![](../../images/parser/metabase/parser_view_details_on_click.png)
 
-_Fig 1.3 Schema name in the parser View details window_
+_Fig 1.3 Schema name in the parser details window_
 
 - As initially mentioned, all of your data tables are saved under this schema.
 - The data of each of the contract events/functions selected for indexing(at the time of parser creation) is saved into corresponding tables.
