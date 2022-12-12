@@ -668,7 +668,7 @@
         "tags": [
           "List"
         ],
-        "summary": "Get Subscriptions",
+        "summary": "Subscriptions",
         "operationId": "GetSubscriptions",
         "parameters": [
           {

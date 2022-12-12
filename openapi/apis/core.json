@@ -435,7 +435,7 @@
         }
       ],
       "get": {
-        "summary": "Transaction History of an address",
+        "summary": "Transaction History",
         "tags": [
           "Wallet APIs"
         ],
@@ -489,7 +489,7 @@
         }
       ],
       "get": {
-        "summary": "Wallet Transaction History with the price",
+        "summary": "Transaction History with price",
         "tags": [
           "Wallet APIs"
         ],
@@ -540,7 +540,7 @@
         }
       ],
       "get": {
-        "summary": "Wallet Transaction History without count",
+        "summary": "Transaction History without count",
         "tags": [
           "Wallet APIs"
         ],
@@ -605,7 +605,7 @@
         }
       ],
       "get": {
-        "summary": "Token Transactions History",
+        "summary": "Token Transaction History",
         "tags": [
           "Wallet APIs"
         ],
@@ -656,7 +656,7 @@
         }
       ],
       "get": {
-        "summary": "Token Transaction History without count",
+        "summary": "Token Transactions without count",
         "tags": [
           "Wallet APIs"
         ],
@@ -875,7 +875,7 @@
     },
     "/v2/protocols/{protocols}/address/{address}/positions": {
       "get": {
-        "summary": "Get Lp positions",
+        "summary": "LP Positions",
         "tags": [
           "Protocol(LP) APIs"
         ],
@@ -909,7 +909,7 @@
     },
     "/v2/protocols/{protocols}/pairs": {
       "get": {
-        "summary": "Get Lp pairs",
+        "summary": "LP Pairs",
         "tags": [
           "Protocol(LP) APIs"
         ],
@@ -948,7 +948,7 @@
     },
     "/v2/protocols/{protocols}/address/{address}/lp_transactions": {
       "get": {
-        "summary": "Get Lp transactions",
+        "summary": "LP Transactions",
         "tags": [
           "Protocol(LP) APIs"
         ],
@@ -1277,7 +1277,7 @@
     },
     "/v1/{chain}/contract/{address}/tokenIds": {
       "get": {
-        "summary": "Token ids of an nft contract",
+        "summary": "Token IDs of an NFT Contract",
         "tags": [
           "NFTs"
         ],
@@ -1327,7 +1327,7 @@
     },
     "/v1/{chain}/address/{address}/nftholders": {
       "get": {
-        "summary": "NFT holders by id",
+        "summary": "NFT Holders by ID",
         "tags": [
           "NFTs"
         ],
