@@ -225,7 +225,7 @@
         "tags": [
           "Transactional Notification"
         ],
-        "summary": "Subscribe Firebase Notification",
+        "summary": "Subscribe Firebase",
         "operationId": "SubscribeFirebaseNotification",
         "parameters": [
           {
@@ -394,7 +394,7 @@
         "tags": [
           "Whale alert"
         ],
-        "summary": "Whale alert subscribe firebase",
+        "summary": "Subscribe firebase",
         "operationId": "Whalealertsubscribefirebase",
         "parameters": [
           {
@@ -443,7 +443,7 @@
         "tags": [
           "Whale alert"
         ],
-        "summary": "Whale alert subscribe webhook",
+        "summary": "Subscribe webhook",
         "operationId": "Whalealertsubscribewebhook",
         "parameters": [
           {
@@ -594,7 +594,7 @@
         "tags": [
           "FirebaseSpecific"
         ],
-        "summary": "Firebase Update server credentials",
+        "summary": "Update server credentials",
         "operationId": "FirebaseUpdateservercredentials",
         "parameters": [],
         "requestBody": {
@@ -635,7 +635,7 @@
         "tags": [
           "FirebaseSpecific"
         ],
-        "summary": "Firebase Refresh Token",
+        "summary": "Refresh Token",
         "operationId": "FirebaseRefreshToken",
         "parameters": [],
         "requestBody": {

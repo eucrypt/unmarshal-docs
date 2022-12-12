@@ -95,7 +95,7 @@
         }
       ],
       "get": {
-        "summary": "Block details by block number",
+        "summary": "Details by number",
         "tags": [
           "Get Blocks"
         ],
@@ -155,7 +155,7 @@
         }
       ],
       "get": {
-        "summary": "Block details by block hash",
+        "summary": "Details by hash",
         "tags": [
           "Get Blocks"
         ],
@@ -215,7 +215,7 @@
         }
       ],
       "get": {
-        "summary": "Transactions By Block Number",
+        "summary": "Transactions By Number",
         "tags": [
           "Get Blocks"
         ],
@@ -274,7 +274,7 @@
         }
       ],
       "get": {
-        "summary": "Transactions By Block Hash",
+        "summary": "Transactions By Hash",
         "tags": [
           "Get Blocks"
         ],
@@ -322,7 +322,7 @@
         }
       ],
       "get": {
-        "summary": "Get Log events by topics",
+        "summary": "Log events by topics",
         "tags": [
           "Get Logs Events"
         ],
@@ -392,7 +392,7 @@
         }
       ],
       "post": {
-        "summary": "Get Log events by contract address",
+        "summary": "Log events by contract",
         "tags": [
           "Get Logs Events"
         ],
@@ -489,7 +489,7 @@
         }
       ],
       "get": {
-        "summary": "Transaction History of an address with the price at the time of transaction",
+        "summary": "Wallet Transaction History with the price",
         "tags": [
           "Wallet APIs"
         ],
@@ -540,7 +540,7 @@
         }
       ],
       "get": {
-        "summary": "Transaction History of an address without transaction count",
+        "summary": "Wallet Transaction History without count",
         "tags": [
           "Wallet APIs"
         ],
@@ -605,7 +605,7 @@
         }
       ],
       "get": {
-        "summary": "Transactions History of a token Address",
+        "summary": "Token Transactions History",
         "tags": [
           "Wallet APIs"
         ],
@@ -656,7 +656,7 @@
         }
       ],
       "get": {
-        "summary": "Transaction History of a token address without transaction count",
+        "summary": "Token Transaction History without count",
         "tags": [
           "Wallet APIs"
         ],
@@ -856,7 +856,7 @@
         }
       ],
       "get": {
-        "summary": "Total Transaction Count of an address",
+        "summary": "Wallet Transaction Count",
         "tags": [
           "Wallet APIs"
         ],
@@ -1017,7 +1017,7 @@
         }
       ],
       "get": {
-        "summary": "NFT assets by Address with offset based pagination",
+        "summary": "Paginated NFT assets",
         "tags": [
           "NFTs"
         ],
@@ -1046,7 +1046,7 @@
     },
     "/v1/{chain}/address/{address}/nft-transactions": {
       "get": {
-        "summary": "NFT Transactions by Address",
+        "summary": "NFT Transactions",
         "tags": [
           "NFTs"
         ],
@@ -1091,7 +1091,7 @@
     },
     "/v2/{chain}/address/{address}/nft-transactions": {
       "get": {
-        "summary": "NFT Transactions by Address with pagination",
+        "summary": "Paginated NFT Transactions",
         "tags": [
           "NFTs"
         ],
@@ -1143,7 +1143,7 @@
     },
     "/v2/{chain}/address/{address}/details": {
       "get": {
-        "summary": "NFT details of all tokenIds of a contract",
+        "summary": "TokenIDs' details of NFT contract",
         "tags": [
           "NFTs"
         ],
@@ -1210,7 +1210,7 @@
     },
     "/v1/{chain}/contract/{address}/nft-transactions": {
       "get": {
-        "summary": "Get Nft Contract Transactions ",
+        "summary": "Nft Contract Transactions ",
         "tags": [
           "NFTs"
         ],
@@ -1277,7 +1277,7 @@
     },
     "/v1/{chain}/contract/{address}/tokenIds": {
       "get": {
-        "summary": "Get all token ids available for a nft contract",
+        "summary": "Token ids of an nft contract",
         "tags": [
           "NFTs"
         ],
@@ -1393,7 +1393,7 @@
         }
       ],
       "get": {
-        "summary": "Get Price by Symbol",
+        "summary": "Price by Symbol",
         "tags": [
           "Price Store"
         ],
@@ -1416,7 +1416,7 @@
     },
     "/v1/pricestore/chain/{chain}/{address}": {
       "get": {
-        "summary": "Get Price by Address",
+        "summary": "Price by Address",
         "tags": [
           "Price Store"
         ],
@@ -1459,7 +1459,7 @@
     },
     "/v1/pricestore/chain/{chain}/tokens": {
       "get": {
-        "summary": "Get Price for multiple Token Addresses",
+        "summary": "Price for Tokens in bulk",
         "tags": [
           "Price Store"
         ],
@@ -1543,7 +1543,7 @@
     },
     "/v1/pricestore/chain/{chain}/lptokens": {
       "get": {
-        "summary": "Price for LP Tokens",
+        "summary": "LP Tokens Price",
         "tags": [
           "Price Store"
         ],
@@ -1571,7 +1571,7 @@
     },
     "/v1/tokenstore/token/address/{address}": {
       "get": {
-        "summary": "Details for Token Contract",
+        "summary": "Details by Contract",
         "tags": [
           "Token Store"
         ],
@@ -1605,7 +1605,7 @@
         }
       ],
       "get": {
-        "summary": "Details for Token Symbol",
+        "summary": "Details by Symbol",
         "tags": [
           "Token Store"
         ],
