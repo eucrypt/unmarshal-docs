@@ -443,7 +443,7 @@
         }
       ],
       "get": {
-        "summary": "History by address without count",
+        "summary": "History by address",
         "tags": [
           "Transaction APIs"
         ],
@@ -4021,6 +4021,203 @@
                 },
                 "verified": {
                   "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "TopTokenHolders": {
+        "type": "object",
+        "description": "",
+        "x-examples": {
+          "example-1": {
+            "token_address": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "top_holders": [
+              {
+                "address": "0x56ee84baf54c472e206e06c29de8c494d0f120ba",
+                "balance": 62285000.00206402
+              },
+              {
+                "address": "0xef38f0cdfe4df26c0da27c9347b870cd4207a897",
+                "balance": 14963898.77438037
+              },
+              {
+                "address": "0xf16e9b0d03470827a95cdfd0cb8a8a3b46969b91",
+                "balance": 4250251.844552843
+              },
+              {
+                "address": "0x738cf6903e6c4e699d1c2dd9ab8b67fcdb3121ea",
+                "balance": 2282080.1403131136
+              },
+              {
+                "address": "0xfc270414a3dd54bb649f83349fb783182eab8610",
+                "balance": 2004448.7302565863
+              },
+              {
+                "address": "0x3bee11d70e5a25b16520286a7053e84dff2e0f5d",
+                "balance": 1794300.5638183085
+              },
+              {
+                "address": "0x9c5de3ad97b95a0da09fd0de84c347db450cd75c",
+                "balance": 1483756.7605084442
+              },
+              {
+                "address": "0xd0365271d8f74b7a0c8a0099aace8e1bbd701c78",
+                "balance": 1000000
+              },
+              {
+                "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+                "balance": 911049.7347293429
+              },
+              {
+                "address": "0x63ac48561c36933c4d810a537601508929e95d87",
+                "balance": 594990
+              },
+              {
+                "address": "0x06d8f188ce3a5d341e6d276ed49f88baf264e9fb",
+                "balance": 500000
+              },
+              {
+                "address": "0xd4b69e8d62c880e9dd55d419d5e07435c3538342",
+                "balance": 499990.0000000007
+              },
+              {
+                "address": "0xa5d4aeddf4ffb8f5ded3576c58ef345da2ca375d",
+                "balance": 499933.00190000003
+              },
+              {
+                "address": "0x410aa0b164db233eb40e857d34a9f581d3f7019c",
+                "balance": 372839.35504563997
+              },
+              {
+                "address": "0x11fb41e49f29a306a8a01a4d0e198902c9e6d241",
+                "balance": 268797
+              },
+              {
+                "address": "0x4a5bb1c9347a0d4f7e06a29239162f03647d9232",
+                "balance": 253999.9999037037
+              },
+              {
+                "address": "0x4c87a5806079d54f48e791a6b565d9646f0e48f4",
+                "balance": 226897.38548444546
+              },
+              {
+                "address": "0xc7fcdf23cfd8e65dbf412f04070d45eca1bb5025",
+                "balance": 206075.23155926
+              },
+              {
+                "address": "0x4d24eececb86041f47bca41265319e9f06ae2fcb",
+                "balance": 160517.50135227005
+              },
+              {
+                "address": "0x0ca90ac1c97fc3679df07e1ae5c20e4349c79b37",
+                "balance": 158991.00000000026
+              }
+            ],
+            "holders_count": 4070
+          }
+        },
+        "examples": {
+          "token_address": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+          "top_holders": [
+            {
+              "address": "0x56ee84baf54c472e206e06c29de8c494d0f120ba",
+              "balance": 62285000.00206402
+            },
+            {
+              "address": "0xef38f0cdfe4df26c0da27c9347b870cd4207a897",
+              "balance": 14963898.77438037
+            },
+            {
+              "address": "0xf16e9b0d03470827a95cdfd0cb8a8a3b46969b91",
+              "balance": 4250251.844552843
+            },
+            {
+              "address": "0x738cf6903e6c4e699d1c2dd9ab8b67fcdb3121ea",
+              "balance": 2282080.1403131136
+            },
+            {
+              "address": "0xfc270414a3dd54bb649f83349fb783182eab8610",
+              "balance": 2004448.7302565863
+            },
+            {
+              "address": "0x3bee11d70e5a25b16520286a7053e84dff2e0f5d",
+              "balance": 1794300.5638183085
+            },
+            {
+              "address": "0x9c5de3ad97b95a0da09fd0de84c347db450cd75c",
+              "balance": 1483756.7605084442
+            },
+            {
+              "address": "0xd0365271d8f74b7a0c8a0099aace8e1bbd701c78",
+              "balance": 1000000
+            },
+            {
+              "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+              "balance": 911049.7347293429
+            },
+            {
+              "address": "0x63ac48561c36933c4d810a537601508929e95d87",
+              "balance": 594990
+            },
+            {
+              "address": "0x06d8f188ce3a5d341e6d276ed49f88baf264e9fb",
+              "balance": 500000
+            },
+            {
+              "address": "0xd4b69e8d62c880e9dd55d419d5e07435c3538342",
+              "balance": 499990.0000000007
+            },
+            {
+              "address": "0xa5d4aeddf4ffb8f5ded3576c58ef345da2ca375d",
+              "balance": 499933.00190000003
+            },
+            {
+              "address": "0x410aa0b164db233eb40e857d34a9f581d3f7019c",
+              "balance": 372839.35504563997
+            },
+            {
+              "address": "0x11fb41e49f29a306a8a01a4d0e198902c9e6d241",
+              "balance": 268797
+            },
+            {
+              "address": "0x4a5bb1c9347a0d4f7e06a29239162f03647d9232",
+              "balance": 253999.9999037037
+            },
+            {
+              "address": "0x4c87a5806079d54f48e791a6b565d9646f0e48f4",
+              "balance": 226897.38548444546
+            },
+            {
+              "address": "0xc7fcdf23cfd8e65dbf412f04070d45eca1bb5025",
+              "balance": 206075.23155926
+            },
+            {
+              "address": "0x4d24eececb86041f47bca41265319e9f06ae2fcb",
+              "balance": 160517.50135227005
+            },
+            {
+              "address": "0x0ca90ac1c97fc3679df07e1ae5c20e4349c79b37",
+              "balance": 158991.00000000026
+            }
+          ],
+          "holders_count": 4070
+        },
+        "properties": {
+          "token_address": {
+            "type": "string"
+          },
+          "top_holders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "balance": {
+                  "type": "number"
                 }
               }
             }
