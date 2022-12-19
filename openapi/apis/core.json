@@ -425,103 +425,6 @@
         "description": "This endpoint allows to fetch all the log events for a specified contract between a specified blocks. Also this provides a decoded logs events.\n\n **Filters:** \n\n - \t\tGet All Logs between specified blocks\n\n \tBlock filtering, return all logs between those blocks, If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned. (fromBlock specifies from which block logs should be picked, toBlock specifies till which block)\n```ts\nunmarshal.EVMApi\n    .getEventsByContractAddress(Chain.ethereum, \"contract address\", \"contract abi in json format\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
-    "/v1/{chain}/address/{address}/transactions": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/chains"
-        },
-        {
-          "$ref": "#/components/parameters/address"
-        }
-      ],
-      "get": {
-        "summary": "Transaction History",
-        "tags": [
-          "Wallet APIs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/Transactions"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "transaction-history-for-an-address",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/pageNo"
-          },
-          {
-            "$ref": "#/components/parameters/pageSize"
-          },
-          {
-            "$ref": "#/components/parameters/contract"
-          },
-          {
-            "$ref": "#/components/parameters/fromBlock"
-          },
-          {
-            "$ref": "#/components/parameters/toBlock"
-          },
-          {
-            "$ref": "#/components/parameters/chainId"
-          }
-        ],
-        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address)\n\n -\t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTransactionHistory(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n\n"
-      }
-    },
-    "/v2/{chain}/address/{address}/transactions": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/chain"
-        },
-        {
-          "name": "address",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "default": "demo.eth",
-            "example": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
-          },
-          "description": "Any valid address or ENS"
-        }
-      ],
-      "get": {
-        "summary": "Transaction History with price",
-        "tags": [
-          "Wallet APIs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/Transactions-V2"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "transaction-history-with-price",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/pageNo"
-          },
-          {
-            "$ref": "#/components/parameters/pageSize"
-          },
-          {
-            "$ref": "#/components/parameters/contract"
-          },
-          {
-            "$ref": "#/components/parameters/fromBlock"
-          },
-          {
-            "$ref": "#/components/parameters/toBlock"
-          }
-        ],
-        "description": "**The transactions API fetches the list of all transactions in wallet address along with token price at the time of transaction**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address) \n```ts\nunmarshal.WalletApi\n    .getTransactionHistoryWithTokenPrice(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```"
-      }
-    },
     "/v3/{chain}/address/{address}/transactions": {
       "parameters": [
         {
@@ -540,9 +443,9 @@
         }
       ],
       "get": {
-        "summary": "Transaction History without count",
+        "summary": "History by address without count",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -587,10 +490,10 @@
         "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n This Endpoint allows contract filtering, where it returns all the transactions made by an address for that contract.\n\n This Endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will returns a boolean value which specifies whether transaction are present in next page\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract.\n\n - \t\tGet transactions along with price at the time of transaction\n\n\t Get all transactions along with prices of tokens which are involved\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistoryWithoutTotalCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
-    "/v1/{chain}/token/{address}/transactions": {
+    "/v2/{chain}/address/{address}/transactions": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chains"
+          "$ref": "#/components/parameters/chain"
         },
         {
           "name": "address",
@@ -598,16 +501,59 @@
           "required": true,
           "schema": {
             "type": "string",
-            "default": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
-            "example": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256"
+            "default": "demo.eth",
+            "example": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
           },
-          "description": "And valid contract address"
+          "description": "Any valid address or ENS"
         }
       ],
       "get": {
-        "summary": "Token Transaction History",
+        "summary": "History by address with price",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions-V2"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-history-with-price",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/contract"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "description": "**The transactions API fetches the list of all transactions in wallet address along with token price at the time of transaction**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address) \n```ts\nunmarshal.WalletApi\n    .getTransactionHistoryWithTokenPrice(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```"
+      }
+    },
+    "/v1/{chain}/address/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        }
+      ],
+      "get": {
+        "summary": "History by Address with transaction count",
+        "tags": [
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -617,13 +563,16 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "transaction-history-of-a-token-address",
+        "operationId": "transaction-history-for-an-address",
         "parameters": [
           {
             "$ref": "#/components/parameters/pageNo"
           },
           {
             "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/contract"
           },
           {
             "$ref": "#/components/parameters/fromBlock"
@@ -635,7 +584,7 @@
             "$ref": "#/components/parameters/chainId"
           }
         ],
-        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions wa\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address)\n\n -\t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTransactionHistory(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n\n",
       }
     },
     "/v2/{chain}/token/{address}/transactions": {
@@ -656,9 +605,9 @@
         }
       ],
       "get": {
-        "summary": "Token Transactions without count",
+        "summary": "Token Transactions",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -686,6 +635,57 @@
         "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address.**\n\n This Endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will returns a boolean value which specifies whether transaction are present in next page.  \n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistoryWithoutTotalCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
+    "/v1/{chain}/token/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+            "example": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256"
+          },
+          "description": "And valid contract address"
+        }
+      ],
+      "get": {
+        "summary": "Token Transactions with count",
+        "tags": [
+          "Transaction APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-history-of-a-token-address",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          },
+          {
+            "$ref": "#/components/parameters/chainId"
+          }
+        ],
+        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
+      }
+    },
     "/v1/{chain}/transactions/{transactionHash}": {
       "parameters": [
         {
@@ -701,7 +701,7 @@
       "get": {
         "summary": "Transaction Details",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -822,6 +822,33 @@
         "description": "This endpoint allows you to retrieve the total token holders for a given token contract address.\n```ts\nunmarshal.WalletApi\n    .getTokenHoldersCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
+    "/v1/{chain}/contract/{contract}/top-holders": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        }
+      ],
+      "get": {
+        "summary": "Top Token Holders",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/TopTokenHolders"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "top-token-holders",
+        "parameters": [],
+        "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains\n  \n```ts\nimport Unmarshal, {Chain} from \"@unmarshal/sdk\";\n\nconst unmarshal = new Unmarshal({apiKey: \"YOUR_API_KEY_GOES_HERE\"});\n\nunmarshal.WalletApi\n    .getTokenBalances(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n\n```"
+      }
+    },
     "/v1/{chain}/address/{address}/transactions/count": {
       "parameters": [
         {
@@ -858,7 +885,7 @@
       "get": {
         "summary": "Wallet Transaction Count",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -877,7 +904,7 @@
       "get": {
         "summary": "LP Positions",
         "tags": [
-          "Protocol(LP) APIs"
+          "Protocol(LP) APIs", "Wallet APIs"
         ],
         "responses": {
           "200": {
@@ -911,7 +938,7 @@
       "get": {
         "summary": "LP Pairs",
         "tags": [
-          "Protocol(LP) APIs"
+          "Protocol(LP) APIs", "Wallet APIs"
         ],
         "responses": {
           "200": {
@@ -950,7 +977,7 @@
       "get": {
         "summary": "LP Transactions",
         "tags": [
-          "Protocol(LP) APIs"
+          "Protocol(LP) APIs", "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -1017,7 +1044,7 @@
         }
       ],
       "get": {
-        "summary": "Paginated NFT assets",
+        "summary": "NFT assets By address",
         "tags": [
           "NFTs"
         ],
@@ -1041,57 +1068,12 @@
             "$ref": "#/components/parameters/contract"
           }
         ],
-        "description": "NFT assets API gives the information about all the NFT assets held by a address with pagination (offset based pagination). In this endpoint instead of navigating with page parameter we can navigate using offset, where the next offset is provided in the response.\n\n For **solana** pagination and contract address filtering is not supported at the moment.\n\n **Filters:** \n\n - \t\tGet Nft assets of an address for a specified contract  \n\n\tContract Address Filtering, returns assets which belongs to the specified contract.(contract query parameter accepts any valid ERC721 or Erc1155 contract address)\n```ts\nunmarshal.NFT\n    .getAssets(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n"
+        "description": "NFT assets API returns all NFT assets held by a address with pagination (offset based pagination). In this endpoint instead of navigating with page parameter we can navigate using offset, where the next offset is provided in the response.\n\n For **solana** pagination and contract address filtering is not supported at the moment.\n\n **Filters:** \n\n - \t\tGet Nft assets of an address for a specified contract  \n\n\tContract Address Filtering, returns assets which belongs to the specified contract.(contract query parameter accepts any valid ERC721 or Erc1155 contract address)\n```ts\nunmarshal.NFT\n    .getAssets(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n"
       }
-    },
-    "/v1/{chain}/address/{address}/nft-transactions": {
-      "get": {
-        "summary": "NFT Transactions",
-        "tags": [
-          "NFTs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/Nft-transactions"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "nft-transactions-by-address",
-        "description": "NFT transactions API gives the list of transaction being made on given wallet address.\n```ts\nunmarshal.NFT\n    .getTransactions(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```",
-        "parameters": []
-      },
-      "parameters": [
-        {
-          "name": "chain",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "example": "bsc",
-            "enum": [
-              "ethereum",
-              "bsc",
-              "matic",
-              "avalanche",
-              "cronos",
-              "velas",
-              "klaytn",
-              "fuse",
-              "bsc-testnet",
-              "matic-testnet"
-            ]
-          }
-        },
-        {
-          "$ref": "#/components/parameters/address"
-        }
-      ]
     },
     "/v2/{chain}/address/{address}/nft-transactions": {
       "get": {
-        "summary": "Paginated NFT Transactions",
+        "summary": "Nft Transaction History by address",
         "tags": [
           "NFTs"
         ],
@@ -1143,7 +1125,7 @@
     },
     "/v2/{chain}/address/{address}/details": {
       "get": {
-        "summary": "TokenIDs' details of NFT contract",
+        "summary": "Nft Metadata by contract or specific token id",
         "tags": [
           "NFTs"
         ],
@@ -1156,7 +1138,7 @@
           }
         },
         "operationId": "nft-details-of-all-tokenIds-of-a-contract",
-        "description": "This NFT gives more details about a specific NFT based on NFT id(if token Id not provided returns all token .Basically the metadata of an NFT which is currently most sought after\n```ts\nunmarshal.NFT\n    .getContractTokenDetails(Chain.ethereum, \"contract address\")\n    .then(({data}) => console.log(data))\n```",
+        "description": "Returns metadata of all the nfts within a contract or a specific nft if token id is given\n```ts\nunmarshal.NFT\n    .getContractTokenDetails(Chain.ethereum, \"contract address\")\n    .then(({data}) => console.log(data))\n```",
         "parameters": [
           {
             "in": "query",
@@ -1210,7 +1192,7 @@
     },
     "/v1/{chain}/contract/{address}/nft-transactions": {
       "get": {
-        "summary": "Nft Contract Transactions ",
+        "summary": "Nft Transaction History by contract or specific token id",
         "tags": [
           "NFTs"
         ],
@@ -1277,7 +1259,7 @@
     },
     "/v1/{chain}/contract/{address}/tokenIds": {
       "get": {
-        "summary": "Token IDs of an NFT Contract",
+        "summary": "List Nfts under a particular contract",
         "tags": [
           "NFTs"
         ],
@@ -1327,7 +1309,7 @@
     },
     "/v1/{chain}/address/{address}/nftholders": {
       "get": {
-        "summary": "NFT Holders by ID",
+        "summary": "Historical Nft holders by Nft",
         "tags": [
           "NFTs"
         ],
@@ -12026,12 +12008,16 @@
       "description": ""
     },
     {
-      "name": "Protocol(LP) APIs",
+      "name": "Transaction APIs",
       "description": ""
     },
     {
       "name": "NFTs",
       "description": "NFTs the latest buzz in the crypto world and Unmarshal is there to support with the data needs around NFTs as well."
+    },
+    {
+      "name": "Protocol(LP) APIs",
+      "description": ""
     },
     {
       "name": "Price Store",
