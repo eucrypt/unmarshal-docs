@@ -66,7 +66,7 @@
           "$ref": "#/components/parameters/token"
         },
         {
-          "$ref": "#/components/parameters/pageSize"
+          "$ref": "#/components/parameters/pageSizeAssetsV2"
         },
         {
           "$ref": "#/components/parameters/offset"
@@ -87,7 +87,7 @@
         },
         "operationId": "assets-with-pagination",
         "parameters": [],
-        "description": "This endpoint allows you to retrieve assets tied to a particular address on a specific chain.The response of this API is returned in a paginated format with an offset value.\n\n**Note:** To fetch items on the next page, pass next_offset value of current page as the value for the offset parameter\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains\n  \n```ts\nimport Unmarshal, {Chain} from \"@unmarshal/sdk\";\n\nconst unmarshal = new Unmarshal({apiKey: \"YOUR_API_KEY_GOES_HERE\"});\n\nunmarshal.WalletApi\n    .getTokenBalances(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n\n```"
+        "description": "This endpoint allows you to retrieve assets tied to a particular address on a specific chain.The response of this API is returned in a paginated format with an offset value.\n\n**Note:** \n\n - To fetch items on the next page, pass next_offset value of current page as the offset.\n\n - For Kadena and Solana, all assets will be returned in a single response. \n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains\n  \n```ts\nimport Unmarshal, {Chain} from \"@unmarshal/sdk\";\n\nconst unmarshal = new Unmarshal({apiKey: \"YOUR_API_KEY_GOES_HERE\"});\n\nunmarshal.WalletApi\n    .getTokenBalances(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n\n```"
       }
     },
     "/v1/{chain}/block/{blockNumber}/details": {
@@ -4611,6 +4611,17 @@
         },
         "description": "Number of records to be fetched per page"
       },
+      "pageSizeAssetsV2": {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "default": 50,
+          "example": 5
+        },
+        "description": "Number of records to be fetched per page"
+      },
       "fromBlock": {
         "name": "fromBlock",
         "in": "query",
@@ -4658,7 +4669,8 @@
         "in": "query",
         "required": false,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "default": "0"
         },
         "description": " The offset to start with, this is returned in the previous response."
       },
