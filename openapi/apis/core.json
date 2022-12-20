@@ -48,6 +48,48 @@
         "description": "This endpoint allows you to retrieve balance tied to a particular address on a specific chain.The response of this API will let you understand in details about all your assets.\n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains\n  \n```ts\nimport Unmarshal, {Chain} from \"@unmarshal/sdk\";\n\nconst unmarshal = new Unmarshal({apiKey: \"YOUR_API_KEY_GOES_HERE\"});\n\nunmarshal.WalletApi\n    .getTokenBalances(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n\n```"
       }
     },
+    "/v2/{chain}/address/{address}/assets": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        },
+        {
+          "$ref": "#/components/parameters/verified"
+        },
+        {
+          "$ref": "#/components/parameters/chainId"
+        },
+        {
+          "$ref": "#/components/parameters/token"
+        },
+        {
+          "$ref": "#/components/parameters/pageSizeAssetsV2"
+        },
+        {
+          "$ref": "#/components/parameters/offset"
+        }
+      ],
+      "get": {
+        "summary": "Assets with offset based pagination",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Assets-V2"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "assets-with-pagination",
+        "parameters": [],
+        "description": "This endpoint allows you to retrieve assets tied to a particular address on a specific chain.The response of this API is returned in a paginated format with an offset value.\n\n**Note:** \n\n - To fetch items on the next page, pass next_offset value of current page as the offset.\n\n - For Kadena and Solana, all assets will be returned in a single response. \n\n **Filters:** \n\n - \t\tGet All Assets Without dust tokens\n\n     Dust filtering, where if verified is specified as true it returns only verified tokens removing all dust tokens. (verified query parameter accepts true or false)\n\n -\t\tGet Assets in requested chain\n\n     Chain Id Filtering for kadena chain, Returns assets available on a particular chain (0-19)\n\n -\t\tGet a particular token balance across all chains\n\n     Token Filtering for kadena chain, Returns token balance across all chains (0-19). Combination of both token and chainID can be passed which return the balance of a requested token in a requested chain, If address does not start with k: or w: then both chainId and token should be passed\n\n -\t\tGet aggregated balance across all chains\n\n    Aggregated balance for kadena Returns the aggregated balance across all chains\n  \n```ts\nimport Unmarshal, {Chain} from \"@unmarshal/sdk\";\n\nconst unmarshal = new Unmarshal({apiKey: \"YOUR_API_KEY_GOES_HERE\"});\n\nunmarshal.WalletApi\n    .getTokenBalances(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n\n```"
+      }
+    },
     "/v1/{chain}/block/{blockNumber}/details": {
       "parameters": [
         {
@@ -95,7 +137,7 @@
         }
       ],
       "get": {
-        "summary": "Block details by block number",
+        "summary": "Details by number",
         "tags": [
           "Get Blocks"
         ],
@@ -155,7 +197,7 @@
         }
       ],
       "get": {
-        "summary": "Block details by block hash",
+        "summary": "Details by hash",
         "tags": [
           "Get Blocks"
         ],
@@ -215,7 +257,7 @@
         }
       ],
       "get": {
-        "summary": "Transactions By Block Number",
+        "summary": "Transactions By Number",
         "tags": [
           "Get Blocks"
         ],
@@ -274,7 +316,7 @@
         }
       ],
       "get": {
-        "summary": "Transactions By Block Hash",
+        "summary": "Transactions By Hash",
         "tags": [
           "Get Blocks"
         ],
@@ -322,7 +364,7 @@
         }
       ],
       "get": {
-        "summary": "Get Log events by topics",
+        "summary": "Log events by topics",
         "tags": [
           "Get Logs Events"
         ],
@@ -392,7 +434,7 @@
         }
       ],
       "post": {
-        "summary": "Get Log events by contract address",
+        "summary": "Log events by contract",
         "tags": [
           "Get Logs Events"
         ],
@@ -425,103 +467,6 @@
         "description": "This endpoint allows to fetch all the log events for a specified contract between a specified blocks. Also this provides a decoded logs events.\n\n **Filters:** \n\n - \t\tGet All Logs between specified blocks\n\n \tBlock filtering, return all logs between those blocks, If fromBlock and toBlocks are not specified then the recent 5 block logs will be returned. (fromBlock specifies from which block logs should be picked, toBlock specifies till which block)\n```ts\nunmarshal.EVMApi\n    .getEventsByContractAddress(Chain.ethereum, \"contract address\", \"contract abi in json format\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
-    "/v1/{chain}/address/{address}/transactions": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/chains"
-        },
-        {
-          "$ref": "#/components/parameters/address"
-        }
-      ],
-      "get": {
-        "summary": "Transaction History of an address",
-        "tags": [
-          "Wallet APIs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/Transactions"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "transaction-history-for-an-address",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/pageNo"
-          },
-          {
-            "$ref": "#/components/parameters/pageSize"
-          },
-          {
-            "$ref": "#/components/parameters/contract"
-          },
-          {
-            "$ref": "#/components/parameters/fromBlock"
-          },
-          {
-            "$ref": "#/components/parameters/toBlock"
-          },
-          {
-            "$ref": "#/components/parameters/chainId"
-          }
-        ],
-        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address)\n\n -\t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTransactionHistory(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n\n"
-      }
-    },
-    "/v2/{chain}/address/{address}/transactions": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/chain"
-        },
-        {
-          "name": "address",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "default": "demo.eth",
-            "example": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
-          },
-          "description": "Any valid address or ENS"
-        }
-      ],
-      "get": {
-        "summary": "Transaction History of an address with the price at the time of transaction",
-        "tags": [
-          "Wallet APIs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/Transactions-V2"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "transaction-history-with-price",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/pageNo"
-          },
-          {
-            "$ref": "#/components/parameters/pageSize"
-          },
-          {
-            "$ref": "#/components/parameters/contract"
-          },
-          {
-            "$ref": "#/components/parameters/fromBlock"
-          },
-          {
-            "$ref": "#/components/parameters/toBlock"
-          }
-        ],
-        "description": "**The transactions API fetches the list of all transactions in wallet address along with token price at the time of transaction**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address) \n```ts\nunmarshal.WalletApi\n    .getTransactionHistoryWithTokenPrice(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```"
-      }
-    },
     "/v3/{chain}/address/{address}/transactions": {
       "parameters": [
         {
@@ -540,9 +485,9 @@
         }
       ],
       "get": {
-        "summary": "Transaction History of an address without transaction count",
+        "summary": "History by address",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -587,10 +532,10 @@
         "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n This Endpoint allows contract filtering, where it returns all the transactions made by an address for that contract.\n\n This Endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will returns a boolean value which specifies whether transaction are present in next page\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract.\n\n - \t\tGet transactions along with price at the time of transaction\n\n\t Get all transactions along with prices of tokens which are involved\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistoryWithoutTotalCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
-    "/v1/{chain}/token/{address}/transactions": {
+    "/v2/{chain}/address/{address}/transactions": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chains"
+          "$ref": "#/components/parameters/chain"
         },
         {
           "name": "address",
@@ -598,16 +543,59 @@
           "required": true,
           "schema": {
             "type": "string",
-            "default": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
-            "example": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256"
+            "default": "demo.eth",
+            "example": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
           },
-          "description": "And valid contract address"
+          "description": "Any valid address or ENS"
         }
       ],
       "get": {
-        "summary": "Transactions History of a token Address",
+        "summary": "History by address with price",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions-V2"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-history-with-price",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/contract"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          }
+        ],
+        "description": "**The transactions API fetches the list of all transactions in wallet address along with token price at the time of transaction**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address) \n```ts\nunmarshal.WalletApi\n    .getTransactionHistoryWithTokenPrice(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```"
+      }
+    },
+    "/v1/{chain}/address/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "$ref": "#/components/parameters/address"
+        }
+      ],
+      "get": {
+        "summary": "History by Address with transaction count",
+        "tags": [
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -617,13 +605,16 @@
             "$ref": "#/components/responses/Unauthorized"
           }
         },
-        "operationId": "transaction-history-of-a-token-address",
+        "operationId": "transaction-history-for-an-address",
         "parameters": [
           {
             "$ref": "#/components/parameters/pageNo"
           },
           {
             "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/contract"
           },
           {
             "$ref": "#/components/parameters/fromBlock"
@@ -635,7 +626,7 @@
             "$ref": "#/components/parameters/chainId"
           }
         ],
-        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
+        "description": "**The transactions API fetches the list of all transactions in wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet , the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions wa\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions of an address for a specified contract address\n\n\tContract Filtering, returns all the transactions made by an address for the specified contract. (contract query parameter accepts any valid contract address)\n\n -\t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTransactionHistory(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n\n"
       }
     },
     "/v2/{chain}/token/{address}/transactions": {
@@ -656,9 +647,9 @@
         }
       ],
       "get": {
-        "summary": "Transaction History of a token address without transaction count",
+        "summary": "Token Transactions",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -686,6 +677,57 @@
         "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address.**\n\n This Endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will returns a boolean value which specifies whether transaction are present in next page.  \n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistoryWithoutTotalCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
+    "/v1/{chain}/token/{address}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "default": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+            "example": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256"
+          },
+          "description": "And valid contract address"
+        }
+      ],
+      "get": {
+        "summary": "Token Transactions with count",
+        "tags": [
+          "Transaction APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Transactions"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-history-of-a-token-address",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageNo"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/fromBlock"
+          },
+          {
+            "$ref": "#/components/parameters/toBlock"
+          },
+          {
+            "$ref": "#/components/parameters/chainId"
+          }
+        ],
+        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nOur Bank statements often let us understand the financial positions of a bank account. Similarly for a Crypto wallet, the transactions gives the wallet holder a detailed analysis of the inbound and out bound transfers thereby keeping the wallet apprised of all the happenings in their wallet. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
+      }
+    },
     "/v1/{chain}/transactions/{transactionHash}": {
       "parameters": [
         {
@@ -701,7 +743,7 @@
       "get": {
         "summary": "Transaction Details",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -822,6 +864,50 @@
         "description": "This endpoint allows you to retrieve the total token holders for a given token contract address.\n```ts\nunmarshal.WalletApi\n    .getTokenHoldersCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
+    "/v1/{chain}/contract/{contract}/top-holders": {
+      "parameters": [
+        {
+          "name": "chain",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "ethereum",
+            "enum": [
+              "ethereum",
+              "matic"
+            ]
+          }
+        },
+        {
+          "name": "contract",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "example": "0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37",
+            "type": "string"
+          },
+          "description": "Any valid Erc20 token address"
+        }
+      ],
+      "get": {
+        "summary": "Top Token Holders",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/TopTokenHolders"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "top-token-holders",
+        "parameters": [],
+        "description": "This endpoint returns the Top Holders of a token. This is supported on the ethereum and polygon chains currently."
+      }
+    },
     "/v1/{chain}/address/{address}/transactions/count": {
       "parameters": [
         {
@@ -856,9 +942,9 @@
         }
       ],
       "get": {
-        "summary": "Total Transaction Count of an address",
+        "summary": "Wallet Transaction Count",
         "tags": [
-          "Wallet APIs"
+          "Transaction APIs"
         ],
         "responses": {
           "200": {
@@ -875,7 +961,7 @@
     },
     "/v2/protocols/{protocols}/address/{address}/positions": {
       "get": {
-        "summary": "Get Lp positions",
+        "summary": "LP Positions",
         "tags": [
           "Protocol(LP) APIs"
         ],
@@ -909,7 +995,7 @@
     },
     "/v2/protocols/{protocols}/pairs": {
       "get": {
-        "summary": "Get Lp pairs",
+        "summary": "LP Pairs",
         "tags": [
           "Protocol(LP) APIs"
         ],
@@ -948,7 +1034,7 @@
     },
     "/v2/protocols/{protocols}/address/{address}/lp_transactions": {
       "get": {
-        "summary": "Get Lp transactions",
+        "summary": "LP Transactions",
         "tags": [
           "Protocol(LP) APIs"
         ],
@@ -1017,7 +1103,7 @@
         }
       ],
       "get": {
-        "summary": "NFT assets by Address with offset based pagination",
+        "summary": "NFT assets By address",
         "tags": [
           "NFTs"
         ],
@@ -1041,57 +1127,12 @@
             "$ref": "#/components/parameters/contract"
           }
         ],
-        "description": "NFT assets API gives the information about all the NFT assets held by a address with pagination (offset based pagination). In this endpoint instead of navigating with page parameter we can navigate using offset, where the next offset is provided in the response.\n\n For **solana** pagination and contract address filtering is not supported at the moment.\n\n **Filters:** \n\n - \t\tGet Nft assets of an address for a specified contract  \n\n\tContract Address Filtering, returns assets which belongs to the specified contract.(contract query parameter accepts any valid ERC721 or Erc1155 contract address)\n```ts\nunmarshal.NFT\n    .getAssets(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n"
+        "description": "NFT assets API returns all NFT assets held by a address with pagination (offset based pagination). In this endpoint instead of navigating with page parameter we can navigate using offset, where the next offset is provided in the response.\n\n For **solana** pagination and contract address filtering is not supported at the moment.\n\n **Filters:** \n\n - \t\tGet Nft assets of an address for a specified contract  \n\n\tContract Address Filtering, returns assets which belongs to the specified contract.(contract query parameter accepts any valid ERC721 or Erc1155 contract address)\n```ts\nunmarshal.NFT\n    .getAssets(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```\n"
       }
-    },
-    "/v1/{chain}/address/{address}/nft-transactions": {
-      "get": {
-        "summary": "NFT Transactions by Address",
-        "tags": [
-          "NFTs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/Nft-transactions"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "nft-transactions-by-address",
-        "description": "NFT transactions API gives the list of transaction being made on given wallet address.\n```ts\nunmarshal.NFT\n    .getTransactions(Chain.ethereum, \"demo.eth\")\n    .then(({data}) => console.log(data))\n```",
-        "parameters": []
-      },
-      "parameters": [
-        {
-          "name": "chain",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "example": "bsc",
-            "enum": [
-              "ethereum",
-              "bsc",
-              "matic",
-              "avalanche",
-              "cronos",
-              "velas",
-              "klaytn",
-              "fuse",
-              "bsc-testnet",
-              "matic-testnet"
-            ]
-          }
-        },
-        {
-          "$ref": "#/components/parameters/address"
-        }
-      ]
     },
     "/v2/{chain}/address/{address}/nft-transactions": {
       "get": {
-        "summary": "NFT Transactions by Address with pagination",
+        "summary": "Nft Transaction History by address",
         "tags": [
           "NFTs"
         ],
@@ -1143,7 +1184,7 @@
     },
     "/v2/{chain}/address/{address}/details": {
       "get": {
-        "summary": "NFT details of all tokenIds of a contract",
+        "summary": "Nft Metadata by contract or specific token id",
         "tags": [
           "NFTs"
         ],
@@ -1156,7 +1197,7 @@
           }
         },
         "operationId": "nft-details-of-all-tokenIds-of-a-contract",
-        "description": "This NFT gives more details about a specific NFT based on NFT id(if token Id not provided returns all token .Basically the metadata of an NFT which is currently most sought after\n```ts\nunmarshal.NFT\n    .getContractTokenDetails(Chain.ethereum, \"contract address\")\n    .then(({data}) => console.log(data))\n```",
+        "description": "Returns metadata of all the nfts within a contract or a specific nft if token id is given\n```ts\nunmarshal.NFT\n    .getContractTokenDetails(Chain.ethereum, \"contract address\")\n    .then(({data}) => console.log(data))\n```",
         "parameters": [
           {
             "in": "query",
@@ -1210,7 +1251,7 @@
     },
     "/v1/{chain}/contract/{address}/nft-transactions": {
       "get": {
-        "summary": "Get Nft Contract Transactions ",
+        "summary": "Nft Transaction History by contract or specific token id",
         "tags": [
           "NFTs"
         ],
@@ -1277,7 +1318,7 @@
     },
     "/v1/{chain}/contract/{address}/tokenIds": {
       "get": {
-        "summary": "Get all token ids available for a nft contract",
+        "summary": "List Nfts under a particular contract",
         "tags": [
           "NFTs"
         ],
@@ -1327,7 +1368,7 @@
     },
     "/v1/{chain}/address/{address}/nftholders": {
       "get": {
-        "summary": "NFT holders by id",
+        "summary": "Historical Nft holders by Nft",
         "tags": [
           "NFTs"
         ],
@@ -1393,7 +1434,7 @@
         }
       ],
       "get": {
-        "summary": "Get Price by Symbol",
+        "summary": "Price by Symbol",
         "tags": [
           "Price Store"
         ],
@@ -1416,7 +1457,7 @@
     },
     "/v1/pricestore/chain/{chain}/{address}": {
       "get": {
-        "summary": "Get Price by Address",
+        "summary": "Price by Address",
         "tags": [
           "Price Store"
         ],
@@ -1459,7 +1500,7 @@
     },
     "/v1/pricestore/chain/{chain}/tokens": {
       "get": {
-        "summary": "Get Price for multiple Token Addresses",
+        "summary": "Price for Tokens in bulk",
         "tags": [
           "Price Store"
         ],
@@ -1543,7 +1584,7 @@
     },
     "/v1/pricestore/chain/{chain}/lptokens": {
       "get": {
-        "summary": "Price for LP Tokens",
+        "summary": "LP Tokens Price",
         "tags": [
           "Price Store"
         ],
@@ -1571,7 +1612,7 @@
     },
     "/v1/tokenstore/token/address/{address}": {
       "get": {
-        "summary": "Details for Token Contract",
+        "summary": "Details by Contract",
         "tags": [
           "Token Store"
         ],
@@ -1605,7 +1646,7 @@
         }
       ],
       "get": {
-        "summary": "Details for Token Symbol",
+        "summary": "Details by Symbol",
         "tags": [
           "Token Store"
         ],
@@ -1883,6 +1924,245 @@
             "logo_url": "https://assets.unmarshal.io/tokens/0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
             "quote_rate_24h": "-0.001800703559",
             "quote_pct_change_24h": -0.17958
+          }
+        ],
+        "x-extension-2": null
+      },
+      "Asset-V2": {
+        "description": "",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "items_on_page": 5,
+            "next_offset": 5,
+            "assets": [
+              {
+                "contract_name": "Tether USD",
+                "contract_ticker_symbol": "USDT",
+                "contract_decimals": 6,
+                "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "9858287165",
+                "quote": 9868.145452165,
+                "quote_rate": 1.001,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
+                "quote_rate_24h": "0.00047874",
+                "quote_pct_change_24h": 0.04786,
+                "verified": true,
+                "coin_gecko_id": "tether"
+              },
+              {
+                "contract_name": "Frontier Token",
+                "contract_ticker_symbol": "FRONT",
+                "contract_decimals": 18,
+                "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "4843997835959514312853",
+                "quote": 839.5568609306671,
+                "quote_rate": 0.173319,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                "quote_rate_24h": "-0.002736091749376252",
+                "quote_pct_change_24h": -1.55411,
+                "verified": true,
+                "coin_gecko_id": "frontier-token"
+              },
+              {
+                "contract_name": "Ethereum",
+                "contract_ticker_symbol": "ETH",
+                "contract_decimals": 18,
+                "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "567414931501599473",
+                "quote": 689.2162206977329,
+                "quote_rate": 1214.66,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                "quote_rate_24h": "28.01",
+                "quote_pct_change_24h": 2.36082,
+                "verified": true,
+                "coin_gecko_id": "ethereum"
+              },
+              {
+                "contract_name": "USD Coin",
+                "contract_ticker_symbol": "USDC",
+                "contract_decimals": 6,
+                "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "647245836",
+                "quote": 647.218004429052,
+                "quote_rate": 0.999957,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                "quote_rate_24h": "-0.00065697685964683",
+                "quote_pct_change_24h": -0.06566,
+                "verified": true,
+                "coin_gecko_id": "usd-coin"
+              },
+              {
+                "contract_name": "SuperRare",
+                "contract_ticker_symbol": "RARE",
+                "contract_decimals": 18,
+                "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "1157000000000000000000",
+                "quote": 115.23372900000001,
+                "quote_rate": 0.099597,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                "quote_rate_24h": "-0.002663093775851985",
+                "quote_pct_change_24h": -2.60424,
+                "verified": true,
+                "coin_gecko_id": "superrare"
+              }
+            ]
+          }
+        },
+        "properties": {
+          "items_on_page": {
+            "type": "number"
+          },
+          "next_offset": {
+            "type": "number"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "contract_name": {
+                  "type": "string"
+                },
+                "contract_ticker_symbol": {
+                  "type": "string"
+                },
+                "contract_decimals": {
+                  "type": "number"
+                },
+                "contract_address": {
+                  "type": "string"
+                },
+                "coin": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "balance": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "number"
+                },
+                "quote_rate": {
+                  "type": "number"
+                },
+                "logo_url": {
+                  "type": "string"
+                },
+                "quote_rate_24h": {
+                  "type": "string"
+                },
+                "quote_pct_change_24h": {
+                  "type": "number"
+                },
+                "verified": {
+                  "type": "boolean"
+                },
+                "coin_gecko_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "examples": [
+          {
+            "items_on_page": 5,
+            "next_offset": 5,
+            "assets": [
+              {
+                "contract_name": "Tether USD",
+                "contract_ticker_symbol": "USDT",
+                "contract_decimals": 6,
+                "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "9858287165",
+                "quote": 9868.145452165,
+                "quote_rate": 1.001,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
+                "quote_rate_24h": "0.00047874",
+                "quote_pct_change_24h": 0.04786,
+                "verified": true,
+                "coin_gecko_id": "tether"
+              },
+              {
+                "contract_name": "Frontier Token",
+                "contract_ticker_symbol": "FRONT",
+                "contract_decimals": 18,
+                "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "4843997835959514312853",
+                "quote": 839.5568609306671,
+                "quote_rate": 0.173319,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                "quote_rate_24h": "-0.002736091749376252",
+                "quote_pct_change_24h": -1.55411,
+                "verified": true,
+                "coin_gecko_id": "frontier-token"
+              },
+              {
+                "contract_name": "Ethereum",
+                "contract_ticker_symbol": "ETH",
+                "contract_decimals": 18,
+                "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "567414931501599473",
+                "quote": 689.2162206977329,
+                "quote_rate": 1214.66,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                "quote_rate_24h": "28.01",
+                "quote_pct_change_24h": 2.36082,
+                "verified": true,
+                "coin_gecko_id": "ethereum"
+              },
+              {
+                "contract_name": "USD Coin",
+                "contract_ticker_symbol": "USDC",
+                "contract_decimals": 6,
+                "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "647245836",
+                "quote": 647.218004429052,
+                "quote_rate": 0.999957,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                "quote_rate_24h": "-0.00065697685964683",
+                "quote_pct_change_24h": -0.06566,
+                "verified": true,
+                "coin_gecko_id": "usd-coin"
+              },
+              {
+                "contract_name": "SuperRare",
+                "contract_ticker_symbol": "RARE",
+                "contract_decimals": 18,
+                "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "1157000000000000000000",
+                "quote": 115.23372900000001,
+                "quote_rate": 0.099597,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                "quote_rate_24h": "-0.002663093775851985",
+                "quote_pct_change_24h": -2.60424,
+                "verified": true,
+                "coin_gecko_id": "superrare"
+              }
+            ]
           }
         ],
         "x-extension-2": null
@@ -4027,6 +4307,208 @@
             }
           }
         }
+      },
+      "TopTokenHolders": {
+        "type": "object",
+        "description": "",
+        "x-examples": {
+          "example-1": {
+            "token_address": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "top_holders": [
+              {
+                "address": "0x56ee84baf54c472e206e06c29de8c494d0f120ba",
+                "balance": 62285000.00206402
+              },
+              {
+                "address": "0xef38f0cdfe4df26c0da27c9347b870cd4207a897",
+                "balance": 14963898.77438037
+              },
+              {
+                "address": "0xf16e9b0d03470827a95cdfd0cb8a8a3b46969b91",
+                "balance": 4250251.844552843
+              },
+              {
+                "address": "0x738cf6903e6c4e699d1c2dd9ab8b67fcdb3121ea",
+                "balance": 2282080.1403131136
+              },
+              {
+                "address": "0xfc270414a3dd54bb649f83349fb783182eab8610",
+                "balance": 2004448.7302565863
+              },
+              {
+                "address": "0x3bee11d70e5a25b16520286a7053e84dff2e0f5d",
+                "balance": 1794300.5638183085
+              },
+              {
+                "address": "0x9c5de3ad97b95a0da09fd0de84c347db450cd75c",
+                "balance": 1483756.7605084442
+              },
+              {
+                "address": "0xd0365271d8f74b7a0c8a0099aace8e1bbd701c78",
+                "balance": 1000000
+              },
+              {
+                "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+                "balance": 911049.7347293429
+              },
+              {
+                "address": "0x63ac48561c36933c4d810a537601508929e95d87",
+                "balance": 594990
+              },
+              {
+                "address": "0x06d8f188ce3a5d341e6d276ed49f88baf264e9fb",
+                "balance": 500000
+              },
+              {
+                "address": "0xd4b69e8d62c880e9dd55d419d5e07435c3538342",
+                "balance": 499990.0000000007
+              },
+              {
+                "address": "0xa5d4aeddf4ffb8f5ded3576c58ef345da2ca375d",
+                "balance": 499933.00190000003
+              },
+              {
+                "address": "0x410aa0b164db233eb40e857d34a9f581d3f7019c",
+                "balance": 372839.35504563997
+              },
+              {
+                "address": "0x11fb41e49f29a306a8a01a4d0e198902c9e6d241",
+                "balance": 268797
+              },
+              {
+                "address": "0x4a5bb1c9347a0d4f7e06a29239162f03647d9232",
+                "balance": 253999.9999037037
+              },
+              {
+                "address": "0x4c87a5806079d54f48e791a6b565d9646f0e48f4",
+                "balance": 226897.38548444546
+              },
+              {
+                "address": "0xc7fcdf23cfd8e65dbf412f04070d45eca1bb5025",
+                "balance": 206075.23155926
+              },
+              {
+                "address": "0x4d24eececb86041f47bca41265319e9f06ae2fcb",
+                "balance": 160517.50135227005
+              },
+              {
+                "address": "0x0ca90ac1c97fc3679df07e1ae5c20e4349c79b37",
+                "balance": 158991.00000000026
+              }
+            ],
+            "holders_count": 4070
+          }
+        },
+        "examples": [
+          {
+            "token_address": "0x5a666c7d92e5fa7edcb6390e4efd6d0cdd69cf37",
+            "top_holders": [
+              {
+                "address": "0x56ee84baf54c472e206e06c29de8c494d0f120ba",
+                "balance": 62285000.00206402
+              },
+              {
+                "address": "0xef38f0cdfe4df26c0da27c9347b870cd4207a897",
+                "balance": 14963898.77438037
+              },
+              {
+                "address": "0xf16e9b0d03470827a95cdfd0cb8a8a3b46969b91",
+                "balance": 4250251.844552843
+              },
+              {
+                "address": "0x738cf6903e6c4e699d1c2dd9ab8b67fcdb3121ea",
+                "balance": 2282080.1403131136
+              },
+              {
+                "address": "0xfc270414a3dd54bb649f83349fb783182eab8610",
+                "balance": 2004448.7302565863
+              },
+              {
+                "address": "0x3bee11d70e5a25b16520286a7053e84dff2e0f5d",
+                "balance": 1794300.5638183085
+              },
+              {
+                "address": "0x9c5de3ad97b95a0da09fd0de84c347db450cd75c",
+                "balance": 1483756.7605084442
+              },
+              {
+                "address": "0xd0365271d8f74b7a0c8a0099aace8e1bbd701c78",
+                "balance": 1000000
+              },
+              {
+                "address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+                "balance": 911049.7347293429
+              },
+              {
+                "address": "0x63ac48561c36933c4d810a537601508929e95d87",
+                "balance": 594990
+              },
+              {
+                "address": "0x06d8f188ce3a5d341e6d276ed49f88baf264e9fb",
+                "balance": 500000
+              },
+              {
+                "address": "0xd4b69e8d62c880e9dd55d419d5e07435c3538342",
+                "balance": 499990.0000000007
+              },
+              {
+                "address": "0xa5d4aeddf4ffb8f5ded3576c58ef345da2ca375d",
+                "balance": 499933.00190000003
+              },
+              {
+                "address": "0x410aa0b164db233eb40e857d34a9f581d3f7019c",
+                "balance": 372839.35504563997
+              },
+              {
+                "address": "0x11fb41e49f29a306a8a01a4d0e198902c9e6d241",
+                "balance": 268797
+              },
+              {
+                "address": "0x4a5bb1c9347a0d4f7e06a29239162f03647d9232",
+                "balance": 253999.9999037037
+              },
+              {
+                "address": "0x4c87a5806079d54f48e791a6b565d9646f0e48f4",
+                "balance": 226897.38548444546
+              },
+              {
+                "address": "0xc7fcdf23cfd8e65dbf412f04070d45eca1bb5025",
+                "balance": 206075.23155926
+              },
+              {
+                "address": "0x4d24eececb86041f47bca41265319e9f06ae2fcb",
+                "balance": 160517.50135227005
+              },
+              {
+                "address": "0x0ca90ac1c97fc3679df07e1ae5c20e4349c79b37",
+                "balance": 158991.00000000026
+              }
+            ],
+            "holders_count": 4070
+          }
+        ],
+        "properties": {
+          "token_address": {
+            "type": "string"
+          },
+          "top_holders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "balance": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "holders_count": {
+            "type": "number"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -4129,6 +4611,17 @@
         },
         "description": "Number of records to be fetched per page"
       },
+      "pageSizeAssetsV2": {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "default": 50,
+          "example": 5
+        },
+        "description": "Number of records to be fetched per page"
+      },
       "fromBlock": {
         "name": "fromBlock",
         "in": "query",
@@ -4176,7 +4669,8 @@
         "in": "query",
         "required": false,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "default": "0"
         },
         "description": " The offset to start with, this is returned in the previous response."
       },
@@ -4389,6 +4883,198 @@
                     "quote_pct_change_24h": 0.14783
                   }
                 ]
+              }
+            }
+          }
+        }
+      },
+      "Assets-V2": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "",
+              "x-examples": {
+                "example-1": {
+                  "items_on_page": 5,
+                  "next_offset": 5,
+                  "assets": [
+                    {
+                      "contract_name": "Tether USD",
+                      "contract_ticker_symbol": "USDT",
+                      "contract_decimals": 6,
+                      "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "9858287165",
+                      "quote": 9868.145452165,
+                      "quote_rate": 1.001,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
+                      "quote_rate_24h": "0.00047874",
+                      "quote_pct_change_24h": 0.04786,
+                      "verified": true,
+                      "coin_gecko_id": "tether"
+                    },
+                    {
+                      "contract_name": "Frontier Token",
+                      "contract_ticker_symbol": "FRONT",
+                      "contract_decimals": 18,
+                      "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "4843997835959514312853",
+                      "quote": 839.5568609306671,
+                      "quote_rate": 0.173319,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                      "quote_rate_24h": "-0.002736091749376252",
+                      "quote_pct_change_24h": -1.55411,
+                      "verified": true,
+                      "coin_gecko_id": "frontier-token"
+                    },
+                    {
+                      "contract_name": "Ethereum",
+                      "contract_ticker_symbol": "ETH",
+                      "contract_decimals": 18,
+                      "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "567414931501599473",
+                      "quote": 689.2162206977329,
+                      "quote_rate": 1214.66,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                      "quote_rate_24h": "28.01",
+                      "quote_pct_change_24h": 2.36082,
+                      "verified": true,
+                      "coin_gecko_id": "ethereum"
+                    },
+                    {
+                      "contract_name": "USD Coin",
+                      "contract_ticker_symbol": "USDC",
+                      "contract_decimals": 6,
+                      "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "647245836",
+                      "quote": 647.218004429052,
+                      "quote_rate": 0.999957,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                      "quote_rate_24h": "-0.00065697685964683",
+                      "quote_pct_change_24h": -0.06566,
+                      "verified": true,
+                      "coin_gecko_id": "usd-coin"
+                    },
+                    {
+                      "contract_name": "SuperRare",
+                      "contract_ticker_symbol": "RARE",
+                      "contract_decimals": 18,
+                      "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "1157000000000000000000",
+                      "quote": 115.23372900000001,
+                      "quote_rate": 0.099597,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                      "quote_rate_24h": "-0.002663093775851985",
+                      "quote_pct_change_24h": -2.60424,
+                      "verified": true,
+                      "coin_gecko_id": "superrare"
+                    }
+                  ]
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/Asset-V2"
+              }
+            },
+            "examples": {
+              "demo.eth": {
+                "value": {
+                  "items_on_page": 5,
+                  "next_offset": 5,
+                  "assets": [
+                    {
+                      "contract_name": "Tether USD",
+                      "contract_ticker_symbol": "USDT",
+                      "contract_decimals": 6,
+                      "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "9858287165",
+                      "quote": 9868.145452165,
+                      "quote_rate": 1.001,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
+                      "quote_rate_24h": "0.00047874",
+                      "quote_pct_change_24h": 0.04786,
+                      "verified": true,
+                      "coin_gecko_id": "tether"
+                    },
+                    {
+                      "contract_name": "Frontier Token",
+                      "contract_ticker_symbol": "FRONT",
+                      "contract_decimals": 18,
+                      "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "4843997835959514312853",
+                      "quote": 839.5568609306671,
+                      "quote_rate": 0.173319,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                      "quote_rate_24h": "-0.002736091749376252",
+                      "quote_pct_change_24h": -1.55411,
+                      "verified": true,
+                      "coin_gecko_id": "frontier-token"
+                    },
+                    {
+                      "contract_name": "Ethereum",
+                      "contract_ticker_symbol": "ETH",
+                      "contract_decimals": 18,
+                      "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "567414931501599473",
+                      "quote": 689.2162206977329,
+                      "quote_rate": 1214.66,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                      "quote_rate_24h": "28.01",
+                      "quote_pct_change_24h": 2.36082,
+                      "verified": true,
+                      "coin_gecko_id": "ethereum"
+                    },
+                    {
+                      "contract_name": "USD Coin",
+                      "contract_ticker_symbol": "USDC",
+                      "contract_decimals": 6,
+                      "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "647245836",
+                      "quote": 647.218004429052,
+                      "quote_rate": 0.999957,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                      "quote_rate_24h": "-0.00065697685964683",
+                      "quote_pct_change_24h": -0.06566,
+                      "verified": true,
+                      "coin_gecko_id": "usd-coin"
+                    },
+                    {
+                      "contract_name": "SuperRare",
+                      "contract_ticker_symbol": "RARE",
+                      "contract_decimals": 18,
+                      "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "1157000000000000000000",
+                      "quote": 115.23372900000001,
+                      "quote_rate": 0.099597,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                      "quote_rate_24h": "-0.002663093775851985",
+                      "quote_pct_change_24h": -2.60424,
+                      "verified": true,
+                      "coin_gecko_id": "superrare"
+                    }
+                  ]
+                }
               }
             }
           }
@@ -12012,6 +12698,16 @@
             }
           }
         }
+      },
+      "TopTokenHolders": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/TopTokenHolders"
+            }
+          }
+        }
       }
     }
   },
@@ -12026,12 +12722,16 @@
       "description": ""
     },
     {
-      "name": "Protocol(LP) APIs",
+      "name": "Transaction APIs",
       "description": ""
     },
     {
       "name": "NFTs",
       "description": "NFTs the latest buzz in the crypto world and Unmarshal is there to support with the data needs around NFTs as well."
+    },
+    {
+      "name": "Protocol(LP) APIs",
+      "description": ""
     },
     {
       "name": "Price Store",
