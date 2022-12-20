@@ -921,8 +921,7 @@
       "get": {
         "summary": "LP Positions",
         "tags": [
-          "Protocol(LP) APIs",
-          "Wallet APIs"
+          "Protocol(LP) APIs"
         ],
         "responses": {
           "200": {
@@ -956,8 +955,7 @@
       "get": {
         "summary": "LP Pairs",
         "tags": [
-          "Protocol(LP) APIs",
-          "Wallet APIs"
+          "Protocol(LP) APIs"
         ],
         "responses": {
           "200": {
@@ -996,8 +994,7 @@
       "get": {
         "summary": "LP Transactions",
         "tags": [
-          "Protocol(LP) APIs",
-          "Transaction APIs"
+          "Protocol(LP) APIs"
         ],
         "responses": {
           "200": {
