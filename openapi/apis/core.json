@@ -1933,8 +1933,8 @@
         "type": "object",
         "x-examples": {
           "example-1": {
-            "items_on_page": 50,
-            "next_offset": 56,
+            "items_on_page": 5,
+            "next_offset": 5,
             "assets": [
               {
                 "contract_name": "Tether USD",
@@ -1947,10 +1947,74 @@
                 "quote": 9868.145452165,
                 "quote_rate": 1.001,
                 "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
-                "quote_rate_24h": "0.00170204",
-                "quote_pct_change_24h": 0.17025,
+                "quote_rate_24h": "0.00047874",
+                "quote_pct_change_24h": 0.04786,
                 "verified": true,
                 "coin_gecko_id": "tether"
+              },
+              {
+                "contract_name": "Frontier Token",
+                "contract_ticker_symbol": "FRONT",
+                "contract_decimals": 18,
+                "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "4843997835959514312853",
+                "quote": 839.5568609306671,
+                "quote_rate": 0.173319,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                "quote_rate_24h": "-0.002736091749376252",
+                "quote_pct_change_24h": -1.55411,
+                "verified": true,
+                "coin_gecko_id": "frontier-token"
+              },
+              {
+                "contract_name": "Ethereum",
+                "contract_ticker_symbol": "ETH",
+                "contract_decimals": 18,
+                "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "567414931501599473",
+                "quote": 689.2162206977329,
+                "quote_rate": 1214.66,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                "quote_rate_24h": "28.01",
+                "quote_pct_change_24h": 2.36082,
+                "verified": true,
+                "coin_gecko_id": "ethereum"
+              },
+              {
+                "contract_name": "USD Coin",
+                "contract_ticker_symbol": "USDC",
+                "contract_decimals": 6,
+                "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "647245836",
+                "quote": 647.218004429052,
+                "quote_rate": 0.999957,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                "quote_rate_24h": "-0.00065697685964683",
+                "quote_pct_change_24h": -0.06566,
+                "verified": true,
+                "coin_gecko_id": "usd-coin"
+              },
+              {
+                "contract_name": "SuperRare",
+                "contract_ticker_symbol": "RARE",
+                "contract_decimals": 18,
+                "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "1157000000000000000000",
+                "quote": 115.23372900000001,
+                "quote_rate": 0.099597,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                "quote_rate_24h": "-0.002663093775851985",
+                "quote_pct_change_24h": -2.60424,
+                "verified": true,
+                "coin_gecko_id": "superrare"
               }
             ]
           }
@@ -2015,8 +2079,8 @@
         },
         "examples": [
           {
-            "items_on_page": 50,
-            "next_offset": 56,
+            "items_on_page": 5,
+            "next_offset": 5,
             "assets": [
               {
                 "contract_name": "Tether USD",
@@ -2029,10 +2093,74 @@
                 "quote": 9868.145452165,
                 "quote_rate": 1.001,
                 "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
-                "quote_rate_24h": "0.00170204",
-                "quote_pct_change_24h": 0.17025,
+                "quote_rate_24h": "0.00047874",
+                "quote_pct_change_24h": 0.04786,
                 "verified": true,
                 "coin_gecko_id": "tether"
+              },
+              {
+                "contract_name": "Frontier Token",
+                "contract_ticker_symbol": "FRONT",
+                "contract_decimals": 18,
+                "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "4843997835959514312853",
+                "quote": 839.5568609306671,
+                "quote_rate": 0.173319,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                "quote_rate_24h": "-0.002736091749376252",
+                "quote_pct_change_24h": -1.55411,
+                "verified": true,
+                "coin_gecko_id": "frontier-token"
+              },
+              {
+                "contract_name": "Ethereum",
+                "contract_ticker_symbol": "ETH",
+                "contract_decimals": 18,
+                "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "567414931501599473",
+                "quote": 689.2162206977329,
+                "quote_rate": 1214.66,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                "quote_rate_24h": "28.01",
+                "quote_pct_change_24h": 2.36082,
+                "verified": true,
+                "coin_gecko_id": "ethereum"
+              },
+              {
+                "contract_name": "USD Coin",
+                "contract_ticker_symbol": "USDC",
+                "contract_decimals": 6,
+                "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "647245836",
+                "quote": 647.218004429052,
+                "quote_rate": 0.999957,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                "quote_rate_24h": "-0.00065697685964683",
+                "quote_pct_change_24h": -0.06566,
+                "verified": true,
+                "coin_gecko_id": "usd-coin"
+              },
+              {
+                "contract_name": "SuperRare",
+                "contract_ticker_symbol": "RARE",
+                "contract_decimals": 18,
+                "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                "coin": 60,
+                "type": "ERC20",
+                "balance": "1157000000000000000000",
+                "quote": 115.23372900000001,
+                "quote_rate": 0.099597,
+                "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                "quote_rate_24h": "-0.002663093775851985",
+                "quote_pct_change_24h": -2.60424,
+                "verified": true,
+                "coin_gecko_id": "superrare"
               }
             ]
           }
@@ -4757,8 +4885,8 @@
               "description": "",
               "x-examples": {
                 "example-1": {
-                  "items_on_page": 50,
-                  "next_offset": 56,
+                  "items_on_page": 5,
+                  "next_offset": 5,
                   "assets": [
                     {
                       "contract_name": "Tether USD",
@@ -4771,10 +4899,74 @@
                       "quote": 9868.145452165,
                       "quote_rate": 1.001,
                       "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
-                      "quote_rate_24h": "0.00170204",
-                      "quote_pct_change_24h": 0.17025,
+                      "quote_rate_24h": "0.00047874",
+                      "quote_pct_change_24h": 0.04786,
                       "verified": true,
                       "coin_gecko_id": "tether"
+                    },
+                    {
+                      "contract_name": "Frontier Token",
+                      "contract_ticker_symbol": "FRONT",
+                      "contract_decimals": 18,
+                      "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "4843997835959514312853",
+                      "quote": 839.5568609306671,
+                      "quote_rate": 0.173319,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                      "quote_rate_24h": "-0.002736091749376252",
+                      "quote_pct_change_24h": -1.55411,
+                      "verified": true,
+                      "coin_gecko_id": "frontier-token"
+                    },
+                    {
+                      "contract_name": "Ethereum",
+                      "contract_ticker_symbol": "ETH",
+                      "contract_decimals": 18,
+                      "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "567414931501599473",
+                      "quote": 689.2162206977329,
+                      "quote_rate": 1214.66,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                      "quote_rate_24h": "28.01",
+                      "quote_pct_change_24h": 2.36082,
+                      "verified": true,
+                      "coin_gecko_id": "ethereum"
+                    },
+                    {
+                      "contract_name": "USD Coin",
+                      "contract_ticker_symbol": "USDC",
+                      "contract_decimals": 6,
+                      "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "647245836",
+                      "quote": 647.218004429052,
+                      "quote_rate": 0.999957,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                      "quote_rate_24h": "-0.00065697685964683",
+                      "quote_pct_change_24h": -0.06566,
+                      "verified": true,
+                      "coin_gecko_id": "usd-coin"
+                    },
+                    {
+                      "contract_name": "SuperRare",
+                      "contract_ticker_symbol": "RARE",
+                      "contract_decimals": 18,
+                      "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "1157000000000000000000",
+                      "quote": 115.23372900000001,
+                      "quote_rate": 0.099597,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                      "quote_rate_24h": "-0.002663093775851985",
+                      "quote_pct_change_24h": -2.60424,
+                      "verified": true,
+                      "coin_gecko_id": "superrare"
                     }
                   ]
                 }
@@ -4786,8 +4978,8 @@
             "examples": {
               "demo.eth": {
                 "value": {
-                  "items_on_page": 50,
-                  "next_offset": 56,
+                  "items_on_page": 5,
+                  "next_offset": 5,
                   "assets": [
                     {
                       "contract_name": "Tether USD",
@@ -4800,10 +4992,74 @@
                       "quote": 9868.145452165,
                       "quote_rate": 1.001,
                       "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
-                      "quote_rate_24h": "0.00170204",
-                      "quote_pct_change_24h": 0.17025,
+                      "quote_rate_24h": "0.00047874",
+                      "quote_pct_change_24h": 0.04786,
                       "verified": true,
                       "coin_gecko_id": "tether"
+                    },
+                    {
+                      "contract_name": "Frontier Token",
+                      "contract_ticker_symbol": "FRONT",
+                      "contract_decimals": 18,
+                      "contract_address": "0xf8c3527cc04340b208c854e985240c02f7b7793f",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "4843997835959514312853",
+                      "quote": 839.5568609306671,
+                      "quote_rate": 0.173319,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xf8C3527CC04340b208C854E985240c02F7B7793f.png",
+                      "quote_rate_24h": "-0.002736091749376252",
+                      "quote_pct_change_24h": -1.55411,
+                      "verified": true,
+                      "coin_gecko_id": "frontier-token"
+                    },
+                    {
+                      "contract_name": "Ethereum",
+                      "contract_ticker_symbol": "ETH",
+                      "contract_decimals": 18,
+                      "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "567414931501599473",
+                      "quote": 689.2162206977329,
+                      "quote_rate": 1214.66,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                      "quote_rate_24h": "28.01",
+                      "quote_pct_change_24h": 2.36082,
+                      "verified": true,
+                      "coin_gecko_id": "ethereum"
+                    },
+                    {
+                      "contract_name": "USD Coin",
+                      "contract_ticker_symbol": "USDC",
+                      "contract_decimals": 6,
+                      "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "647245836",
+                      "quote": 647.218004429052,
+                      "quote_rate": 0.999957,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png",
+                      "quote_rate_24h": "-0.00065697685964683",
+                      "quote_pct_change_24h": -0.06566,
+                      "verified": true,
+                      "coin_gecko_id": "usd-coin"
+                    },
+                    {
+                      "contract_name": "SuperRare",
+                      "contract_ticker_symbol": "RARE",
+                      "contract_decimals": 18,
+                      "contract_address": "0xba5bde662c17e2adff1075610382b9b691296350",
+                      "coin": 60,
+                      "type": "ERC20",
+                      "balance": "1157000000000000000000",
+                      "quote": 115.23372900000001,
+                      "quote_rate": 0.099597,
+                      "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xba5BDe662c17e2aDFF1075610382B9B691296350.png",
+                      "quote_rate_24h": "-0.002663093775851985",
+                      "quote_pct_change_24h": -2.60424,
+                      "verified": true,
+                      "coin_gecko_id": "superrare"
                     }
                   ]
                 }
