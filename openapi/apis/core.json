@@ -1455,7 +1455,7 @@
         "description": "This api provides price of token by taking the symbol of the token(ticker) as a parameter which will give latest price, timestamp can also be provided as a query param to get historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
-    "/v1/pricestore/chain/{chain}/{address}": {
+    "/v1/pricestore/chain/{priceStoreChains}/{address}": {
       "get": {
         "summary": "Price by Address",
         "tags": [
@@ -1485,7 +1485,7 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/priceStoreChains"
         },
         {
           "name": "address",
@@ -1498,7 +1498,7 @@
         }
       ]
     },
-    "/v1/pricestore/chain/{chain}/tokens": {
+    "/v1/pricestore/chain/{priceStoreChains}/tokens": {
       "get": {
         "summary": "Price for Tokens in bulk",
         "tags": [
@@ -1522,11 +1522,11 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/priceStoreChains"
         }
       ]
     },
-    "/v1/pricestore/chain/{chain}/gainers": {
+    "/v1/pricestore/chain/{priceStoreChains}/gainers": {
       "get": {
         "summary": "Top Gainers",
         "tags": [
@@ -1550,14 +1550,14 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/priceStoreChains"
         }
       ]
     },
-    "/v1/pricestore/chain/{chain}/losers": {
+    "/v1/pricestore/chain/{priceStoreChains}/losers": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/priceStoreChains"
         }
       ],
       "get": {
@@ -1582,7 +1582,7 @@
         ]
       }
     },
-    "/v1/pricestore/chain/{chain}/lptokens": {
+    "/v1/pricestore/chain/{priceStoreChains}/lptokens": {
       "get": {
         "summary": "LP Tokens Price",
         "tags": [
@@ -1606,7 +1606,7 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/chain"
+          "$ref": "#/components/parameters/priceStoreChains"
         }
       ]
     },
@@ -4545,6 +4545,22 @@
             "bsc-testnet",
             "matic-testnet",
             "rinkeby-testnet"
+          ]
+        },
+        "description": "Chain name (example: bsc, ethereum, matic...)"
+      },
+      "priceStoreChains": {
+        "name": "priceStoreChains",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "bsc",
+          "enum": [
+            "ethereum",
+            "bsc",
+            "matic",
+            "arbitrum"
           ]
         },
         "description": "Chain name (example: bsc, ethereum, matic...)"
