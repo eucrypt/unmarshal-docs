@@ -1484,7 +1484,7 @@
             "$ref": "#/components/parameters/timestamp"
           }
         ],
-        "description": "This api provides price of token by taking the symbol of the token(ticker) as a parameter which will give latest price, timestamp can also be provided as a query param to get historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```"
+        "description": "This api provides price of token by taking the symbol of the token(ticker) as a parameter which will give latest price, timestamp can also be provided as a query param to get historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint live prices for all coingecko supported symbols, however historical prices are supported only for Ethereum."
       }
     },
     "/v1/pricestore/chain/{priceStoreChains}/{address}": {
@@ -1502,7 +1502,7 @@
           }
         },
         "operationId": "get-v1-pricestore",
-        "description": "This api provides price of a token by taking the address of the token(contract of token) in any chain such as Ethereum, Matic and Binance, timestamp can be provided as a query parameter to view historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceByAddress(Chain.ethereum, \"token-address\")\n    .then(({data}) => console.log(data))\n```",
+        "description": "This api provides price of a token by taking the address of the token(contract of token) in any chain such as Ethereum, Matic and Binance, timestamp can be provided as a query parameter to view historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceByAddress(Chain.ethereum, \"token-address\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint live prices for contracts which are listed in coingecko, however historical prices are supported only for Ethereum.",
         "parameters": [
           {
             "$ref": "#/components/parameters/timestamp"
@@ -1545,7 +1545,7 @@
           }
         },
         "operationId": "get-v1-pricestore-chain-ethereum-tokens",
-        "description": "This api takes multiple contract addresses to provide price data at once, timestamp can be provided as a query parameter to view historical data. multiple contracts have to given in comma(,) separated.\n```ts\nunmarshal.PriceStore\n    .getMultipleTokenPrice(Chain.ethereum, [\"token address 1\", \"token address 2\"])\n    .then(({data}) => console.log(data))\n```",
+        "description": "This api takes multiple contract addresses to provide price data at once, timestamp can be provided as a query parameter to view historical data. multiple contracts have to given in comma(,) separated.\n```ts\nunmarshal.PriceStore\n    .getMultipleTokenPrice(Chain.ethereum, [\"token address 1\", \"token address 2\"])\n    .then(({data}) => console.log(data))\n```\n\nNote: This endpoint works only for Ethereum, Bsc and Matic.",
         "parameters": [
           {
             "$ref": "#/components/parameters/tokens"
@@ -1629,7 +1629,7 @@
           }
         },
         "operationId": "price-for-lp-tokens",
-        "description": "This api provides the price for LP tokens by taking in the address of the Lp tokens.",
+        "description": "This api provides the price for LP tokens by taking in the address of the Lp tokens.\n\nNOTE: This endpoint is supported only for Ethereum.",
         "parameters": [
           {
             "$ref": "#/components/parameters/lptokens"
@@ -1864,7 +1864,7 @@
             "required": true
           }
         ],
-        "description": "This endpoint will return top-traders for a given pair.\n```ts\nunmarshal.Protocol\n    .getTopTraders(\"pancakeswap_v2\", \"token address\")\n    .then(({data}) => console.log(data))\n```"
+        "description": "This endpoint will return top-traders for a given pair.\n```ts\nunmarshal.Protocol\n    .getTopTraders(\"pancakeswap_v2\", \"token address\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint is dexx specific and supported only by pancakeswap v2 contract."
       },
       "parameters": [
         {
