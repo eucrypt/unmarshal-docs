@@ -4693,7 +4693,7 @@
         "schema": {
           "type": "string"
         },
-        "description": "Provide unix timestamp to fetch historical price (supported only for ethereum)"
+        "description": "Provide unix timestamp to fetch historical price (For ethereum chain)"
       },
       "24hchange": {
         "name": "24change",
