@@ -672,12 +672,6 @@
             "$ref": "#/components/parameters/pageSize"
           },
           {
-            "$ref": "#/components/parameters/fromBlock"
-          },
-          {
-            "$ref": "#/components/parameters/toBlock"
-          },
-          {
             "$ref": "#/components/parameters/chainId"
           }
         ],
@@ -4693,7 +4687,7 @@
         "schema": {
           "type": "string"
         },
-        "description": "Provide unix timestamp to fetch price"
+        "description": "Provide unix timestamp to fetch historical price (supported only for ethereum)"
       },
       "24hchange": {
         "name": "24change",
@@ -5269,7 +5263,6 @@
         "content": {
           "application/json": {
             "schema": {
-              "description": "",
               "type": "object",
               "x-examples": {
                 "example-1": {
@@ -6107,13 +6100,7 @@
                 "page": {
                   "type": "number"
                 },
-                "total_pages": {
-                  "type": "number"
-                },
                 "items_on_page": {
-                  "type": "number"
-                },
-                "total_txs": {
                   "type": "number"
                 },
                 "transactions": {
@@ -6121,6 +6108,9 @@
                   "items": {
                     "$ref": "#/components/schemas/Transaction"
                   }
+                },
+                "has_next": {
+                  "type": "boolean"
                 }
               }
             },
