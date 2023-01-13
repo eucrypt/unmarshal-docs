@@ -675,7 +675,7 @@
             "$ref": "#/components/parameters/chainId"
           }
         ],
-        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nAll of the transactions that the contract was involved in are returned by the api. The response also includes transactional information (Including non-contract specific interactions). The count also contains the total transaction count of the contract involved in. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
+        "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nAll of the transactions that the contract was involved in are returned by the api. The response also includes transactional information (Including non-contract specific interactions). The count also contains the total transaction count of the contract involved in. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address with total transaction count\n\n\tResponse will be paginated transaction details with total count.\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
       }
     },
     "/v1/{chain}/transactions/{transactionHash}": {
@@ -5263,7 +5263,6 @@
         "content": {
           "application/json": {
             "schema": {
-              "description": "",
               "type": "object",
               "x-examples": {
                 "example-1": {
