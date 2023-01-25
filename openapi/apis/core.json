@@ -734,8 +734,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {},
           "description": ""
         },
         "description": "The profit loss endpoint provide the profit or loss made by an address for a given token.\n```js\nunmarshal.WalletApi\n    .getProfitAndLoss(Chain.ethereum, \"demo.eth\", \"token-address\")\n    .then(({data}) => console.log(data))\n```"
