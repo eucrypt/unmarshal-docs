@@ -672,12 +672,6 @@
             "$ref": "#/components/parameters/pageSize"
           },
           {
-            "$ref": "#/components/parameters/fromBlock"
-          },
-          {
-            "$ref": "#/components/parameters/toBlock"
-          },
-          {
             "$ref": "#/components/parameters/chainId"
           }
         ],
@@ -740,17 +734,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          },
-          "description": ""
-        },
         "description": "The profit loss endpoint provide the profit or loss made by an address for a given token.\n```js\nunmarshal.WalletApi\n    .getProfitAndLoss(Chain.ethereum, \"demo.eth\", \"token-address\")\n    .then(({data}) => console.log(data))\n```"
       },
       "parameters": [
@@ -4693,7 +4676,7 @@
         "schema": {
           "type": "string"
         },
-        "description": "Provide unix timestamp to fetch historical price (For ethereum chain)"
+        "description": "Provide unix timestamp to fetch historical price (supported only for ethereum)"
       },
       "24hchange": {
         "name": "24change",
@@ -6107,13 +6090,7 @@
                 "page": {
                   "type": "number"
                 },
-                "total_pages": {
-                  "type": "number"
-                },
                 "items_on_page": {
-                  "type": "number"
-                },
-                "total_txs": {
                   "type": "number"
                 },
                 "transactions": {
@@ -6121,6 +6098,9 @@
                   "items": {
                     "$ref": "#/components/schemas/Transaction"
                   }
+                },
+                "has_next": {
+                  "type": "boolean"
                 }
               }
             },
