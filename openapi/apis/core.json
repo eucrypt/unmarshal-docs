@@ -5263,7 +5263,7 @@
         "content": {
           "application/json": {
             "schema": {
-            "description": "",
+              "description": "",
               "type": "object",
               "x-examples": {
                 "example-1": {
