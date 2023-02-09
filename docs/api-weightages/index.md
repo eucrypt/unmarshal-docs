@@ -85,3 +85,4 @@ Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 /v1/subscriptions/webhook/unsubscribe | 5
 /v1/firebase/credentials | 1
 /v1/receipts | 5
+Push Notifications | 5
