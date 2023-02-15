@@ -28,6 +28,9 @@
         },
         {
           "$ref": "#/components/parameters/token"
+        },
+        {
+          "$ref": "#/components/parameters/includeLowVolume"
         }
       ],
       "get": {
@@ -4554,6 +4557,15 @@
           "minimum": 1
         },
         "description": "Page you want to query"
+      },
+      "includeLowVolume": {
+        "name": "includeLowVolume",
+        "in": "query",
+        "schema": {
+          "type": "boolean",
+          "default": false,
+        },
+        "description": "Get the prices of low volume tokens"
       },
       "pageSize": {
         "name": "pageSize",
