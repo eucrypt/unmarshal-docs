@@ -1791,6 +1791,231 @@
           "description": "pair name"
         }
       ]
+    },
+    "/v1/batch-assets": {
+      "get": {
+        "summary": "Batch Assets",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "": {
+                      "type": "object",
+                      "properties": {
+                        "algorand": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "contract_name": {
+                                "type": "string"
+                              },
+                              "contract_ticker_symbol": {
+                                "type": "string"
+                              },
+                              "contract_decimals": {
+                                "type": "integer"
+                              },
+                              "contract_address": {
+                                "type": "string"
+                              },
+                              "coin": {
+                                "type": "integer"
+                              },
+                              "balance": {
+                                "type": "string"
+                              },
+                              "quote": {
+                                "type": "integer"
+                              },
+                              "quote_rate": {
+                                "type": "integer"
+                              },
+                              "logo_url": {
+                                "type": "string"
+                              },
+                              "quote_rate_24h": {
+                                "type": "string"
+                              },
+                              "quote_pct_change_24h": {
+                                "type": "integer"
+                              },
+                              "verified": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
+                      "type": "object",
+                      "properties": {
+                        "zilliqa": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "contract_name": {
+                                "type": "string"
+                              },
+                              "contract_ticker_symbol": {
+                                "type": "string"
+                              },
+                              "contract_decimals": {
+                                "type": "integer"
+                              },
+                              "contract_address": {
+                                "type": "string"
+                              },
+                              "coin": {
+                                "type": "integer"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "balance": {
+                                "type": "string"
+                              },
+                              "quote": {
+                                "type": "integer"
+                              },
+                              "quote_rate": {
+                                "type": "integer"
+                              },
+                              "logo_url": {
+                                "type": "string"
+                              },
+                              "quote_rate_24h": {
+                                "type": "string"
+                              },
+                              "quote_pct_change_24h": {
+                                "type": "integer"
+                              },
+                              "verified": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "": {
+                        "algorand": [
+                          {
+                            "contract_name": "Algorand",
+                            "contract_ticker_symbol": "ALGO",
+                            "contract_decimals": 6,
+                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                            "coin": 283,
+                            "balance": "0",
+                            "quote": 0,
+                            "quote_rate": 0,
+                            "logo_url": "https://assets.unmarshal.io/tokens/algorand_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                            "quote_rate_24h": "0",
+                            "quote_pct_change_24h": 0,
+                            "verified": false
+                          }
+                        ]
+                      },
+                      "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
+                        "zilliqa": [
+                          {
+                            "contract_name": "Zilliqa",
+                            "contract_ticker_symbol": "ZIL",
+                            "contract_decimals": 12,
+                            "contract_address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
+                            "coin": 313,
+                            "type": "normal",
+                            "balance": "715752858447188279",
+                            "quote": 0,
+                            "quote_rate": 0,
+                            "logo_url": "https://assets.unmarshal.io/tokens/zilliqa_0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27.png",
+                            "quote_rate_24h": "0",
+                            "quote_pct_change_24h": 0,
+                            "verified": false
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "": {
+                        "algorand": [
+                          {
+                            "contract_name": "Algorand",
+                            "contract_ticker_symbol": "ALGO",
+                            "contract_decimals": 6,
+                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                            "coin": 283,
+                            "balance": "0",
+                            "quote": 0,
+                            "quote_rate": 0,
+                            "logo_url": "https://assets.unmarshal.io/tokens/algorand_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                            "quote_rate_24h": "0",
+                            "quote_pct_change_24h": 0,
+                            "verified": false
+                          }
+                        ]
+                      },
+                      "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
+                        "zilliqa": [
+                          {
+                            "contract_name": "Zilliqa",
+                            "contract_ticker_symbol": "ZIL",
+                            "contract_decimals": 12,
+                            "contract_address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
+                            "coin": 313,
+                            "type": "normal",
+                            "balance": "715752858447188279",
+                            "quote": 0,
+                            "quote_rate": 0,
+                            "logo_url": "https://assets.unmarshal.io/tokens/zilliqa_0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27.png",
+                            "quote_rate_24h": "0",
+                            "quote_pct_change_24h": 0,
+                            "verified": false
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-v1-batch-assets",
+        "description": "This API gives balances of wallet across the chains",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "address",
+            "description": "wallet address"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "chain",
+            "description": "chains"
+          }
+        ]
+      }
     }
   },
   "components": {
