@@ -1795,7 +1795,9 @@
     "/v1/batch-assets": {
       "get": {
         "summary": "Batch Assets",
-        "tags": [],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1804,104 +1806,45 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "": {
+                    "type": "array",
+                    "items": {
                       "type": "object",
                       "properties": {
-                        "algorand": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "contract_name": {
-                                "type": "string"
-                              },
-                              "contract_ticker_symbol": {
-                                "type": "string"
-                              },
-                              "contract_decimals": {
-                                "type": "integer"
-                              },
-                              "contract_address": {
-                                "type": "string"
-                              },
-                              "coin": {
-                                "type": "integer"
-                              },
-                              "balance": {
-                                "type": "string"
-                              },
-                              "quote": {
-                                "type": "integer"
-                              },
-                              "quote_rate": {
-                                "type": "integer"
-                              },
-                              "logo_url": {
-                                "type": "string"
-                              },
-                              "quote_rate_24h": {
-                                "type": "string"
-                              },
-                              "quote_pct_change_24h": {
-                                "type": "integer"
-                              },
-                              "verified": {
-                                "type": "boolean"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
-                      "type": "object",
-                      "properties": {
-                        "zilliqa": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "contract_name": {
-                                "type": "string"
-                              },
-                              "contract_ticker_symbol": {
-                                "type": "string"
-                              },
-                              "contract_decimals": {
-                                "type": "integer"
-                              },
-                              "contract_address": {
-                                "type": "string"
-                              },
-                              "coin": {
-                                "type": "integer"
-                              },
-                              "type": {
-                                "type": "string"
-                              },
-                              "balance": {
-                                "type": "string"
-                              },
-                              "quote": {
-                                "type": "integer"
-                              },
-                              "quote_rate": {
-                                "type": "integer"
-                              },
-                              "logo_url": {
-                                "type": "string"
-                              },
-                              "quote_rate_24h": {
-                                "type": "string"
-                              },
-                              "quote_pct_change_24h": {
-                                "type": "integer"
-                              },
-                              "verified": {
-                                "type": "boolean"
-                              }
-                            }
-                          }
+                        "contract_name": {
+                          "type": "string"
+                        },
+                        "contract_ticker_symbol": {
+                          "type": "string"
+                        },
+                        "contract_decimals": {
+                          "type": "integer"
+                        },
+                        "contract_address": {
+                          "type": "string"
+                        },
+                        "coin": {
+                          "type": "integer"
+                        },
+                        "balance": {
+                          "type": "string"
+                        },
+                        "quote": {
+                          "type": "integer"
+                        },
+                        "quote_rate": {
+                          "type": "integer"
+                        },
+                        "logo_url": {
+                          "type": "string"
+                        },
+                        "quote_rate_24h": {
+                          "type": "string"
+                        },
+                        "quote_pct_change_24h": {
+                          "type": "integer"
+                        },
+                        "verified": {
+                          "type": "boolean"
                         }
                       }
                     }
