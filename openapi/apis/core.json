@@ -1795,7 +1795,9 @@
     "/v1/batch-assets": {
       "get": {
         "summary": "Batch Assets",
-        "tags": [],
+        "tags": [
+          "Wallet APIs"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1803,145 +1805,112 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "": {
-                      "type": "object",
-                      "properties": {
-                        "algorand": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "contract_name": {
-                                "type": "string"
-                              },
-                              "contract_ticker_symbol": {
-                                "type": "string"
-                              },
-                              "contract_decimals": {
-                                "type": "integer"
-                              },
-                              "contract_address": {
-                                "type": "string"
-                              },
-                              "coin": {
-                                "type": "integer"
-                              },
-                              "balance": {
-                                "type": "string"
-                              },
-                              "quote": {
-                                "type": "integer"
-                              },
-                              "quote_rate": {
-                                "type": "integer"
-                              },
-                              "logo_url": {
-                                "type": "string"
-                              },
-                              "quote_rate_24h": {
-                                "type": "string"
-                              },
-                              "quote_pct_change_24h": {
-                                "type": "integer"
-                              },
-                              "verified": {
-                                "type": "boolean"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
-                      "type": "object",
-                      "properties": {
-                        "zilliqa": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "contract_name": {
-                                "type": "string"
-                              },
-                              "contract_ticker_symbol": {
-                                "type": "string"
-                              },
-                              "contract_decimals": {
-                                "type": "integer"
-                              },
-                              "contract_address": {
-                                "type": "string"
-                              },
-                              "coin": {
-                                "type": "integer"
-                              },
-                              "type": {
-                                "type": "string"
-                              },
-                              "balance": {
-                                "type": "string"
-                              },
-                              "quote": {
-                                "type": "integer"
-                              },
-                              "quote_rate": {
-                                "type": "integer"
-                              },
-                              "logo_url": {
-                                "type": "string"
-                              },
-                              "quote_rate_24h": {
-                                "type": "string"
-                              },
-                              "quote_pct_change_24h": {
-                                "type": "integer"
-                              },
-                              "verified": {
-                                "type": "boolean"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
                   "x-examples": {
                     "Example 1": {
-                      "": {
-                        "algorand": [
+                      "0x8140e0d5ed099f45d616d61d7fbaf5b635e12647": {
+                        "ethereum": [
                           {
-                            "contract_name": "Algorand",
-                            "contract_ticker_symbol": "ALGO",
+                            "contract_name": "Tether USD",
+                            "contract_ticker_symbol": "USDT",
                             "contract_decimals": 6,
-                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-                            "coin": 283,
-                            "balance": "0",
-                            "quote": 0,
-                            "quote_rate": 0,
-                            "logo_url": "https://assets.unmarshal.io/tokens/algorand_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
-                            "quote_rate_24h": "0",
-                            "quote_pct_change_24h": 0,
-                            "verified": false
-                          }
-                        ]
-                      },
-                      "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
-                        "zilliqa": [
+                            "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "22697247731",
+                            "quote": 22680.45176767906,
+                            "quote_rate": 0.99926,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
+                            "quote_rate_24h": "-0.001372274563560705",
+                            "quote_pct_change_24h": -0.13714,
+                            "verified": true,
+                            "coin_gecko_id": "tether"
+                          },
                           {
-                            "contract_name": "Zilliqa",
-                            "contract_ticker_symbol": "ZIL",
-                            "contract_decimals": 12,
-                            "contract_address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
-                            "coin": 313,
-                            "type": "normal",
-                            "balance": "715752858447188279",
-                            "quote": 0,
-                            "quote_rate": 0,
-                            "logo_url": "https://assets.unmarshal.io/tokens/zilliqa_0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27.png",
-                            "quote_rate_24h": "0",
-                            "quote_pct_change_24h": 0,
-                            "verified": false
+                            "contract_name": "Ethereum",
+                            "contract_ticker_symbol": "ETH",
+                            "contract_decimals": 18,
+                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "64702512388722634",
+                            "quote": 110.46207022539893,
+                            "quote_rate": 1707.23,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                            "quote_rate_24h": "12.27",
+                            "quote_pct_change_24h": 0.72367,
+                            "verified": true,
+                            "coin_gecko_id": "ethereum"
+                          }
+                        ],
+                        "matic": []
+                      },
+                      "0x963737c550e70ffe4d59464542a28604edb2ef9a": {
+                        "ethereum": [
+                          {
+                            "contract_name": "Ethereum",
+                            "contract_ticker_symbol": "ETH",
+                            "contract_decimals": 18,
+                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "218934496610230466935",
+                            "quote": 373771.5406478838,
+                            "quote_rate": 1707.23,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                            "quote_rate_24h": "12.27",
+                            "quote_pct_change_24h": 0.72367,
+                            "verified": true,
+                            "coin_gecko_id": "ethereum"
+                          },
+                          {
+                            "contract_name": "HitBTC Token",
+                            "contract_ticker_symbol": "HIT",
+                            "contract_decimals": 18,
+                            "contract_address": "0x74b1af114274335598da72f5c6ed7b954a016eed",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "369270745231870000000000",
+                            "quote": 54308.648501251126,
+                            "quote_rate": 0.14707,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0x74b1Af114274335598da72f5C6ed7b954a016EeD.png",
+                            "quote_rate_24h": "0.00145704",
+                            "quote_pct_change_24h": 1.00062,
+                            "verified": true,
+                            "coin_gecko_id": "hitbtc-token"
+                          }
+                        ],
+                        "matic": [
+                          {
+                            "contract_name": "Wrapped Ether",
+                            "contract_ticker_symbol": "WETH",
+                            "contract_decimals": 18,
+                            "contract_address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+                            "coin": 137,
+                            "type": "ERC20",
+                            "balance": "20000000000000000",
+                            "quote": 34.144600000000004,
+                            "quote_rate": 1707.23,
+                            "logo_url": "https://assets.unmarshal.io/tokens/matic_0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619.png",
+                            "quote_rate_24h": "12.27",
+                            "quote_pct_change_24h": 0.72367,
+                            "verified": true,
+                            "coin_gecko_id": "weth"
+                          },
+                          {
+                            "contract_name": "Matic",
+                            "contract_ticker_symbol": "MATIC",
+                            "contract_decimals": 18,
+                            "contract_address": "0x0000000000000000000000000000000000001010",
+                            "coin": 137,
+                            "type": "ERC20",
+                            "balance": "100000000000000000",
+                            "quote": 0.149,
+                            "quote_rate": 1.49,
+                            "logo_url": "https://assets.unmarshal.io/tokens/matic_0x0000000000000000000000000000000000001010.png",
+                            "quote_rate_24h": "-0.014041841703763104",
+                            "quote_pct_change_24h": -0.93303,
+                            "verified": true,
+                            "coin_gecko_id": "matic-network"
                           }
                         ]
                       }
@@ -1951,40 +1920,110 @@
                 "examples": {
                   "Example 1": {
                     "value": {
-                      "": {
-                        "algorand": [
+                      "0x8140e0d5ed099f45d616d61d7fbaf5b635e12647": {
+                        "ethereum": [
                           {
-                            "contract_name": "Algorand",
-                            "contract_ticker_symbol": "ALGO",
+                            "contract_name": "Tether USD",
+                            "contract_ticker_symbol": "USDT",
                             "contract_decimals": 6,
-                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-                            "coin": 283,
-                            "balance": "0",
-                            "quote": 0,
-                            "quote_rate": 0,
-                            "logo_url": "https://assets.unmarshal.io/tokens/algorand_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
-                            "quote_rate_24h": "0",
-                            "quote_pct_change_24h": 0,
-                            "verified": false
-                          }
-                        ]
-                      },
-                      "zil1ms3gt702drqu0r82qcag72x96v887dsnqgq8vn": {
-                        "zilliqa": [
+                            "contract_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "22697247731",
+                            "quote": 22680.45176767906,
+                            "quote_rate": 0.99926,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xdAC17F958D2ee523a2206206994597C13D831ec7.png",
+                            "quote_rate_24h": "-0.001372274563560705",
+                            "quote_pct_change_24h": -0.13714,
+                            "verified": true,
+                            "coin_gecko_id": "tether"
+                          },
                           {
-                            "contract_name": "Zilliqa",
-                            "contract_ticker_symbol": "ZIL",
-                            "contract_decimals": 12,
-                            "contract_address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
-                            "coin": 313,
-                            "type": "normal",
-                            "balance": "715752858447188279",
-                            "quote": 0,
-                            "quote_rate": 0,
-                            "logo_url": "https://assets.unmarshal.io/tokens/zilliqa_0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27.png",
-                            "quote_rate_24h": "0",
-                            "quote_pct_change_24h": 0,
-                            "verified": false
+                            "contract_name": "Ethereum",
+                            "contract_ticker_symbol": "ETH",
+                            "contract_decimals": 18,
+                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "64702512388722634",
+                            "quote": 110.46207022539893,
+                            "quote_rate": 1707.23,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                            "quote_rate_24h": "12.27",
+                            "quote_pct_change_24h": 0.72367,
+                            "verified": true,
+                            "coin_gecko_id": "ethereum"
+                          }
+                        ],
+                        "matic": []
+                      },
+                      "0x963737c550e70ffe4d59464542a28604edb2ef9a": {
+                        "ethereum": [
+                          {
+                            "contract_name": "Ethereum",
+                            "contract_ticker_symbol": "ETH",
+                            "contract_decimals": 18,
+                            "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "218934496610230466935",
+                            "quote": 373771.5406478838,
+                            "quote_rate": 1707.23,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                            "quote_rate_24h": "12.27",
+                            "quote_pct_change_24h": 0.72367,
+                            "verified": true,
+                            "coin_gecko_id": "ethereum"
+                          },
+                          {
+                            "contract_name": "HitBTC Token",
+                            "contract_ticker_symbol": "HIT",
+                            "contract_decimals": 18,
+                            "contract_address": "0x74b1af114274335598da72f5c6ed7b954a016eed",
+                            "coin": 60,
+                            "type": "ERC20",
+                            "balance": "369270745231870000000000",
+                            "quote": 54308.648501251126,
+                            "quote_rate": 0.14707,
+                            "logo_url": "https://assets.unmarshal.io/tokens/ethereum_0x74b1Af114274335598da72f5C6ed7b954a016EeD.png",
+                            "quote_rate_24h": "0.00145704",
+                            "quote_pct_change_24h": 1.00062,
+                            "verified": true,
+                            "coin_gecko_id": "hitbtc-token"
+                          }
+                        ],
+                        "matic": [
+                          {
+                            "contract_name": "Wrapped Ether",
+                            "contract_ticker_symbol": "WETH",
+                            "contract_decimals": 18,
+                            "contract_address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+                            "coin": 137,
+                            "type": "ERC20",
+                            "balance": "20000000000000000",
+                            "quote": 34.144600000000004,
+                            "quote_rate": 1707.23,
+                            "logo_url": "https://assets.unmarshal.io/tokens/matic_0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619.png",
+                            "quote_rate_24h": "12.27",
+                            "quote_pct_change_24h": 0.72367,
+                            "verified": true,
+                            "coin_gecko_id": "weth"
+                          },
+                          {
+                            "contract_name": "Matic",
+                            "contract_ticker_symbol": "MATIC",
+                            "contract_decimals": 18,
+                            "contract_address": "0x0000000000000000000000000000000000001010",
+                            "coin": 137,
+                            "type": "ERC20",
+                            "balance": "100000000000000000",
+                            "quote": 0.149,
+                            "quote_rate": 1.49,
+                            "logo_url": "https://assets.unmarshal.io/tokens/matic_0x0000000000000000000000000000000000001010.png",
+                            "quote_rate_24h": "-0.014041841703763104",
+                            "quote_pct_change_24h": -0.93303,
+                            "verified": true,
+                            "coin_gecko_id": "matic-network"
                           }
                         ]
                       }
@@ -4788,7 +4827,7 @@
         "in": "query",
         "schema": {
           "type": "boolean",
-          "default": false,
+          "default": false
         },
         "description": "Get the prices of low volume tokens"
       },
