@@ -1805,9 +1805,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "type": "object"
-                  },
                   "x-examples": {
                     "Example 1": {
                       "": {
