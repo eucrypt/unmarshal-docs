@@ -4788,7 +4788,7 @@
         "in": "query",
         "schema": {
           "type": "boolean",
-          "default": false,
+          "default": false
         },
         "description": "Get the prices of low volume tokens"
       },
