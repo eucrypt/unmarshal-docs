@@ -2035,7 +2035,7 @@
           }
         },
         "operationId": "get-v1-batch-assets",
-        "description": "This API gives balances of wallet across the chains",
+        "description": "This API gives balances of wallets across multiple chains",
         "parameters": [
           {
             "schema": {
@@ -2043,7 +2043,7 @@
             },
             "in": "query",
             "name": "address",
-            "description": "wallet address"
+            "description": "comma separated wallet addresses"
           },
           {
             "schema": {
@@ -2051,7 +2051,7 @@
             },
             "in": "query",
             "name": "chain",
-            "description": "chains"
+            "description": "comma separated chains"
           }
         ]
       }
