@@ -2059,7 +2059,7 @@
     "/v1/{address}/nft-summary": {
       "get": {
         "summary": "Nft Summary",
-        "tags": ["Nfts"],
+        "tags": ["NFTs"],
         "responses": {
           "200": {
             "description": "OK",
