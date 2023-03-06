@@ -2153,7 +2153,7 @@
             },
             "in": "query",
             "name": "chain",
-            "description": "Chain name (example: bsc, ethereum, matic...)"
+            "description": "list of chains for which count of NFTs required."
           }
         ]
       },
