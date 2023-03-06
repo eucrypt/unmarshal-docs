@@ -2143,17 +2143,7 @@
           }
         },
         "operationId": "get-v1-nft-summary",
-        "description": "This endpoint allows you to retrieve the total NFT count for a given token address across multiple chains.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          }
-        }
+        "description": "This endpoint allows you to retrieve the total NFT count for a given token address across multiple chains."
       },
       "parameters": [
         {
