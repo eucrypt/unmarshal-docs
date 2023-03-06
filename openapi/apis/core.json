@@ -636,6 +636,36 @@
         "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address.**\n\n This Endpoint does not provide total transaction count for an address which inturn does not provide total pages, but instead it will returns a boolean value which specifies whether transaction are present in next page.  \n\nAll of the transactions that the contract was involved in are returned by the api. The response also includes transactional information (Including non-contract specific interactions). \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity .\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistoryWithoutTotalCount(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n\nNote*\n  Valid query paramaters for solana are `before`, `pageSize` and `until`, For pagination use `before` and `until` instead of `page`"
       }
     },
+    "/v1/{chain}/transactions/{transactionHash}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/chains"
+        },
+        {
+          "$ref": "#/components/parameters/transactionHash"
+        },
+        {
+          "$ref": "#/components/parameters/chainId"
+        }
+      ],
+      "get": {
+        "summary": "Transaction Details",
+        "tags": [
+          "Transaction APIs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/TransactionDetails"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "operationId": "transaction-details",
+        "parameters": [],
+        "description": "The transaction detail API is one such End Point which gives as much details possible for a specific transaction on a specific given chain.\n\n \nAll we need is the transaction hash and the entire history of the transaction is presented to anyone looking for all minor details pertaining to the particular transaction\n```ts\nunmarshal.WalletApi\n    .getTransactionDetails(Chain.ethereum, \"transaction-hash\")\n    .then(({data}) => console.log(data))\n```"
+      }
+    },
     "/v1/{chain}/token/{address}/transactions": {
       "parameters": [
         {
@@ -679,36 +709,6 @@
           }
         ],
         "description": "**This Endpoint provides all the transactions of a token address irrespective of wallet address**\n\nAll of the transactions that the contract was involved in are returned by the api. The response also includes transactional information (Including non-contract specific interactions). The count also contains the total transaction count of the contract involved in. \n\nUnmarshal Transaction APIs are smart enough to differentiate the kind of operation a particular transaction was made for. It will let a user understand if the transaction was  was for a send or receive or the amount was staked or un-staked , or if the transactions was for adding or removing liquidity.\nNote: This API will be slower compared to the v3 API which doesn't fetch transaction count.\n\n **Filters:** \n\n - \t\tGet Transactions for an address from a specified block till a specified block \n\n\tBlock Filtering, returns transactions within specified Block Numbers (fromBlock specifies from which block transactions should be picked, toBlock specifies till which block).\n\n - \t\tGet Transactions for requested chain\n\n     Chain Id Filtering for kadena chain, Returns transactions available on a particular chain (0-19), All other filters will also applies for kadena chain.\n```ts\nunmarshal.WalletApi\n    .getTokenTransactionHistory(Chain.ethereum, \"token address\")\n    .then(({data}) => console.log(data))\n```\n\n"
-      }
-    },
-    "/v1/{chain}/transactions/{transactionHash}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/chains"
-        },
-        {
-          "$ref": "#/components/parameters/transactionHash"
-        },
-        {
-          "$ref": "#/components/parameters/chainId"
-        }
-      ],
-      "get": {
-        "summary": "Transaction Details",
-        "tags": [
-          "Transaction APIs"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/TransactionDetails"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          }
-        },
-        "operationId": "transaction-details",
-        "parameters": [],
-        "description": "The transaction detail API is one such End Point which gives as much details possible for a specific transaction on a specific given chain.\n\n \nAll we need is the transaction hash and the entire history of the transaction is presented to anyone looking for all minor details pertaining to the particular transaction\n```ts\nunmarshal.WalletApi\n    .getTransactionDetails(Chain.ethereum, \"transaction-hash\")\n    .then(({data}) => console.log(data))\n```"
       }
     },
     "/v2/{chain}/address/{address}/userData": {
@@ -1266,7 +1266,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/Nft-details"
+            "$ref": "#/components/responses/tokenidList"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -5641,7 +5641,6 @@
         "content": {
           "application/json": {
             "schema": {
-              "description": "",
               "type": "object",
               "x-examples": {
                 "example-1": {
@@ -6488,8 +6487,17 @@
                     "$ref": "#/components/schemas/Transaction"
                   }
                 },
-                "has_next": {
-                  "type": "boolean"
+                "total_txs": {
+                  "type": "number",
+                  "x-stoplight": {
+                    "id": "li2o8646a9dxd"
+                  }
+                },
+                "total_pages": {
+                  "type": "number",
+                  "x-stoplight": {
+                    "id": "yzlqpw7n64um5"
+                  }
                 }
               }
             },
@@ -9109,19 +9117,15 @@
         "content": {
           "application/json": {
             "schema": {
-              "description": "",
               "type": "object",
-              "x-examples": {
-                "example-1": {
-                  "token_holders_count": "3367"
+              "properties": {
+                "token_holders_count": {
+                  "type": "string"
                 }
               },
-              "properties": {
-                "transactions": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Transaction"
-                  }
+              "x-examples": {
+                "Example 1": {
+                  "token_holders_count": "3367"
                 }
               }
             },
@@ -11203,7 +11207,6 @@
         "content": {
           "application/json": {
             "schema": {
-              "description": "",
               "type": "object",
               "x-examples": {
                 "example-1": {
@@ -11867,14 +11870,6 @@
                       "creator": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
                     }
                   ]
-                }
-              },
-              "properties": {
-                "transactions": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Transaction"
-                  }
                 }
               }
             },
@@ -12541,6 +12536,38 @@
                       "creator": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
                     }
                   ]
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "": {
+                  "type": "string",
+                  "x-stoplight": {
+                    "id": "l1lyd6ar386p6"
+                  }
+                }
+              }
+            }
+          },
+          "multipart/form-data": {
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "assets": {
+                  "type": "string",
+                  "x-stoplight": {
+                    "id": "mawtugejahrol"
+                  }
                 }
               }
             }
@@ -12858,7 +12885,6 @@
         "content": {
           "application/json": {
             "schema": {
-              "description": "",
               "type": "object",
               "x-examples": {
                 "example-1": {
@@ -12876,10 +12902,10 @@
                 }
               },
               "properties": {
-                "transactions": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Transaction"
+                "": {
+                  "type": "string",
+                  "x-stoplight": {
+                    "id": "fc8z5brezqyfe"
                   }
                 }
               }
@@ -13046,6 +13072,55 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/TopTokenHolders"
+            }
+          }
+        }
+      },
+      "tokenidList": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total_ids": {
+                  "type": "integer"
+                },
+                "token_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "x-examples": {
+                "Example 1": {
+                  "total_ids": 6,
+                  "token_ids": [
+                    "0",
+                    "1",
+                    "10",
+                    "100",
+                    "1000",
+                    "1001"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Example 1": {
+                "value": {
+                  "total_ids": 6,
+                  "token_ids": [
+                    "0",
+                    "1",
+                    "10",
+                    "100",
+                    "1000",
+                    "1001"
+                  ]
+                }
+              }
             }
           }
         }
