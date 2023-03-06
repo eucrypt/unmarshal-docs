@@ -2056,7 +2056,7 @@
         ]
       }
     },
-    "/v1/{address}/nft-summary": {
+    "/v1/address/{address}/nft-summary": {
       "get": {
         "summary": "Nft Summary",
         "tags": ["NFTs"],
