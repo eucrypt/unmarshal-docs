@@ -2055,6 +2055,117 @@
           }
         ]
       }
+    },
+    "/v1/{address}/nft-summary": {
+      "get": {
+        "summary": "Nft Summary",
+        "tags": ["Nfts"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "summary": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "chain": {
+                            "type": "string"
+                          },
+                          "nft_count": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "summary": [
+                        {
+                          "chain": "matic",
+                          "nft_count": 873
+                        },
+                        {
+                          "chain": "bsc",
+                          "nft_count": 530
+                        },
+                        {
+                          "chain": "ethereum",
+                          "nft_count": 30
+                        },
+                        {
+                          "chain": "avalanche",
+                          "nft_count": 8
+                        },
+                        {
+                          "chain": "fuse",
+                          "nft_count": 0
+                        }
+                      ]
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "summary": [
+                        {
+                          "chain": "matic",
+                          "nft_count": 873
+                        },
+                        {
+                          "chain": "bsc",
+                          "nft_count": 530
+                        },
+                        {
+                          "chain": "ethereum",
+                          "nft_count": 30
+                        },
+                        {
+                          "chain": "avalanche",
+                          "nft_count": 8
+                        },
+                        {
+                          "chain": "fuse",
+                          "nft_count": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-v1-nft-summary",
+        "description": "This endpoint allows you to retrieve the total NFT count for a given token address across multiple chains.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "address",
+          "in": "path",
+          "required": true,
+          "description": "Any valid address or ENS"
+        }
+      ]
     }
   },
   "components": {
