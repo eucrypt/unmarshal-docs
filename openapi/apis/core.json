@@ -2059,7 +2059,9 @@
     "/v1/address/{address}/nft-summary": {
       "get": {
         "summary": "Nft Summary",
-        "tags": ["NFTs"],
+        "tags": [
+          "NFTs"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2143,7 +2145,17 @@
           }
         },
         "operationId": "get-v1-nft-summary",
-        "description": "This endpoint allows you to retrieve the total NFT count for a given token address across multiple chains."
+        "description": "This endpoint allows you to retrieve the total NFT count for a given wallet address across multiple chains.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "chain",
+            "description": "Chain name (example: bsc, ethereum, matic...)"
+          }
+        ]
       },
       "parameters": [
         {
