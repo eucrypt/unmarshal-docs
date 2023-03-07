@@ -12902,7 +12902,7 @@
                 }
               },
               "properties": {
-                "": {
+                "transactions": {
                   "type": "string",
                   "x-stoplight": {
                     "id": "fc8z5brezqyfe"
