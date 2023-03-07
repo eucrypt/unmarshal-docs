@@ -13109,7 +13109,7 @@
           }
         }
       },
-      "tokenidList": {
+      "TokenIdList": {
         "description": "Example response",
         "content": {
           "application/json": {
