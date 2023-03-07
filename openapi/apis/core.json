@@ -13077,7 +13077,6 @@
         }
       },
       "tokenidList": {
-        "description": "Example response",
         "content": {
           "application/json": {
             "schema": {
