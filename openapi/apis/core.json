@@ -1266,7 +1266,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/tokenidList"
+            "$ref": "#/components/responses/TokenIdList"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
