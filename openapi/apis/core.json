@@ -11202,8 +11202,82 @@
           "application/json": {
             "schema": {
               "type": "object",
+              "properties": {
+                "items_on_page": {
+                  "type": "integer"
+                },
+                "next_offset": {
+                  "type": "integer"
+                },
+                "nft_assets": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "asset_contract": {
+                        "type": "string"
+                      },
+                      "token_id": {
+                        "type": "string"
+                      },
+                      "owner": {
+                        "type": "string"
+                      },
+                      "external_link": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "balance": {
+                        "type": "integer"
+                      },
+                      "issuer_specific_data": {
+                        "type": "object",
+                        "properties": {
+                          "entire_response": {
+                            "type": "string"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "price": {
+                        "type": "string"
+                      },
+                      "animation_url": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "creator": {
+                        "type": "string"
+                      },
+                      "nft_metadata": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "trait_type": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "x-examples": {
-                "example-1": {
+                "Example 1": {
                   "items_on_page": 14,
                   "next_offset": 16,
                   "nft_assets": [
@@ -12530,38 +12604,6 @@
                       "creator": "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "application/xml": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "": {
-                  "type": "string",
-                  "x-stoplight": {
-                    "id": "l1lyd6ar386p6"
-                  }
-                }
-              }
-            }
-          },
-          "multipart/form-data": {
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "text/html": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "assets": {
-                  "type": "string",
-                  "x-stoplight": {
-                    "id": "mawtugejahrol"
-                  }
                 }
               }
             }
