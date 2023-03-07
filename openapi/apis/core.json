@@ -12896,7 +12896,7 @@
                 }
               },
               "properties": {
-                "": {
+                "transactions": {
                   "type": "string"
                 }
               }
