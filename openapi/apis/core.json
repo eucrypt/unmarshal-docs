@@ -6488,16 +6488,10 @@
                   }
                 },
                 "total_txs": {
-                  "type": "number",
-                  "x-stoplight": {
-                    "id": "li2o8646a9dxd"
-                  }
+                  "type": "number"
                 },
                 "total_pages": {
-                  "type": "number",
-                  "x-stoplight": {
-                    "id": "yzlqpw7n64um5"
-                  }
+                  "type": "number"
                 }
               }
             },
@@ -12902,11 +12896,8 @@
                 }
               },
               "properties": {
-                "transactions": {
-                  "type": "string",
-                  "x-stoplight": {
-                    "id": "fc8z5brezqyfe"
-                  }
+                "": {
+                  "type": "string"
                 }
               }
             },
@@ -13077,6 +13068,7 @@
         }
       },
       "tokenidList": {
+        "description": "Example response",
         "content": {
           "application/json": {
             "schema": {
