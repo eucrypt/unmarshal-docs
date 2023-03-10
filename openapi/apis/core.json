@@ -1372,7 +1372,7 @@
     "/v1/pricestore/{symbol}": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/symbol"
+          "$ref": "#/components/parameters/priceStoreSymbol"
         }
       ],
       "get": {
@@ -1394,7 +1394,7 @@
             "$ref": "#/components/parameters/timestamp"
           }
         ],
-        "description": "This api provides price of token by taking the symbol of the token(ticker) as a parameter which will give latest price, timestamp can also be provided as a query param to get historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint live prices for all coingecko supported symbols, however historical prices are supported only for Ethereum."
+        "description": "This api provides price of token by taking the symbol of the token(ticker) as a parameter which will give latest price, timestamp can also be provided as a query param to get historical data.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint gives live prices for all coingecko supported symbols, however historical prices are supported only for Ethereum, BSC, Matic and Arbitrum."
       }
     },
     "/v1/pricestore/chain/{priceStoreChains}/{address}": {
@@ -1455,7 +1455,7 @@
           }
         },
         "operationId": "get-v1-pricestore-chain-ethereum-tokens",
-        "description": "This api takes multiple contract addresses to provide price data at once, timestamp can be provided as a query parameter to view historical data. multiple contracts have to given in comma(,) separated.\n```ts\nunmarshal.PriceStore\n    .getMultipleTokenPrice(Chain.ethereum, [\"token address 1\", \"token address 2\"])\n    .then(({data}) => console.log(data))\n```\n\nNote: This endpoint works only for Ethereum, Bsc and Matic.",
+        "description": "This api takes multiple contract addresses to provide price data at once, timestamp can be provided as a query parameter to view historical data. multiple contracts have to given in comma(,) separated.\n```ts\nunmarshal.PriceStore\n    .getMultipleTokenPrice(Chain.ethereum, [\"token address 1\", \"token address 2\"])\n    .then(({data}) => console.log(data))\n```\n\nNote: This endpoint works only for Ethereum, Bsc, Matic and Arbitrum.",
         "parameters": [
           {
             "$ref": "#/components/parameters/tokens"
@@ -5065,7 +5065,7 @@
         "schema": {
           "type": "string"
         },
-        "description": "Provide unix timestamp to fetch historical price (supported only for ethereum)"
+        "description": "Provide unix timestamp to fetch historical price (supported only for ethereum, bsc, matic, arbitrum)"
       },
       "24hchange": {
         "name": "24change",
@@ -5120,7 +5120,17 @@
           "type": "string",
           "default": "marsh"
         },
-        "description": "Valid token ticker on ETH/BSC/Polygon"
+        "description": "Valid token ticker on any supported chain"
+      },
+      "priceStoreSymbol": {
+        "name": "symbol",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "default": "marsh"
+        },
+        "description": "Valid token ticker on Ethereum / BSC / Polygon / Arbitrum"
       }
     },
     "responses": {

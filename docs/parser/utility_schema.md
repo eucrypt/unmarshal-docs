@@ -88,7 +88,7 @@ the latest prices of verified tokens tracked at any time by our services.
 
 Table name: `TOKEN_DETAILS`
 
-This table house token related metadata such as the symbol, the decimals and the name. It’s a quick and easy way to get
+This table houses token related metadata such as the symbol, the decimals and the name. It’s a quick and easy way to get
 information about a token whose existence is only made aware by a contract address.
 
 <table>
@@ -166,6 +166,38 @@ information about a token whose existence is only made aware by a contract addre
   </tr>
 </table>
 
+#### Chains Name to ID
+
+Table name: `CHAIN_NAME_TO_ID_REFERENCE`
+
+This table contains Chain IDs of the chains.
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Type
+   </td>
+   <td>Significance
+   </td>
+  </tr>
+  <tr>
+   <td>chain_name
+   </td>
+   <td>text
+   </td>
+   <td>The name of the chain
+   </td>
+  </tr>
+  <tr>
+   <td>chain_id
+   </td>
+   <td>number
+   </td>
+   <td>The ChainID of the chain
+   </td>
+  </tr>
+</table>
 ### Views
 
 #### Complete Token Data

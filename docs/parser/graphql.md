@@ -22,8 +22,8 @@ Contrary to the other such tools available to access your smart contract data, *
 
 Enabling GraphQL for your data is simple, just
 
-1.  Head over to the parser section on your console.
-2.  Click on the `Graph QL: Add new+` button under the add-ons section.
+1. Head over to the parser section on your console and click on GraphQL in the side navigation bar.
+2. Click on the GraphQL: Add New button.
 
 ![](../../images/parser/graphql/graphql_create_new.png)
 
