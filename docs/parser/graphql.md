@@ -31,15 +31,15 @@ _Fig 1.1 Parser homepage highlighting the ***Add New*** button_
 
 _It is important to note that the GraphQL API is associated with Postgres schemas. Hence, each of the Postgres schemas where your data has been written has its own entry point._
 
-Once ready, your parser homepage should look like this,
+Once ready, your GraphQL page should look like this,
 
 ![](../../images/parser/graphql/graphql_view_details.png)
 
-_Fig 1.2 Highlighted view details button once GraphQL is ready_
+_Fig 1.2 Highlighted copy details buttons once GraphQL is ready_
 
 ![](../../images/parser/graphql/graphql_view_details_screen.png)
 
-_Fig 1.3 GraphQL view details pop-up_
+_Fig 1.3 GraphQL playground_
 
 As seen in _Fig 1.3,_ for each database schema you get access to two endpoints
 
