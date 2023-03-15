@@ -12,8 +12,7 @@ Parser allows users to index events and functions relating to any smart contract
 
 1. Metabase Dashboards
 2. GraphQL APIs
-3. Unmarshal Inhouse Data Explorer
-4. Unmarshal Sakhi
-5. Prebuilt Analytics
+3. Unmarshal In-house Data Explorer and Dynamic API
+4. Prebuilt Analytics
 
 The parser tool differentiates itself by its off-chain data enhancements. This is made possible through the **parser plugins**. Currently parser supports plugins to fetch token details, historical token price, and live token price.

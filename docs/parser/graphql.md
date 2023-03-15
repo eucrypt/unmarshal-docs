@@ -35,20 +35,25 @@ Once ready, your GraphQL page should look like this,
 
 ![](../../images/parser/graphql/graphql_view_details.png)
 
-_Fig 1.2 Highlighted copy details buttons once GraphQL is ready_
+_Fig 1.2 Highlighted copy GraphQL API endpoint and GraphiQL playground links once GraphQL is ready_
 
-![](../../images/parser/graphql/graphql_view_details_screen.png)
-
-_Fig 1.3 GraphQL playground_
-
-As seen in _Fig 1.3,_ for each database schema you get access to two endpoints
+As seen in _Fig 1.2,_ for each database schema you get access to two endpoints
 
 1.  The GraphQL API endpoint itself. Which you could use to get data in your production environment
 2.  An endpoint to access your GraphQL Playground. The playground section is intended to also serve as the documentation for the available GraphQL API.
 
+![](../../images/parser/graphql/graphql_view_details_screen.png)
+
+_Fig 1.3 GraphQL playground embedded_
+
+![](../../images/parser/graphql/graphql_select_parser.png)
+_Fig 1.4 Parser Selection_
+
+Select the parser whose schema you want to access through GraphQL as shown in Fig 1.4
+
 ![](../../images/parser/graphql/graphql_graphiql.png)
 
-_Fig 1.4 GraphiQL playground for marsh_erc20_parser_
+_Fig 1.5 GraphiQL playground for marsh eth parser_
 
 > But, what if I want an API which fetches data in a custom format and with custom filters?
 

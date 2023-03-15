@@ -36,7 +36,7 @@ _Fig 1.3 Schema name in the parser details window_
 
 **Table nomenclature**
 
-- All of the table names are in snake case and are postfixed with `_events` and `_methods` for event and function tables respectively.
+- All the table names are in snake case and are postfixed with `_events` and `_methods` for event and function tables respectively.
 
 In the above example, we selected the following events and functions for indexing
 
