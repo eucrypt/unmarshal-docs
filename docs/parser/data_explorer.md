@@ -2,7 +2,11 @@
 
 ![](../../images/parser/data-explorer/dynamic-api.jpg)
 
-You now have an understanding of how to access data through Metabase and GraphQL. Still not familiar with these concepts? Don't worry, We've got you covered!
+You now have an understanding on creating APIs using GraphQL. Still not familiar with the concept? Don't worry, We've got you covered!
+
+The in-house data explorer is a user-friendly interface that allows developers to easily search and visualize blockchain data.
+
+Furthermore, Unmarshal's dynamic API provides a flexible and customizable solution for developers looking to build blockchain applications. It allows developers to retrieve specific data points and filter results based on a range of criteria. This makes it easy to integrate blockchain data into third-party applications and services.
 
 Let's quickly go through the steps to access parser data through Data Explorer and Dynamic API.
 
@@ -54,6 +58,8 @@ _Fig 1.6 Query response_
 
 To use this response in your dApp, click on the `Generate API` button which will generate an API and copy the cURL of the request to your clipboard as follows. Integrate this API in your dApp.
 
+![](../../images/parser/data-explorer/dynamic-api-generate-curl.png)
+
 ```shell
 curl --location --request
 POST 'https://api.unmarshal.com/v1/parser/42c69e76-489f-48b3-bcc3-5cdcfb0adccc/execute?auth_key=YOUR_API_KEY'
@@ -62,8 +68,6 @@ POST 'https://api.unmarshal.com/v1/parser/42c69e76-489f-48b3-bcc3-5cdcfb0adccc/e
   "query": "SELECT * FROM marsheth_rxycsnx.approval_events LIMIT 10"
 }'
 ```
-
-![](../../images/parser/data-explorer/dynamic-api-generate-curl.png)
 
 _Fig 1.7 Generate API_
 
