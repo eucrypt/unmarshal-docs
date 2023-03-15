@@ -30,7 +30,7 @@ To easily integrate these analytics in your DApp, click on the `Copy cURL` butto
 
 _Fig 1.2 Contract Analytics_
 
-## Event/Function Analytics
+## Event Function Analytics [](https://preview.redoc.ly/unmarshal/docs-revamp/docs/parser/prebuilt_analytics/#event-function-analytics)
 
 Event/Function Analytics allows you to get analytics specific to the Events and Functions added during the creation of the parser. The key metrics provided by default are:
 

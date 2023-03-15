@@ -32,7 +32,7 @@ The below image highlights the structure of the selected table
 
 _Fig 1.3 View structure of the selected table_
 
-## Dynamic API
+## Dynamic API [](https://preview.redoc.ly/unmarshal/docs-revamp/docs/parser/data_explorer/#dynamic-api)
 
 Are you not familiar with GraphQL or do you find using GraphQL complicated? We've got the right solution for you! You can now write an SQL query and create an API out of it with a single click using Unmarshal's Dynamic API feature.
 
