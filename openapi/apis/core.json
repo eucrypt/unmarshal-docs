@@ -31,6 +31,9 @@
         },
         {
           "$ref": "#/components/parameters/includeLowVolume"
+        },
+        {
+          "$ref": "#/components/parameters/aggregatedBalance"
         }
       ],
       "get": {
@@ -64,6 +67,9 @@
         },
         {
           "$ref": "#/components/parameters/chainId"
+        },
+        {
+          "$ref": "#/components/parameters/aggregatedBalance"
         },
         {
           "$ref": "#/components/parameters/token"
@@ -5037,6 +5043,16 @@
           "default": "false"
         },
         "description": "Return details for requested chain id (For Kadena chain)"
+      },
+      "aggregatedBalance": {
+        "name": "aggregatedBalance",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "false"
+        },
+        "description": "Return aggregated balances accross all chains (For Kadena chain)"
       },
       "token": {
         "name": "token",
