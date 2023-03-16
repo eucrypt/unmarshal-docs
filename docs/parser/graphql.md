@@ -27,7 +27,7 @@ Enabling GraphQL for your data is simple, just
 
 ![](../../images/parser/graphql/graphql_create_new.png)
 
-_Fig 1.1 Parser homepage highlighting the ***Add New*** button_
+_Fig 1.1 GraphQL page highlighting the ***Add New*** button_
 
 _It is important to note that the GraphQL API is associated with Postgres schemas. Hence, each of the Postgres schemas where your data has been written has its own entry point._
 
@@ -35,7 +35,7 @@ Once ready, your GraphQL page should look like this,
 
 ![](../../images/parser/graphql/graphql_view_details.png)
 
-_Fig 1.2 Highlighted copy GraphQL API endpoint and GraphiQL playground links once GraphQL is ready_
+_Fig 1.2 Copy GraphQL API endpoint and GraphiQL playground links once GraphQL is ready_
 
 As seen in _Fig 1.2,_ for each database schema you get access to two endpoints
 
@@ -46,10 +46,11 @@ As seen in _Fig 1.2,_ for each database schema you get access to two endpoints
 
 _Fig 1.3 GraphQL playground embedded_
 
-![](../../images/parser/graphql/graphql_select_parser.png)
-_Fig 1.4 Parser Selection_
+Select the parser to get parser specific GraphQL API and playground links for the parser you want to access through GraphQL as shown in Fig 1.4
 
-Select the parser whose schema you want to access through GraphQL as shown in Fig 1.4
+![](../../images/parser/graphql/graphql_select_parser.png)
+
+_Fig 1.4 Parser Selection_
 
 ![](../../images/parser/graphql/graphql_graphiql.png)
 

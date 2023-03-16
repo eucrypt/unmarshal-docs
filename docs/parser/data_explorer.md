@@ -42,7 +42,7 @@ Navigate to the Dynamic API section under the Parser tab and select the parser f
 
 _Fig 1.4 Dynamic API_
 
-Replace `YOUR_SCHEMA_NAME` with your schema name and `YOUR_TABLE_NAME` with the table which the data is to be extracted and alter the query based on the response you want.
+Replace `YOUR_SCHEMA_NAME` with your schema name and `YOUR_TABLE_NAME` with the table which the data is to be extracted and alter the query based on the data you want to extract.
 
 Then click on the `Execute` button
 

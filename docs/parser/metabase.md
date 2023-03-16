@@ -38,12 +38,12 @@ _Fig 1.3 Schema name in the parser details window_
 
 - All the table names are in snake case and are postfixed with `_events` and `_methods` for event and function tables respectively.
 
-In the above example, we selected the following events and functions for indexing
+For example, if we selected the following events and functions for indexing
 
 1.  Events: `Approval`, `Transfer`
 2.  Functions: `transferFrom`
 
-We could expect to see find the following tables in our schema
+We could expect to find the following tables in our schema
 
 1.  Event tables: `approval_events`, `transfer_events`
 2.  Function tables: `transfer_from_methods`
