@@ -397,7 +397,7 @@
             "$ref": "#/components/parameters/toBlock"
           }
         ],
-        "description": "All log events related to a given topic between blocks can be fetched via this endpoint.\n\n **Filters:** \n\n - **Get All Logs between specified blocks** Block filtering, return all logs between those blocks, If fromBlock and toBlock are not specified then the recent 5 block logs will be returned. (fromBlock specifies from which block logs should be picked, toBlock specifies till which block)\n```js\nunmarshal.EVMApi\n    .getEventsByTopics(Chain.ethereum, {topics: \"topic0\"})\n    .then(({data}) => console.log(data))\n```"
+        "description": "All log events related to a given topic between blocks can be fetched via this endpoint.\n\n **Filters:** \n\n - **Get All Logs between specified blocks:** Block filtering, return all logs between those blocks, If fromBlock and toBlock are not specified then the recent 5 block logs will be returned. (fromBlock specifies from which block logs should be picked, toBlock specifies till which block)\n```js\nunmarshal.EVMApi\n    .getEventsByTopics(Chain.ethereum, {topics: \"topic0\"})\n    .then(({data}) => console.log(data))\n```"
       }
     },
     "/v3/{chain}/address/{address}/transactions": {
@@ -1400,7 +1400,7 @@
             "$ref": "#/components/parameters/timestamp"
           }
         ],
-        "description": "This API provides the price of the token by taking the symbol of the token(ticker) as a parameter which will give the latest price.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint gives live prices for all coingecko supported symbols, however historical prices are supported only for Ethereum, BSC, Matic and Arbitrum. \n\n      Timestamp can also be provided as a query param to get historical data."
+        "description": "This API provides the price of the token by taking the symbol of the token(ticker) as a parameter which will give the latest price.\n```ts\nunmarshal.PriceStore\n    .getPriceBySymbol(\"marsh\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint gives live prices for all coingecko supported symbols, however historical prices are supported only for Ethereum, BSC, Matic and Arbitrum. \nTimestamp can also be provided as a query param to get historical data."
       }
     },
     "/v1/pricestore/chain/{priceStoreChains}/{address}": {
@@ -1418,7 +1418,7 @@
           }
         },
         "operationId": "get-v1-pricestore",
-        "description": "This API provides the price of a token by the contract address of the token in any chain.\n```ts\nunmarshal.PriceStore\n    .getPriceByAddress(Chain.ethereum, \"token-address\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint live prices for contracts which are listed in coingecko, however historical prices are supported only for Ethereum.\n\n      Timestamp can be provided as a query parameter to view historical data.",
+        "description": "This API provides the price of a token by the contract address of the token in any chain.\n```ts\nunmarshal.PriceStore\n    .getPriceByAddress(Chain.ethereum, \"token-address\")\n    .then(({data}) => console.log(data))\n```\n\nNOTE: This endpoint live prices for contracts which are listed in coingecko, however historical prices are supported only for Ethereum.\nTimestamp can be provided as a query parameter to view historical data.",
         "parameters": [
           {
             "$ref": "#/components/parameters/timestamp"
