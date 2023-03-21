@@ -2,28 +2,50 @@
 title: Introduction
 ---
 
+import Backend from "./images/backend.png";
+
 # Introduction
 
-![photo_2021-02-01 18.53.31.jpeg](https://stoplight.io/api/v1/projects/cHJqOjk4Mzcw/images/fm0w0TSZ6fQ)
+<img src={Backend} alt="Unmarshal backend" />
 
-**Unmarshal** is a Chain-Agnostic blockchain protocol consisting of a network of blockchain indexes to curate customizable data for DeFi applications. Synergistically built with the support of Binance Smart Chain, Polkadot Network and Solana, Unmarshal intends to revitalize data collection, distribution, and interpretation to propel the DeFi economy.
+**Unmarshal** is a Chain-Agnostic blockchain protocol consisting of a network of blockchain indexers to curate customizable data for DeFi applications. Synergistically built with the support of Binance Smart Chain, Ethereum, Polygon, Kadena, Celo, Klaytn, Cronos, Velas, Arbitrum, Avalanche, Xinfin, Zilliqa, Solana, Fantom, Aurora and Fuse, Unmarshal intends to revitalize data collection, distribution, and interpretation to propel the DeFi economy.
 
 It is an advanced solution that aims at transforming raw and unstructured blockchain data into meaningful form to ease the integration of real-time blockchain data into decentralized applications, thus unmarshalling the potential of DApps.
 
-#### Highlighting the Key Attributes of UnMarshal Network
+### Top APIs
 
-The primary characteristics redefining data access and implementation in the fast-paced decentralized economy include:
+#### Wallet and NFT APIs
 
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Wallet-APIs/#tag/Wallet-APIs/operation/assets-details">Token Balances</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Transaction-APIs/#tag/Transaction-APIs/operation/transaction-history-v-3">Transaction History of an address</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Transaction-APIs/#tag/Transaction-APIs/operation/token-transaction-history-v-2">Token Transaction History</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Transaction-APIs/#tag/Transaction-APIs/operation/transaction-details">Transaction Details</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Wallet-APIs/#tag/Wallet-APIs/operation/get-profit-and-loss">Profit and Loss</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/NFTs/#tag/NFTs/operation/nft-assets-by-address-with-offset-based-pagination">NFT Assets of an address</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/NFTs/#tag/NFTs/operation/nft-transactions-by-address-with-pagination">NFT Transactions of an address</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/NFTs/#tag/NFTs/operation/nft-transactions-by-address-with-pagination">NFT Details of all token IDs of a contract</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/NFTs/#tag/NFTs/operation/nft-contract-transactions">NFT Contract Transactions</a>
 
-- **Structured data:** The availability of raw and unstructured on-chain data makes it tedious for decentralized applications to decode it into a structured format. With UnMarshal, the requested data is presented in a structured format that is accurate, reliable, and valuable, allowing developers to focus on the application aspect. It transforms plain hashes into useful information.
-- **Multi-Chain Operability:** The lack of interoperability is one of the significant limitations for DeFi adoption. By employing UnMarshal’s distributed network of blockchain indexers, the availability of customized data from different chains will be simple and seamless.
-- **Comprehensive SAAS Solutions:** UnMarshal Network utilizes cutting-edge technological solutions that ease the creation of APIs. Therefore, the infrastructure is not limited to API’s but also involves projecting data into multiple formats such as GraphQL, WebSockets, Notifications.
-- **Democratized governance:** UnMarshal’s decentralized network constitutes multiple distributed nodes promoting the liberation of power for clients to choose data indexers from a pool of nodes.
-- **Automated Indexing:** The automated indexing of real-time data of multiple chains in accordance with the submission of indexing requests for various DeFi protocols such as AAVE, Compound, Circle, etc., as per client requirement. It will allow clients to employ a cost-sharing model as per their needs to index new chains.
+#### Notification APIs
 
-Solutions:
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/Transactional-Notification/#tag/Transactional-Notification/operation/SubscribeWebhook">Webhook Transactional Notifications</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/Transactional-Notification/#tag/Transactional-Notification/operation/SubscribeFirebaseNotification">Firebase Transactional Notifications</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/Whale-alert/#tag/Whale-alert/operation/Whalealertsubscribefirebase">Firebase Whale Alerts</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/Whale-alert/#tag/Whale-alert/operation/Whalealertsubscribewebhook">Webhook Whale Alerts</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/FirebaseSpecific/#tag/FirebaseSpecific/operation/FirebaseUpdateservercredentials">Update Firebase Server Credentials</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/FirebaseSpecific/#tag/FirebaseSpecific/operation/FirebaseRefreshToken">Refresh FCM Token</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/notifications/tag/List/#tag/List/operation/GetSubscriptions">List Subscriptions</a>
 
-- **Wallets:** to track users'  token balances, transactions, and protocol positions with Unmarshal's APIs. Keep your users up to date on their wallet transaction with Unmarshal smart notifications.
-- **DeFi Protocols:** To track protocol volumes, analytics, transactions and user positions for lending, borrowing, liquidity with Unmarshal's protocol engine
-- **Exchanges:** For tracking token metrics, protocol metrics and price trends with Unmarshal's APIs, Websockets
-- **Investors:**  Make better investment decisions with Unmarshal's insights & analytics dashboards and price trend notifications
+#### Price-store APIs
+
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Price-Store/#tag/Price-Store/operation/get-v1-pricestore-symbol">Get Price by Symbol</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Price-Store/#tag/Price-Store/operation/get-v1-pricestore">Get Price by Address</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Price-Store/#tag/Price-Store/operation/get-v1-pricestore-chain-ethereum-tokens">Get Price for Multiple Token Addresses</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Price-Store/#tag/Price-Store/operation/top-gainers">Top Gainers</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Price-Store/#tag/Price-Store/operation/get-v1-pricestore-chain-losers">Top Losers</a>
+
+#### Token-store APIs
+
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Token-Store/#tag/Token-Store/operation/details-for-token-contract">Token Contract Details</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Token-Store/#tag/Token-Store/operation/details-for-token-symbol">Token Symbol Details</a>
+- <a href="https://preview.redoc.ly/unmarshal/docs-revamp/openapi/core/tag/Token-Store/#tag/Token-Store/operation/list-of-all-token">Token List</a>

@@ -22,33 +22,39 @@ Contrary to the other such tools available to access your smart contract data, *
 
 Enabling GraphQL for your data is simple, just
 
-1.  Head over to the parser section on your console.
-2.  Click on the `Graph QL: Add new+` button under the add-ons section.
+1. Head over to the parser section on your console and click on GraphQL in the side navigation bar.
+2. Click on the GraphQL: Add New button.
 
 ![](../../images/parser/graphql/graphql_create_new.png)
 
-_Fig 1.1 Parser homepage highlighting the ***Add New*** button_
+_Fig 1.1 GraphQL page highlighting the ***Add New*** button_
 
 _It is important to note that the GraphQL API is associated with Postgres schemas. Hence, each of the Postgres schemas where your data has been written has its own entry point._
 
-Once ready, your parser homepage should look like this,
+Once ready, your GraphQL page should look like this,
 
 ![](../../images/parser/graphql/graphql_view_details.png)
 
-_Fig 1.2 Highlighted view details button once GraphQL is ready_
+_Fig 1.2 Copy GraphQL API endpoint and GraphiQL playground links once GraphQL is ready_
 
-![](../../images/parser/graphql/graphql_view_details_screen.png)
-
-_Fig 1.3 GraphQL view details pop-up_
-
-As seen in _Fig 1.3,_ for each database schema you get access to two endpoints
+As seen in _Fig 1.2,_ for each database schema you get access to two endpoints
 
 1.  The GraphQL API endpoint itself. Which you could use to get data in your production environment
 2.  An endpoint to access your GraphQL Playground. The playground section is intended to also serve as the documentation for the available GraphQL API.
 
+![](../../images/parser/graphql/graphql_view_details_screen.png)
+
+_Fig 1.3 GraphQL playground embedded_
+
+Select the parser to get parser specific GraphQL API and playground links for the parser you want to access through GraphQL as shown in Fig 1.4
+
+![](../../images/parser/graphql/graphql_select_parser.png)
+
+_Fig 1.4 Parser Selection_
+
 ![](../../images/parser/graphql/graphql_graphiql.png)
 
-_Fig 1.4 GraphiQL playground for marsh_erc20_parser_
+_Fig 1.5 GraphiQL playground for marsh eth parser_
 
 > But, what if I want an API which fetches data in a custom format and with custom filters?
 

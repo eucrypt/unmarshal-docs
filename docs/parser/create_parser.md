@@ -4,9 +4,9 @@
 
 To start with, you will need to head to [Unmarshal’s Unified Console](https://console.unmarshal.io/).
 
-<iframe src="https://app.tango.us/app/embed/680cdee9-24b7-4f98-8deb-50cc341d010f?iframe" sandbox="allow-scripts allow-top-navigation-by-user-activation allow-popups allow-same-origin" security="restricted" title="Tango Workflow" width="100%" height="750px" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe>
+<iframe src="https://app.tango.us/app/embed/db35d34f-5b69-4327-99f8-1e3ea3debb83?iframe" sandbox="allow-scripts allow-top-navigation-by-user-activation allow-popups allow-same-origin" security="restricted" title="Tango Workflow" width="100%" height="750px" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe>
 
-Now that you have a parser running and in-sync, you might be wondering how you gain access to that data? Unmarshal provides you with two easy ways to either visualise or query all that data.
+Now that you have a parser running and in-sync, you might be wondering how you gain access to that data? Unmarshal provides you with four easy ways to either visualise or query all that data.
 
 # Accessing your data
 
@@ -43,3 +43,30 @@ With the help of GraphQL APIs, dApp builders can access on-chain data in the for
 ### How do I access it?
 
 Refer to [Accessing parser data through GraphQL](/docs/parser/graphql/)
+
+## Unmarshal In-house Data Explorer and Dynamic API
+
+### What exactly is it?
+
+Combined, the in-house data explorer and dynamic API allow developers to quickly and easily access and analyze blockchain data, which is critical for building and scaling blockchain applications.
+
+### Who is it for?
+
+dApp builders who are unfamiliar with GraphQL but want to access their smart contract data instantly and generate APIs to integrate in their dApp with can make the most use of this feature.
+
+### How do I access it?
+
+Refer to [Accessing parser data through Data Explorer and Dynamic API](/docs/parser/data_explorer/)
+
+## Prebuilt Analytics
+
+### What exactly is iT?
+
+To enhance the functionality of its smart contract indexer, Unmarshal provides prebuilt analytics that enable developers to quickly analyze and derive insights from smart contract data. These prebuilt analytics include various metrics such as transaction count, gas spent and user activity, among others.
+### Who is it for?
+
+Unmarshal's prebuilt analytics can help developers track the performance of their DApps by providing data on key metrics.
+
+### How do I access it?
+
+Refer to [Accessing parser data through Prebuilt Analytics](/docs/parser/prebuilt_analytics/)

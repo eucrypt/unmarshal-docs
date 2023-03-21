@@ -88,7 +88,7 @@ the latest prices of verified tokens tracked at any time by our services.
 
 Table name: `TOKEN_DETAILS`
 
-This table house token related metadata such as the symbol, the decimals and the name. It’s a quick and easy way to get
+This table houses token related metadata such as the symbol, the decimals and the name. It’s a quick and easy way to get
 information about a token whose existence is only made aware by a contract address.
 
 <table>
@@ -162,6 +162,39 @@ information about a token whose existence is only made aware by a contract addre
    <td>text
    </td>
    <td>The total available supply of the token as stated when it was created
+   </td>
+  </tr>
+</table>
+
+#### Chains Name to ID
+
+Table name: `CHAIN_NAME_TO_ID_REFERENCE`
+
+This table contains Chain IDs of the chains.
+
+<table>
+  <tr>
+   <td>Name
+   </td>
+   <td>Type
+   </td>
+   <td>Significance
+   </td>
+  </tr>
+  <tr>
+   <td>chain_name
+   </td>
+   <td>text
+   </td>
+   <td>The name of the chain
+   </td>
+  </tr>
+  <tr>
+   <td>chain_id
+   </td>
+   <td>number
+   </td>
+   <td>The ChainID of the chain
    </td>
   </tr>
 </table>
@@ -276,19 +309,19 @@ The unmarshal schema adds in various Routines or functions that help simplify va
 The schema includes various functions that help you get the live price of each token saved. The following are some
 functions that aid in that effort.
 
-##### With the Symbol (`get_live_price_with_symbol(symbol text)`):
+**With the Symbol (`get_live_price_with_symbol(symbol text)`):**
 
 This function returns the live price for the first symbol it sees a match for (sorted in ascending by the chain name)
 
-###### Parameters:
+##### Parameters:
 
 This function accepts a single parameter, `symbol` of type text
 
-###### Return Value:
+##### Return Value:
 
 The function returns a single `numeric` value showcasing the price of the token
 
-###### Modifications:
+##### Modifications:
 
 To get a more specific token’s price, the following self-explanatory functions are also available.
 
@@ -299,20 +332,20 @@ To get a more specific token’s price, the following self-explanatory functions
 - `get_live_price_with_symbol_and_chain_id(symbol text, chain_id text)`
   - The `chain_id` refers to the similarly named column in [`live_token_prices`](#live-token-prices)
 
-##### With the Contract Address (`get_live_price_with_contract_address(contract_address text)`):
+**With the Contract Address (`get_live_price_with_contract_address(contract_address text)`):**
 
 This function returns the live price for the first `contract_address` it sees a match for (sorted in ascending by the
 chain name)
 
-###### Parameters:
+##### Parameters:
 
 This function accepts a single parameter, `contract_address` of type `text`
 
-###### Return Value:
+##### Return Value:
 
 The function returns a single `numeric` value showcasing the price of the token
 
-###### Modifications:
+##### Modifications:
 
 To get a more specific token’s price, the following self-explanatory functions are also available.
 
@@ -328,12 +361,12 @@ To get a more specific token’s price, the following self-explanatory functions
 These are a set of routines made available to fetch the symbol for a given token. All of them require a contract_address
 to be passed
 
-##### With just the Contract Address (`get_symbol_with_contract_address(contract_address text)`):
+**With just the Contract Address (`get_symbol_with_contract_address(contract_address text)`):**
 
 It returns the saved symbol for the given `contract_addresse`. While a collision is usually unlikely, we do provide
 routines to make the fetch even more specific
 
-##### Modifications:
+**Modifications:**
 
 - `get_symbol_with_contract_address_and_chain_id(contract_address text, chain_id text)`
 
@@ -347,12 +380,12 @@ routines to make the fetch even more specific
 The value of a token transferred may often be misleading to the uninitiated. This set of functions allows a user to get
 a decimal adjusted value of a token amount to get a more intuitive sense of the amount involved.
 
-##### With the Contract Address and Chain ID ( `get_decimal_adjusted_value_with_contract_address_and_chain_id(contract_address text, chain_id text, value numeric)`) :
+**With the Contract Address and Chain ID ( `get_decimal_adjusted_value_with_contract_address_and_chain_id(contract_address text, chain_id text, value numeric)`) :**
 
 You pass in the `contract_address`, `chain_id` and the amount you want converted. It returns a `numeric` result which
 represents the actual decimal value of the transfer.
 
-##### With the Contract Address and Chain Name ( `get_decimal_adjusted_value_with_contract_address_and_chain_id(contract_address text, chain_name text, value numeric)` ) :
+**With the Contract Address and Chain Name ( `get_decimal_adjusted_value_with_contract_address_and_chain_id(contract_address text, chain_name text, value numeric)` ) :**
 
 You pass in the `contract_address`, `chain_name` and the amount you want converted. It returns a `numeric` result which
 represents the actual decimal value of the transfer.
