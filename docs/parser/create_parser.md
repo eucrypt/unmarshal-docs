@@ -6,7 +6,7 @@ To start with, you will need to head to [Unmarshal’s Unified Console](https://
 
 <iframe src="https://app.tango.us/app/embed/db35d34f-5b69-4327-99f8-1e3ea3debb83?iframe" sandbox="allow-scripts allow-top-navigation-by-user-activation allow-popups allow-same-origin" security="restricted" title="Tango Workflow" width="100%" height="750px" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe>
 
-Now that you have a parser running and in-sync, you might be wondering how you gain access to that data? Unmarshal provides you with 5 easy ways to either visualise or query all that data.
+Now that you have a parser running and in-sync, you might be wondering how you gain access to that data? Unmarshal provides you with four easy ways to either visualise or query all that data.
 
 # Accessing your data
 
