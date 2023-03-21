@@ -123,6 +123,7 @@
               "zilliqa",
               "fantom",
               "fuse",
+              "aurora",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -186,6 +187,7 @@
               "zilliqa",
               "fantom",
               "fuse",
+              "aurora",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -246,6 +248,7 @@
               "zilliqa",
               "fantom",
               "fuse",
+              "aurora",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -305,6 +308,7 @@
               "zilliqa",
               "fantom",
               "fuse",
+              "aurora",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -364,6 +368,7 @@
               "zilliqa",
               "fantom",
               "fuse",
+              "aurora",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -878,6 +883,7 @@
               "zilliqa",
               "fantom",
               "fuse",
+              "aurora",
               "bsc-testnet",
               "matic-testnet",
               "rinkeby-testnet"
@@ -4857,6 +4863,7 @@
             "bsc",
             "matic",
             "celo",
+            "kadena",
             "klaytn",
             "cronos",
             "velas",
@@ -4867,6 +4874,7 @@
             "solana",
             "fantom",
             "fuse",
+            "aurora",
             "bsc-testnet",
             "matic-testnet",
             "rinkeby-testnet"
@@ -4913,6 +4921,7 @@
             "solana",
             "fantom",
             "fuse",
+            "aurora",
             "bsc-testnet",
             "matic-testnet",
             "rinkeby-testnet"
