@@ -902,7 +902,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/TokenHoldersCount"
+            "$ref": "#/components/responses/WalletTransactionCount"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -9162,6 +9162,33 @@
               "0x5a666c7d92E5fA7Edcb6390E4efD6d0CDd69cF37": {
                 "value": {
                   "token_holders_count": "3367"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WalletTransactionCount": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total_transaction_count": {
+                  "type": "string"
+                }
+              },
+              "x-examples": {
+                "Example 1": {
+                  "total_transaction_count": "445"
+                }
+              }
+            },
+            "examples": {
+              "demo.eth": {
+                "value": {
+                  "total_transaction_count": "445"
                 }
               }
             }
