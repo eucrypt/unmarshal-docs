@@ -9,11 +9,15 @@ The number of requests you could make every month is appropriately limited in al
 Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Weightage
 --- | ---
 /v1/:chain/address/:address/assets | 20
+/v1/batch-assets | 1000
 /v2/:chain/address/:address/userData | 50
 /v1/:chain/address/:address/transactions | 5
-/v3/:chain/address/:address/transactions | 5
 /v2/:chain/address/:address/transactions | 20
+/v3/:chain/address/:address/transactions | 5
+/v1/:chain/address/:address/transactions/count | 50
+/v1/:chain/token/:tokenAddress/transactions | 10
 /v1/:chain/transactions/:transactionHash | 1
+/v1/:chain/token-address/:tokenAddress/holders-count | 50
 
 ## NFT Api's
 
@@ -22,6 +26,7 @@ Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 /v1/:chain/address/:address/nft-assets | 10
 /v2/:chain/address/:address/nft-assets | 10
 /v3/:chain/address/:address/nft-assets | 10
+/v1/address/:address/nft-summary | 100
 /v1/:chain/address/:address/nft-transactions | 10
 /v2/:chain/address/:address/nft-transactions | 10
 /v1/:chain/contract/:address/nft-transactions | 10
@@ -64,7 +69,16 @@ Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 --- | ---
 /v2/:pair/top-traders | 50
 
-##Get Logs
+## Get Blocks
+
+Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Weightage
+--- | ---
+/v1/:chain/block/:blockNumber/details | 10
+/v1/:chain/block-hash/:blockHash/details | 10
+/v1/:chain/block/:blockNumber/transactions | 10
+/v1/:chain/block-hash/:blockHash/transactions | 10
+
+## Get Logs
 
 Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Weightage
 --- | ---
