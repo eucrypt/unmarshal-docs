@@ -50,7 +50,7 @@ yarn add @unmarshal/sdk
 Import unmarshal:
 
 ```js
-import Unmarshal, {Chain} from "@unmarshal/sdk";
+import {Unmarshal, Chain} from "@unmarshal/sdk";
 ```
 
 ## 2. Initialise unmarshal
