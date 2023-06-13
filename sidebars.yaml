@@ -26,6 +26,7 @@ docs:
     pages:
       - page: openapi/core.page.yaml/*
         label: Core Apis
+      - page: docs/core/*
   - group: Web3 SDK
     expanded: true
     separatorLine: true
