@@ -8,8 +8,8 @@ title: Supported Chains
 <thead>
     <tr>
         <th>Chain</th>
-        <th>Native Token Address</th>
-        <th>Native Token Symbol</th>
+        <th>Wrapped Native Token Address</th>
+        <th>Wrapped Native Token Symbol</th>
         <th>Chain name</th>
     </tr>
 </thead>
