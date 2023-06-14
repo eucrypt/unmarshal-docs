@@ -2065,8 +2065,147 @@
             "name": "chain",
             "description": "comma separated chains"
           }
-        ]
+        ],
+        "deprecated": true
       }
+    },
+    "/v3/batch-assets": {
+      "get": {
+        "summary": "Batch Assets V3",
+        "tags": [
+          "Wallet APIs"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object"
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de": {
+                        "bsc": {
+                          "error": null,
+                          "data": [
+                            {
+                              "contract_name": "Binance Smart Chain",
+                              "contract_ticker_symbol": "BNB",
+                              "contract_decimals": 18,
+                              "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                              "coin": 56,
+                              "type": "BEP20",
+                              "balance": "477978964647601176",
+                              "quote": 113.00378682198586,
+                              "quote_rate": 236.42,
+                              "logo_url": "https://assets.unmarshal.io/tokens/bsc_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                              "quote_rate_24h": "3.04",
+                              "quote_pct_change_24h": 1.3021,
+                              "verified": true,
+                              "coin_gecko_id": "binancecoin"
+                            },
+                            {
+                              "contract_name": "UnoRe",
+                              "contract_ticker_symbol": "UNO",
+                              "contract_decimals": 18,
+                              "contract_address": "0x474021845c4643113458ea4414bdb7fb74a01a77",
+                              "coin": 56,
+                              "type": "BEP20",
+                              "balance": "2101285428862933344614",
+                              "quote": 94.04824055662417,
+                              "quote_rate": 0.04475748,
+                              "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x474021845C4643113458ea4414bdb7fB74A01A77.png",
+                              "quote_rate_24h": "0.00094562",
+                              "quote_pct_change_24h": 2.15836,
+                              "verified": true,
+                              "coin_gecko_id": "uno-re"
+                            }
+                          ]
+                        },
+                        "ethereum": {
+                          "error": null,
+                          "data": [
+                            {
+                              "contract_name": "Binance Smart Chain",
+                              "contract_ticker_symbol": "BNB",
+                              "contract_decimals": 18,
+                              "contract_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                              "coin": 56,
+                              "type": "BEP20",
+                              "balance": "477978964647601176",
+                              "quote": 113.00378682198586,
+                              "quote_rate": 236.42,
+                              "logo_url": "https://assets.unmarshal.io/tokens/bsc_0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE.png",
+                              "quote_rate_24h": "3.04",
+                              "quote_pct_change_24h": 1.3021,
+                              "verified": true,
+                              "coin_gecko_id": "binancecoin"
+                            },
+                            {
+                              "contract_name": "UnoRe",
+                              "contract_ticker_symbol": "UNO",
+                              "contract_decimals": 18,
+                              "contract_address": "0x474021845c4643113458ea4414bdb7fb74a01a77",
+                              "coin": 56,
+                              "type": "BEP20",
+                              "balance": "2101285428862933344614",
+                              "quote": 94.04824055662417,
+                              "quote_rate": 0.04475748,
+                              "logo_url": "https://assets.unmarshal.io/tokens/bsc_0x474021845C4643113458ea4414bdb7fB74A01A77.png",
+                              "quote_rate_24h": "0.00094562",
+                              "quote_pct_change_24h": 2.15836,
+                              "verified": true,
+                              "coin_gecko_id": "uno-re"
+                            }
+                          ]
+                        }
+                      },
+                      "pujith.eth": {
+                        "bsc": {
+                          "error": "invalid address: pujith.eth",
+                          "data": []
+                        },
+                        "ethereum": {
+                          "error": "invalid address: pujith.eth",
+                          "data": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-v3-batch-assets",
+        "description": "The Batch Assets API enables the retrieval of wallet balances across multiple blockchain networks by batching together multiple asset balance API requests. The API accepts comma-separated addresses and chains as input parameters, allowing for efficient retrieval of wallet balances on multiple networks in a single API call.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "address",
+            "description": "comma separated wallet addresses"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "chain",
+            "description": "comma separated chains"
+          },
+          {
+            "$ref": "#/components/parameters/includeLowVolume"
+          }
+        ]
+      },
+      "parameters": []
     },
     "/v1/address/{address}/nft-summary": {
       "get": {
