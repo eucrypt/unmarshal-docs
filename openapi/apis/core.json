@@ -2189,7 +2189,7 @@
               "type": "string"
             },
             "in": "query",
-            "name": "address",
+            "name": "addresses",
             "description": "comma separated wallet addresses"
           },
           {
@@ -2197,7 +2197,7 @@
               "type": "string"
             },
             "in": "query",
-            "name": "chain",
+            "name": "chains",
             "description": "comma separated chains"
           },
           {
